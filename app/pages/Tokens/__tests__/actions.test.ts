@@ -10,8 +10,16 @@ import {
 } from '../actions'
 import { ActionTypes } from '../types'
 
+interface MockResponse {
+  data: {}
+}
+
 document.cookie = 'kasl-key: asdasdasd; '
 jest.mock('axios')
+const response: MockResponse = {
+  data: {},
+}
+
 const getMock = jest.fn(
   async (url): Promise<any> => {
     // Simulate error if query string contains invalid params
@@ -24,7 +32,7 @@ const getMock = jest.fn(
         },
       })
     }
-    return Promise.resolve({ data: {} } as any)
+    return Promise.resolve(response)
   },
 )
 

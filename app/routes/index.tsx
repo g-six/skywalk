@@ -5,7 +5,7 @@ import { HomePage } from '@pages/Home'
 import { LoginPage } from '@pages/Login'
 import { TokensPage } from '@pages/Tokens'
 import * as React from 'react'
-import { Route, Switch } from 'react-router'
+import { Route, Redirect, Switch } from 'react-router'
 
 const Routes = (
   <>
@@ -17,7 +17,8 @@ const Routes = (
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/tokens" component={TokensPage} />
 
-        <Route component={Page404Error} status={404} />
+        <Route exact path="/four-oh-four" component={Page404Error} />
+        <Redirect to="/four-oh-four" push={false} />
       </Switch>
     </div>
 

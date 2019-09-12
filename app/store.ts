@@ -8,7 +8,8 @@ export const history = createBrowserHistory()
 const default_state: State = {}
 export default function configureStore(preloaded_state: State = default_state) {
   const composeEnhancer: typeof compose =
-    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+    (window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose) ||
+    compose
 
   const store = createStore(
     createRootReducer(history),
