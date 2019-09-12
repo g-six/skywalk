@@ -1,0 +1,14 @@
+// Box overrides
+$box-background-color: $grey;
+$box-padding: $size-3;
+$box-radius: $size-5;
+$box-shadow: 0 2px $size-6 rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+$box-color: $light;
+
+@import '~bulma/sass/elements/box';
+
+.box {
+  label {
+    color: $label-color;
+  }
+}

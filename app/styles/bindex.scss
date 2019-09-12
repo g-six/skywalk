@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Cereal';
+  src: url('/static/fonts/cereal/cereal-light.woff2') format('woff2'),
+    url('/static/fonts/cereal/cereal-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cereal Book';
+  src: url('/static/fonts/cereal/cereal-book.woff2') format('woff2'),
+    url('/static/fonts/cereal/cereal-book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cereal';
+  src: url('/static/fonts/cereal/cereal-medium.woff2') format('woff2'),
+    url('/static/fonts/cereal/cereal-medium.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cereal';
+  src: url('/static/fonts/cereal/cereal-bold.woff2') format('woff2'),
+    url('/static/fonts/cereal/cereal-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cereal';
+  src: url('/static/fonts/cereal/cereal-extra-bold.woff2') format('woff2'),
+    url('/static/fonts/cereal/cereal-extra-bold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cereal';
+  src: url('/static/fonts/cereal/cereal-black.woff2') format('woff2'),
+    url('/static/fonts/cereal/cereal-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+// Set your brand colors
+$white: #ffffff;
+$cool-0: #f2fafb;
+$cool-1: #e0f7fa;
+$cool-2: #80deea;
+$cool-3: #4dd0e1;
+$cool-4: #26c6da;
+$cool-5: #00bcd4;
+$cool-6: #00acc1;
+$cool-7: #0097a7;
+$cool-8: #00838f;
+$cool-9: #006064;
+$royal-0: #f1eef5;
+$royal-1: #f2e6fe;
+$royal-2: #dbb2ff;
+$royal-3: #ba85fc;
+$royal-4: #985eff;
+$royal-5: #7f38fa;
+$royal-6: #6201ed;
+$royal-7: #5601e8;
+$royal-8: #3702b3;
+$royal-9: #31009b;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Cereal', sans-serif;
+$primary: $royal-3;
+$primary-invert: $royal-9;
+$link: #121212;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+$footer-height: 3.16rem;
+$footer-padding: 0;
+$footer-text-color: #888;
+
+.is-secondary {
+  &.button {
+    background: $cool-3;
+    border-color: $cool-2;
+    color: $cool-9;
+  }
+}
+
+// Update font-sizes
+$size-6: 0.85rem;
+$size-7: 0.7rem;
+
+$title-weight: 900;
+$subtitle-weight: 300;
+
+$radius: 8px;
+@import '~bulma/sass/utilities/_all.sass';
+$text-strong: $grey;
+
+$body-background-color: $grey-dark;
+$text: $white;
+@import '~bulma/sass/base/_all.sass';
+
+@import '~bulma/sass/components/level';
+
+// Update some of Bulma's component variables
+// Forms
+$control-border-width: 1px;
+$control-padding-vertical: calc(18px - #{$control-border-width});
+$control-border-width: 1px;
+$control-radius: 8px;
+$input-color: $grey-lighter;
+$input-background-color: $black-bis;
+$input-border-color: rgba($grey-darker, 0.08);
+$input-focus-border-color: rgba($grey-darker, 0.05);
+$input-focus-box-shadow-color: rgba($grey-darker, 0.02);
+$input-hover-color: $input-color;
+$input-hover-border-color: $grey-darker;
+$input-icon-color: $black-bis;
+$input-icon-active-color: $purple;
+$input-shadow: none;
+$input-radius: $control-radius;
+$input-height: 40px;
+$label-color: $grey-light;
+
+@import '~bulma/sass/form/_all.sass';
+
+@import '~bulma/sass/grid/columns.sass';
+
+@import '~bulma/sass/elements/button';
+@import '~bulma/sass/elements/container';
+@import '~bulma/sass/elements/content';
+@import '~bulma/sass/elements/notification';
+@import '~bulma/sass/elements/other';
+
+$title-color: $white-bis;
+$subtitle-color: $white-ter;
+$subtitle-strong-color: $grey-lighter;
+@import '~bulma/sass/elements/title';
+
+@import '~bulma/sass/layout/hero.sass';
+
+$footer-background-color: $black-ter;
+@import '~bulma/sass/layout/footer';
+
+@import './box.scss';
+@import './buttons.scss';
+@import './divider.scss';
+@import './forms.scss';
+
+@import './navbar.scss';
+@import './section.scss';
+@import './styles.scss';
+
+body {
+  color: $dark-invert;
+  font-size: $size-6;
+  font-weight: 600;
+  overflow-x: hidden;
+  min-height: 100vh;
+  padding-bottom: $footer-height;
+
+  ::selection {
+    background: $royal-2; /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: $royal-2; /* Gecko Browsers */
+  }
+
+  #root > nav + div:nth-child(2) {
+    padding-top: 52px;
+  }
+
+  .errors {
+    min-height: 2rem;
+    > small {
+      color: $red;
+    }
+  }
+
+  section {
+    &.video {
+      background: none;
+    }
+  }
+
+  .spinner {
+    @include center(100px);
+  }
+
+  .has-text-grey a {
+    color: $grey-light;
+  }
+
+  .footer {
+    color: $grey-light;
+    padding: $footer-padding;
+    height: $footer-height;
+
+    hr {
+      background: #333;
+      height: 1px;
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+    span,
+    strong {
+      color: $footer-text-color;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+blockquote {
+  color: $grey;
+
+  > ul {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 0.6rem;
+
+    li {
+      font-family: Cereal, sans-serif;
+      text-align: center;
+      color: $grey-light;
+    }
+    li:not(:first-child) {
+      font-size: 0.8rem;
+    }
+  }
+}

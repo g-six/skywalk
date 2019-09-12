@@ -1,0 +1,8 @@
+$footer-background-color: $white-bis;
+.root-child-item > footer.footer {
+  height: $footer-height;
+  a {
+    font-size: $size-7;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: builder
+    command: ['npm', 'start']
+    env_file: .env-dev
+    ports:
+      - '9001:80'
+    volumes:
+      - ./app:/usr/src/app
+      - ../sockets/codefantry:/usr/src/sockets
+      - ./webpack.config.js:/usr/src/webpack.config.js:ro
+      - ../coverages/codefantry:/usr/src/coverage
+
+networks:
+  default:
+    external:
+      name: ksl-network

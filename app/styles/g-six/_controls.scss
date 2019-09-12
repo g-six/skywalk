@@ -1,0 +1,23 @@
+$control-border-width: 1px;
+$control-padding-horizontal: 18px;
+$control-padding-vertical: calc(
+  $control-padding-horizontal - #{$control-border-width}
+);
+$control-border-width: 1px;
+$control-radius: 8px;
+$label-color: $grey-light;
+
+.field {
+  &:not(:last-child) {
+    margin-bottom: $size-3;
+  }
+
+  .input.is-danger {
+    background-color: rgba($danger, 0.2);
+  }
+}
+.control {
+  > .button {
+    height: 100%;
+  }
+}

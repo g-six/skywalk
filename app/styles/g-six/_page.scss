@@ -1,0 +1,75 @@
+#root {
+  height: calc(100vh - #{$navbar-height} - #{$footer-height});
+  padding-bottom: $footer-height;
+
+  ::selection {
+    background: $royal-3; /* WebKit/Blink Browsers */
+    color: $white;
+  }
+  ::-moz-selection {
+    background: $royal-3; /* Gecko Browsers */
+    color: $white;
+  }
+
+  #page {
+    min-height: calc(100% + #{$navbar-height} + #{$footer-height});
+    padding-bottom: $footer-height;
+
+    > .is-fullheight {
+      align-items: center;
+      display: flex;
+      height: 100%;
+
+      > .container {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+  }
+
+  .contents {
+    h1,
+    h3,
+    h5 {
+      color: $primary-1;
+      + h2,
+      + h4,
+      + h6 {
+        color: $grey-darker;
+      }
+    }
+    h2,
+    h4,
+    h6 {
+      color: $primary;
+      + h3,
+      + h5 {
+        color: $grey-darker;
+      }
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    + blockquote,
+    + p {
+      margin-top: 0.8rem;
+    }
+  }
+
+  > .root-child-item {
+    margin-top: $navbar-height;
+    min-height: calc(100% + #{$navbar-height} + #{$footer-height});
+
+    > .is-vcentered {
+      align-self: center;
+    }
+
+    > .section {
+      width: 100%;
+    }
+  }
+}

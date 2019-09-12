@@ -1,0 +1,6 @@
+{
+  "RedirectAllRequestsTo": {
+    "HostName": "awscebu.com",
+    "Protocol": "https"
+  }
+}

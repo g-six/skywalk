@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+dist
+coverage/
+.env/
+.editorconfig
+.vscode
+*.woff
+*.woff2
+static/
+.env-dev
