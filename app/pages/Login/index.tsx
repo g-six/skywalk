@@ -25,6 +25,10 @@ export interface InputProps {
   tabIndex: number
 }
 
+const submitCb = cookieContextDispatcher => (key: string, value: string) => {
+  cookieContextDispatcher(saveCookie(key, value))
+}
+
 // Error snack bar
 export const errorSnackBar = (
   dispatch: React.Dispatch<ActionType>,
@@ -92,7 +96,11 @@ const Form = (props: FormProps) =>
   ) : (
     <form
       className="box"
-      onSubmit={submitForm(props.state, saveCookie, props.dispatch)}
+      onSubmit={submitForm(
+        props.state,
+        submitCb(props.cookies.dispatch),
+        props.dispatch,
+      )}
     >
       <EmailField
         dispatch={onChangeEmail(props.dispatch)}

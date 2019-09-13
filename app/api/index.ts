@@ -8,8 +8,7 @@ import {
 } from './types'
 import { parseResponse, prepHeaders, processErrors } from './utils'
 
-export const stage = 'dev'
-export const api_url = `https://armada.gsix.online/${stage}`
+export const api_url = process.env.SKYWALK_API_HOST
 
 export const getApi = async (url: string, params?: QueryStringParams) => {
   const qs_filters = stringify(params)
