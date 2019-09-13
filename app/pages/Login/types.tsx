@@ -6,7 +6,7 @@ export type ErrorType = string | object
 
 export enum ActionTypes {
   DISMISS_NOTIFICATION = 'DISMISS_NOTIFICATION',
-  FORM_ERROR = 'FORM_ERROR',
+  API_ERROR = 'API_ERROR',
   FORM_RESET = 'FORM_RESET',
   RESPONSE_200 = 'RESPONSE_200',
   SET_EMAIL = 'SET_EMAIL',

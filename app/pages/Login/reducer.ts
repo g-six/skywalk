@@ -32,7 +32,7 @@ export const reducer = (state = initial_state, action: ActionType) => {
         ...state,
         loading: true,
       }
-    case ActionTypes.FORM_ERROR:
+    case ActionTypes.API_ERROR:
       return {
         ...state,
         error: action.error,

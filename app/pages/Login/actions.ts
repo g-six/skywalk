@@ -1,32 +1,30 @@
-import Axios from 'axios'
+import { postApi } from '@api'
 import { ActionTypes } from './types'
 
-export const dismissNotification = dispatch => () =>
+export const dismissNotification = dispatch => () => {
   dispatch({ type: ActionTypes.DISMISS_NOTIFICATION })
+}
 
-// Form submit
-export const formSubmit = (
-  state,
-  dispatch,
-  cookieSetter: (key: string, value: string, expires?: number) => void,
-) => async e => {
+// API response handler
+export const handleApiResponse = (response, callbacks) => {
+  if (response.results.error || response.results.errors) {
+    callbacks.dispatch({ type: ActionTypes.API_ERROR, ...response.results })
+    return
+  }
+
+  callbacks.setCookieContext('kasl-key', response.headers['kasl-key'])
+  callbacks.dispatch({
+    type: ActionTypes.RESPONSE_200,
+    ...response.results,
+  })
+}
+
+export const submitForm = (state, setCookieContext, dispatch) => async e => {
   e.preventDefault()
-
   dispatch({ type: ActionTypes.SUBMIT_FORM })
 
-  await Axios.post(
-    'https://42ocyycm27.execute-api.ap-southeast-1.amazonaws.com/dev/auth/login',
-    state.data,
-  )
-    .then(response => {
-      cookieSetter('kasl-key', response.headers['kasl-key'])
-
-      dispatch({ type: ActionTypes.RESPONSE_200 })
-    })
-    .catch(api_error => {
-      const { error } = api_error.response.data
-      dispatch({ type: ActionTypes.FORM_ERROR, error })
-    })
+  const { headers, results } = await postApi('auth/login', state.data)
+  handleApiResponse({ results, headers }, { setCookieContext, dispatch })
 }
 
 // E-mail input change

@@ -1,15 +1,15 @@
 import { I18nContext } from '@components/I18nContextProvider'
 import { CookieStore } from '@providers/cookie-context'
-import { saveCookie, retrieveCookie } from '@providers/cookie-context/actions'
+import { retrieveCookie, saveCookie } from '@providers/cookie-context/actions'
 import { Mixpanel } from '@services/mixpanel'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 import {
   dismissNotification,
-  formSubmit,
   onChangeEmail,
   onChangePassword,
+  submitForm,
 } from './actions'
 
 import { initial_state, reducer } from './reducer'
@@ -86,24 +86,13 @@ export const PasswordField = (props: InputProps) => (
   </div>
 )
 
-export const submitCb = cookieContextDispatcher => (
-  key: string,
-  value: string,
-) => {
-  cookieContextDispatcher(saveCookie(key, value))
-}
-
 const Form = (props: FormProps) =>
   props.cookies.state['kasl-key'] ? (
     <div className="box logged-in">Thanks!</div>
   ) : (
     <form
       className="box"
-      onSubmit={formSubmit(
-        props.state,
-        props.dispatch,
-        submitCb(props.cookies.dispatch),
-      )}
+      onSubmit={submitForm(props.state, saveCookie, props.dispatch)}
     >
       <EmailField
         dispatch={onChangeEmail(props.dispatch)}

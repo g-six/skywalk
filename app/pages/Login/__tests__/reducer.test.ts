@@ -65,7 +65,7 @@ describe('Login form reducer', () => {
   describe('On API error', () => {
     test('should return response from API', () => {
       const results = reducer(undefined, {
-        type: ActionTypes.FORM_ERROR,
+        type: ActionTypes.API_ERROR,
         error: 'test error',
       } as Action)
       expect(results).toEqual({
