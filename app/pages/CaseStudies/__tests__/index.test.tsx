@@ -1,0 +1,143 @@
+import '@testing-library/jest-dom'
+import {
+  act,
+  queryAllByText,
+  render,
+  waitForElement,
+  RenderResult,
+} from '@testing-library/react'
+import * as React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { Records, CaseStudiesPage as Page } from '../'
+
+jest.mock('@services/mixpanel', () => ({
+  Mixpanel: {
+    init: jest.fn(),
+    track: jest.fn(),
+  },
+}))
+
+jest.mock('axios')
+const Axios = require('axios')
+Axios.get = jest.fn(
+  (): Promise<{}> =>
+    Promise.resolve({
+      data: { records: [{ id: 1, contents: 'asdasd' }] },
+      headers: {},
+    }),
+)
+
+jest.doMock('react-markdown/with-html', () => {
+  const Mocked = () => 'test'
+
+  return Mocked
+})
+
+document.cookie = 'kasl-key=asdfasdf ;'
+describe('CaseStudiesPage', () => {
+  describe('Rendering', () => {
+    let renderer
+    let container
+    let comp: RenderResult
+    it('should show a <section>', async () => {
+      act(() => {
+        comp = render(
+          <BrowserRouter>
+            <Page />
+          </BrowserRouter>,
+        )
+      })
+      expect(comp.container.querySelector('section')).toBeDefined()
+    })
+
+    it('should not render any cards if there are no records', async () => {
+      const spyDispatch = jest.fn()
+      const spyTranslate = jest.fn()
+
+      act(() => {
+        container = render(
+          <BrowserRouter>
+            {Records({
+              state: { data: {}, loading: false },
+              dispatch: spyDispatch,
+              translate: spyTranslate,
+            })}
+          </BrowserRouter>,
+        ).container
+      })
+
+      act(() => {
+        renderer = async () =>
+          await waitForElement(() => queryAllByText(container, 'asdasd'), {
+            container,
+          })
+      })
+      const actual = await renderer()
+
+      expect(actual).toHaveLength(0)
+    })
+
+    it('should show boxes of records', async () => {
+      const spyDispatch = jest.fn()
+      const spyTranslate = jest.fn()
+
+      act(() => {
+        container = render(
+          <BrowserRouter>
+            {Records({
+              state: {
+                data: { records: [{ id: 1, contents: 'asdasd' }] },
+                loading: false,
+              },
+              dispatch: spyDispatch,
+              translate: spyTranslate,
+            })}
+          </BrowserRouter>,
+        ).container
+      })
+
+      act(() => {
+        renderer = async () =>
+          await waitForElement(() => queryAllByText(container, 'asdasd'), {
+            container,
+          })
+      })
+      const actual = await renderer()
+
+      expect(actual).toHaveLength(1)
+    })
+
+    it('should show form if there is a valid user session', async () => {
+      const spyDispatch = jest.fn()
+      const spyTranslate = jest.fn()
+
+      act(() => {
+        container = render(
+          <BrowserRouter>
+            {Records({
+              state: {
+                data: {
+                  records: [{ id: 1, contents: 'asdasd' }],
+                  user: { id: 69 },
+                },
+                loading: false,
+              },
+              dispatch: spyDispatch,
+              translate: spyTranslate,
+            })}
+          </BrowserRouter>,
+        ).container
+      })
+
+      act(() => {
+        renderer = async () =>
+          await waitForElement(() => queryAllByText(container, 'asdasd'), {
+            container,
+          })
+      })
+      const actual = await renderer()
+
+      expect(actual).toHaveLength(1)
+    })
+  })
+})

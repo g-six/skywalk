@@ -81,7 +81,7 @@ export const HeaderComponent: React.FunctionComponent = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
-            SKYWALK
+            IdeaRobin
           </Link>
 
           <BurgerComponent is_expanded={is_expanded} toggleMenu={toggleMenu} />
@@ -92,11 +92,11 @@ export const HeaderComponent: React.FunctionComponent = () => {
           className={`navbar-menu${is_expanded ? ' is-active' : ''}`}
         >
           <div className="navbar-end">
+            <Link className="navbar-item" to="/case-studies">
+              {translate('Case studies')}
+            </Link>
             {cookie.state['kasl-key'] ? (
               <>
-                <Link className="navbar-item" to="/tokens">
-                  {translate('Tokens')}
-                </Link>
                 <Link
                   className="navbar-item"
                   to="#/logout"
@@ -106,9 +106,7 @@ export const HeaderComponent: React.FunctionComponent = () => {
                 </Link>
               </>
             ) : (
-              <Link className="navbar-item" to="/login">
-                {translate('Login')}
-              </Link>
+              ''
             )}
           </div>
         </div>

@@ -16,6 +16,7 @@ interface MockResponse {
 
 document.cookie = 'kasl-key: asdasdasd; '
 jest.mock('axios')
+
 const response: MockResponse = {
   data: {},
 }
