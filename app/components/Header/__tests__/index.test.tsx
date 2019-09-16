@@ -5,11 +5,11 @@ import { shallow } from 'enzyme'
 import { createMemoryHistory } from 'history'
 import * as React from 'react'
 import { Router } from 'react-router'
-import { BurgerComponent, HeaderComponent as Component } from '../'
+import { BurgerComponent, ConnectedHeader as Component } from '../'
 import { CookieStoreProvider } from '@providers/cookie-context'
 
 describe('Header component', () => {
-  const history = createMemoryHistory()
+  const history = createMemoryHistory({ initialEntries: [''] })
 
   it('should render as expected', () => {
     const comp = render(
