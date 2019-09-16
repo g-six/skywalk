@@ -1,8 +1,9 @@
 import { I18nContext } from '@components/I18nContextProvider'
 import { CookieStore } from '@providers/cookie-context'
 import { retrieveCookie, eraseCookie } from '@providers/cookie-context/actions'
+import * as PropTypes from 'prop-types'
 import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { logout } from './actions'
 
 interface BurgerProps {
@@ -28,7 +29,7 @@ export const BurgerComponent = (props: BurgerProps) => (
 export const logoutCb = cookieDispatcher => () =>
   cookieDispatcher(eraseCookie('kasl-key'))
 
-export const HeaderComponent: React.FunctionComponent = () => {
+export const HeaderComponent: React.FunctionComponent = props => {
   const { translate } = React.useContext(I18nContext)
   const cookie = React.useContext(CookieStore)
 
@@ -70,6 +71,10 @@ export const HeaderComponent: React.FunctionComponent = () => {
 
   if (is_expanded) {
     nav_class.push('is-expanded')
+  }
+  
+  if (props['location'].pathname === '/') {
+    _class.push('home')
   }
 
   return (
@@ -115,4 +120,10 @@ export const HeaderComponent: React.FunctionComponent = () => {
   )
 }
 
-export default HeaderComponent
+HeaderComponent.propTypes = {
+  location: PropTypes.object,
+}
+
+export const ConnectedHeader = withRouter(HeaderComponent)
+
+export default ConnectedHeader
