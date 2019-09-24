@@ -74,7 +74,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
   }
   
   if (props['location'].pathname === '/') {
-    _class.push('home')
+    nav_class.push('home')
   }
 
   return (
