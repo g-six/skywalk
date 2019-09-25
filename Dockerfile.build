@@ -27,4 +27,4 @@ COPY check-socket.js .
 COPY webpack.config.js .
 COPY *.json ./
 
-CMD ['npm', 'run', 'build']
+RUN npm run build
