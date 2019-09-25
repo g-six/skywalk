@@ -1,6 +1,6 @@
 {
   "name": "skywalk",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "DX oriented react app",
   "main": "index.js",
   "scripts": {
