@@ -1,8 +1,10 @@
 .DS_Store
 node_modules
-dist
-static/coverage
+cf/
 coverage/
+dist
+nginx/
+static/coverage
 .env/
 .editorconfig
 .vscode
