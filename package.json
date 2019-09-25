@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env webpack-dev-server --mode development --socket ./sockets/webpack.sock --env.SKYWALK_API_HOST=$SKYWALK_API_HOST --env.MIXPANEL_TOKEN=$MIXPANEL_TOKEN --env.PORT=$PORT && npm run check-socket",
     "check-socket": "node check-socket.js",
-    "build": "rimraf dist/** && cross-env NODE_ENV=production webpack --mode production --env.SKYWALK_API_HOST=$SKYWALK_API_HOST --env.MIXPANEL_TOKEN=$MIXPANEL_TOKEN",
+    "build": "rimraf ../dist && cross-env NODE_ENV=production webpack --mode production --env.SKYWALK_API_HOST=$SKYWALK_API_HOST --env.MIXPANEL_TOKEN=$MIXPANEL_TOKEN",
     "commit": "npx git-cz",
     "cu": "npm-check -u",
     "lint": "npx pretty-quick && npx eslint './app/**/*.{ts,tsx}' --fix",
