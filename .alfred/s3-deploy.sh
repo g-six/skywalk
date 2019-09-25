@@ -32,7 +32,6 @@ curl -X POST -s $SLACK_URL -d '{
 }'
 
 docker build -t $IMAGE_NAME -f Dockerfile.build .
-mkdir dist
 docker run --rm -e SKYWALK_API_HOST=/api -v $(pwd)/dist:/usr/src/dist $IMAGE_NAME
 
 # aws s3 sync --acl public-read --sse --delete ./dist/ $S3_BUCKET
