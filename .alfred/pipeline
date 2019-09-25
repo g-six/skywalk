@@ -57,9 +57,12 @@ node {
       script: 'sh .alfred/s3-deploy.sh',
       returnStdout: true
     )
+    S3_BUCKET = sh (
+      script: "cat .alfred/s3-bucket.txt",
+      returnStdout: true
+    ).trim()
 
     sh """
-      S3_BUCKET=$(cat .alfred/s3-bucket.txt)
       aws s3 sync --acl public-read --sse --delete dist/ $S3_BUCKET
     """
   }
