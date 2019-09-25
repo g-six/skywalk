@@ -60,7 +60,7 @@ node {
 
     sh """
       S3_BUCKET=$(cat .alfred/s3-bucket.txt)
-      aws s3 sync --acl public-read --sse --delete dist/ '$S3_BUCKET
+      aws s3 sync --acl public-read --sse --delete dist/ $S3_BUCKET
     """
   }
   stage ('Clean up') {
