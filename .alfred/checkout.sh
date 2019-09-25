@@ -4,7 +4,7 @@ GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 
-curl -X POST -s $SLACK_URL -d '{
+echo '{
   "type": "mrkdwn",
   "text": "Building Image",
   "blocks": [
@@ -28,4 +28,4 @@ curl -X POST -s $SLACK_URL -d '{
       }
     }
   ]
-}' > /dev/null
+}'
