@@ -2,7 +2,7 @@
 BUILD_LINK=$(cat .alfred/build-link.txt)
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_ID=$(cat .alfred/git-commit-id.txt)
-export S3_BUCKET=$(cat .alfred/s3-bucket.txt)
+S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -24,7 +24,7 @@ curl -X POST -s $SLACK_URL -d '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* \n ```'${S3_BUCKET}'```"
+        "text": "*Target bucket:* \n ```'$S3_BUCKET'```"
       }
     }
   ]
