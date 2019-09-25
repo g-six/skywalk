@@ -53,18 +53,14 @@ node {
     )
   }
   stage ('Deploy to S3') {
-    sh """
-      GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
-      COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
-      CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
-      IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
-      S3_BUCKET=$(cat .alfred/s3-bucket.txt)
-      aws s3 sync --acl public-read --sse --delete dist/ $S3_BUCKET
+    sh (
+      script: 'sh .alfred/s3-deploy.sh',
+      returnStdout: true
+    )
 
-      curl -X POST -s $SLACK_URL -d '{
-        "type": "mrkdwn",
-        "text": "<'$BUILD_URL'console|'$BUILD_NUMBER'> *Synching* `'${COMMIT_SHA}'` to '$S3_BUCKET' *Complete*"
-      }'
+    sh """
+      S3_BUCKET=$(cat .alfred/s3-bucket.txt)
+      aws s3 sync --acl public-read --sse --delete dist/ '$S3_BUCKET
     """
   }
   stage ('Clean up') {
