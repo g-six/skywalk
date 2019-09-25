@@ -42,7 +42,6 @@ node {
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
-      echo '<'$BUILD_URL'|Build #'$BUILD_NUMBER'>' > .alfred/build-link.txt
     """
   
     sh '$(sh .alfred/checkout.sh)'

@@ -1,10 +1,9 @@
 #!/bin/bash
-BUILD_LINK=$(cat .alfred/build-link.txt)
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 
-echo '{
+curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
   "text": "Building Image",
   "blocks": [
@@ -18,7 +17,7 @@ echo '{
       },
       "fields": [
         { "type": "mrkdwn", "text": "*Stage:* Preparing files for S3" },
-        { "type": "mrkdwn", "text": "*Build:* '$BUILD_LINK'" },
+        { "type": "mrkdwn", "text": "*Build:* <'$BUILD_URL'console|'$BUILD_NUMBER'>" },
         { "type": "mrkdwn", "text": "*Project:* '$GIT_REPO_NAME'" },
         { "type": "mrkdwn", "text": "*Branch:* '$JOB_BASE_NAME'" }
       ],
@@ -28,4 +27,4 @@ echo '{
       }
     }
   ]
-}'
+}' > /dev/null
