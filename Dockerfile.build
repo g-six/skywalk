@@ -25,6 +25,6 @@ COPY .babelrc .
 COPY .nvmrc .
 COPY check-socket.js .
 COPY webpack.config.js .
-COPY tsconfig.json .
+COPY *.json ./
 
 RUN npm run build
