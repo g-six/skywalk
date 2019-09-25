@@ -1,7 +1,8 @@
 #!/bin/bash
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
-IMAGE_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME'-test'
 COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
+CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
+IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
   "text": "Hold on while we run some tests...",
@@ -27,8 +28,8 @@ curl -X POST -s $SLACK_URL -d '{
     }
   ]
 }' &> /dev/null &
-docker build -t $IMAGE_NAME .
-docker run --rm --name ${IMAGE_NAME} ${IMAGE_NAME}
+docker build --target testing -t $IMAGE_NAME .
+docker run --rm --name $CONTAINER_NAME $IMAGE_NAME
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",

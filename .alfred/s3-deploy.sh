@@ -1,7 +1,8 @@
 #!/bin/bash
-export GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
-export COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
-export S3_BUCKET=$(cat .alfred/s3-bucket.txt)
+GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
+COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
+IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
+S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -29,11 +30,15 @@ curl -X POST -s $SLACK_URL -d '{
   ]
 }'
 
-aws s3 sync --acl public-read --sse --delete ./dist/ $S3_BUCKET
+docker build -t $IMAGE_NAME .
+mkdir dist
+docker run --rm -e SKYWALK_API_HOST=/api -v $(pwd)/dist:/usr/src/dist $IMAGE_NAME
+
+# aws s3 sync --acl public-read --sse --delete ./dist/ $S3_BUCKET
 
 # docker ps -a | grep -E Exited | awk -e '{print $1}' | xargs docker rm $GIT_REPO_NAME'-'$JOB_BASE_NAME
 # docker images | grep -E none | awk -e '{print $3}'| xargs docker rmi $GIT_REPO_NAME'-'$JOB_BASE_NAME
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
-  "text": "<'$BUILD_URL'console|'$BUILD_NUMBER'>. *Build complete!*"
+  "text": "<'$BUILD_URL'console|'$BUILD_NUMBER'> *Synching* `'${COMMIT_SHA}'` to '$S3_BUCKET' *Complete*"
 }'
