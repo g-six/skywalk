@@ -27,4 +27,4 @@ COPY check-socket.js .
 COPY webpack.config.js .
 COPY *.json ./
 
-CMD sleep infinity
+CMD ['npm', 'run', 'build']
