@@ -27,4 +27,4 @@ COPY check-socket.js .
 COPY webpack.config.js .
 COPY *.json ./
 
-RUN npm run build
+CMD sleep infinity
