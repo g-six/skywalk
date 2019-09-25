@@ -25,7 +25,7 @@ node {
       returnStdout: true
     ).trim()
     S3_BUCKET = sh (
-      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$$JOB_BASE_NAME'-bucket' --query Parameter.Value | sed 's/"//g'",
+      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$JOB_BASE_NAME'-bucket' --query Parameter.Value | sed 's/"//g'",
       returnStdout: true
     ).trim()
     env_file_id = sh (
