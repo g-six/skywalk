@@ -37,7 +37,9 @@ docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
-  $IMAGE_NAME
+  $IMAGE_NAME sleep 30
+
+docker exec -it $CONTAINER_NAME aws s3 sync --acl public-read --sse --delete .src/ $S3_BUCKET
 
 # docker ps -a | grep -E Exited | awk -e '{print $1}' | xargs docker rm $GIT_REPO_NAME'-'$JOB_BASE_NAME
 # docker images | grep -E none | awk -e '{print $3}'| xargs docker rmi $GIT_REPO_NAME'-'$JOB_BASE_NAME
