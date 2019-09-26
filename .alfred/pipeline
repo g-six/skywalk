@@ -48,6 +48,12 @@ node {
   
     sh '$(sh .alfred/checkout.sh)'
   }
+  stage ('Testing') {
+    sh (
+      script: 'sh .alfred/testing.sh',
+      returnStdout: false
+    )
+  }
   stage ('Deploy to S3') {
     sh (
       script: 'sh .alfred/s3-deploy.sh',
