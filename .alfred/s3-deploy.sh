@@ -43,7 +43,7 @@ docker run \
 
 docker run \
   --env-file .env \
-  -v $PWD:/data \
+  -v $PWD/dist:/data \
   garland/aws-cli-docker \
   aws s3 sync --acl public-read --sse --delete /data $S3_BUCKET >> ./aws.log
 
