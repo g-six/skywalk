@@ -14,12 +14,10 @@ node {
     checkout scm
     env_file_id = 'env_file_integration'
     
-    when {
-      anyOf { branch 'master' }
-    }
-    steps {
-      env_file_id = 'env_file_master'
-    }
+    env_file_id = sh (
+      script: "test $JOB_BASE_NAME = master && if [ $? -eq 0 ]; then echo 'env_file_master'; fi",
+      returnStdout: true
+    ).trim()
     
     
     GIT_REPO_NAME = sh (
