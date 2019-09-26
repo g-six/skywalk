@@ -6,6 +6,7 @@ IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 ROOT_DIR=$(pwd)
 ROOT_DIR=$ROOT_DIR'/html/'
+mkdir $ROOT_DIR
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
