@@ -15,7 +15,7 @@ node {
     env_file_id = 'env_file_integration'
     
     env_file_id = sh (
-      script: "test $JOB_BASE_NAME = master && if [ $? -eq 0 ]; then echo 'env_file_master'; fi",
+      script: "if [ $JOB_BASE_NAME = master ]; then echo 'env_file_master'; else echo 'env_file_integration'; fi",
       returnStdout: true
     ).trim()
     
