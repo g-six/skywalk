@@ -39,7 +39,7 @@ docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
-  -v $VOLUME
+  -v $VOLUME \
   -d \
   $IMAGE_NAME sleep 120 >> ./docker.log
 
