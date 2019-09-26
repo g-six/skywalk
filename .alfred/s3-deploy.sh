@@ -37,6 +37,7 @@ docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
+  -d \
   $IMAGE_NAME sleep 30
 
 docker exec -it $CONTAINER_NAME aws s3 sync --acl public-read --sse --delete .src/ $S3_BUCKET
