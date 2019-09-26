@@ -58,7 +58,7 @@ node {
     sh (
       script: 'sh .alfred/s3-deploy.sh',
       returnStdout: true
-    )
+    ) > ./deploy.log
   }
   stage ('Clean up') {
     sh (
