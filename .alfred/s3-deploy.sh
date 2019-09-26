@@ -37,10 +37,12 @@ docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
+  -v $(pwd)html/:/usr/share/html/
   -d \
-  $IMAGE_NAME sleep 30 >> ./docker.log
+  $IMAGE_NAME >> ./docker.log
 
-docker exec -it $CONTAINER_NAME aws s3 sync --acl public-read --sse --delete ./ $S3_BUCKET >> ./docker.log
+docker run --rm --env-file .env garland/aws-cli-docker \
+  aws s3 sync --acl public-read --sse --delete ./ $S3_BUCKET >> ./aws.log
 
 docker images | grep -E $CONTAINER_NAME | awk -e '{print $3}'| xargs docker rmi -f >> ./docker.log
 

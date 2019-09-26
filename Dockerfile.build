@@ -29,6 +29,6 @@ COPY *.json ./
 
 RUN npm run build
 
-FROM garland/aws-cli-docker as uploader
-WORKDIR /usr/src/
-COPY --from=builder /usr/src/dist/ ./
+FROM node:10 as copier
+WORKDIR /usr/share
+COPY --from=builder /usr/src/dist ./html
