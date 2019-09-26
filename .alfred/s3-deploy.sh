@@ -4,6 +4,8 @@ COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
 CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
 IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
+ROOT_DIR=$(pwd)
+ROOT_DIR=$ROOT_DIR'html/'
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -37,15 +39,17 @@ docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
-  -v $(pwd)html/:/usr/share/html/
+  -v $ROOT_DIR:/usr/share/html/
   -d \
   $IMAGE_NAME >> ./docker.log
 
-echo $(pwd)html/:/usr/share/html/ > ./aws.log
+echo $ROOT_DIR':/usr/share/html/' > ./aws.log
 echo "-------------------------" >> ./aws.log
+echo "aws s3 sync --acl public-read --sse --delete /usr/share/html $S3_BUCKET" >> ./aws.log
+
 docker run \
   --env-file .env \
-  -v $(pwd)html/:/usr/share/html/
+  -v $ROOT_DIR:/usr/share/html/
   garland/aws-cli-docker \
   "aws s3 sync --acl public-read --sse --delete /usr/share/html $S3_BUCKET" >> ./aws.log
 
