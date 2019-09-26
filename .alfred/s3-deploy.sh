@@ -41,7 +41,7 @@ docker run \
   --env-file .env \
   -v $VOLUME
   -d \
-  $IMAGE_NAME >> ./docker.log
+  $IMAGE_NAME sleep 120 >> ./docker.log
 
 echo $ROOT_DIR':/usr/share/html/' > ./aws.log
 echo "-------------------------" >> ./aws.log
