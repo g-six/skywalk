@@ -5,8 +5,8 @@ CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
 IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 ROOT_DIR=$(pwd)
-ROOT_DIR=$ROOT_DIR'/html/'
-mkdir $ROOT_DIR
+ROOT_DIR=$ROOT_DIR'/dist/'
+VOLUME=$ROOT_DIR':/usr/share/html/'
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -50,7 +50,7 @@ echo "aws s3 sync --acl public-read --sse --delete /usr/share/html $S3_BUCKET" >
 
 docker run \
   --env-file .env \
-  -v $ROOT_DIR:/usr/share/html/ \
+  -v $VOLUME \
   garland/aws-cli-docker \
   aws s3 sync --acl public-read --sse --delete /usr/share/html $S3_BUCKET >> ./aws.log
 
