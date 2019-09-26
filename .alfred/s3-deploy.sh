@@ -4,9 +4,8 @@ COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
 CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
 IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
-ROOT_DIR=$(pwd)
-ROOT_DIR=$ROOT_DIR'/dist/'
-VOLUME=$ROOT_DIR':/usr/share/html/'
+ROOT_DIR=$PWD'/dist/'
+VOLUME=$PWD':/usr/src/dist/'
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -40,7 +39,7 @@ docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
-  -v $ROOT_DIR:/usr/share/html/
+  -v $VOLUME
   -d \
   $IMAGE_NAME >> ./docker.log
 

@@ -27,8 +27,4 @@ COPY check-socket.js .
 COPY webpack.config.js .
 COPY *.json ./
 
-RUN npm run build
-
-FROM node:10 as copier
-WORKDIR /usr/src
-COPY --from=builder /usr/src/dist /usr/share/html
+CMD ['npm', 'run', 'build']
