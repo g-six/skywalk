@@ -55,12 +55,10 @@ node {
     )
   }
   stage ('Deploy to S3') {
-    DEPLOY_OUTPUT = sh (
+    sh (
       script: 'sh .alfred/s3-deploy.sh',
       returnStdout: true
     )
-
-    sh "echo ${DEPLOY_OUTPUT}"
   }
   stage ('Clean up') {
     sh (
