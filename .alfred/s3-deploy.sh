@@ -4,8 +4,8 @@ COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
 CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
 IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
-ROOT_DIR=$PWD'/dist/'
-VOLUME=$ROOT_DIR':/usr/src/dist/'
+ROOT_DIR=$PWD
+VOLUME=$ROOT_DIR':/usr/app/'
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",

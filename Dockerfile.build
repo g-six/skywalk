@@ -28,3 +28,4 @@ COPY webpack.config.js .
 COPY *.json ./
 
 RUN npm run build
+COPY ./dist ../app
