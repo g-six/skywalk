@@ -30,5 +30,5 @@ COPY *.json ./
 RUN npm run build
 
 FROM node:10 as copier
-WORKDIR /usr/share
-COPY --from=builder /usr/src/dist ./html
+WORKDIR /usr/src
+COPY --from=builder /usr/src/dist /usr/share/html
