@@ -50,7 +50,7 @@ echo "aws s3 sync --acl public-read --sse --delete /usr/share/html $S3_BUCKET" >
 
 docker run \
   --env-file .env \
-  -v $ROOT_DIR:/usr/share/html/
+  -v $ROOT_DIR:/usr/share/html/ \
   garland/aws-cli-docker \
   "aws s3 sync --acl public-read --sse --delete /usr/share/html $S3_BUCKET" >> ./aws.log
 
