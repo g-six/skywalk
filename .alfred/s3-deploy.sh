@@ -5,7 +5,7 @@ CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
 IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 ROOT_DIR=$PWD'/dist/'
-VOLUME=$PWD':/usr/src/dist/'
+VOLUME=$ROOT_DIR':/usr/src/dist/'
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
