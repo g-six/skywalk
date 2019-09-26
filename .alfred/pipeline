@@ -56,7 +56,7 @@ node {
   }
   stage ('Deploy to S3') {
     sh (
-      script: 'sh .alfred/s3-deploy.sh | echo > ./deploy.log',
+      script: 'sh .alfred/s3-deploy.sh',
       returnStdout: true
     )
   }
