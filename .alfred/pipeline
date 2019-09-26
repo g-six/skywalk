@@ -1,4 +1,3 @@
-  
 properties(
   [
     buildDiscarder(
@@ -13,6 +12,16 @@ node {
   stage ('Checkout') {
     bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Checkout')
     checkout scm
+    env_file_id = 'env_file_integration'
+    
+    when {
+      anyOf { branch 'master' }
+    }
+    steps {
+      env_file_id = 'env_file_master'
+    }
+    
+    
     GIT_REPO_NAME = sh (
       script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
       returnStdout: true
@@ -29,10 +38,7 @@ node {
       script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$JOB_BASE_NAME'-bucket' --query Parameter.Value | sed 's/\"//g'",
       returnStdout: true
     ).trim()
-    env_file_id = sh (
-      script: "echo 'env_file_'$JOB_BASE_NAME",
-      returnStdout: true
-    ).trim()
+
     withCredentials([file(credentialsId: env_file_id, variable: 'ENV_FILE'), file(credentialsId: 'AIRSIDE_PEM', variable: 'AIRSIDE_PEM')]) {
       sh "cat ${AIRSIDE_PEM} > .alfred/access-key"
       sh "cat ${ENV_FILE} > .env"
