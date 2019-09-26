@@ -38,6 +38,8 @@ node {
     }
 
     sh """
+      echo 'SKYWALK_API_HOST=/api' >> .env
+      echo 'S3_BUCKET='$S3_BUCKET >> .env
       echo $GIT_REPO_NAME > .alfred/git-repo-name.txt
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
