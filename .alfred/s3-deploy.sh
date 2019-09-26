@@ -37,6 +37,7 @@ docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env SKYWALK_API_HOST=/api \
+  --env S3_BUCKET=$S3_BUCKET \
   --env-file .env\
   $IMAGE_NAME
 
