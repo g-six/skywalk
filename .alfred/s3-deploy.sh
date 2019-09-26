@@ -25,7 +25,7 @@ curl -X POST -s $SLACK_URL -d '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Synching* `'${COMMIT_SHA}'` build to '$S3_BUCKET'"
+        "text": "*Synching* `'${IMAGE_NAME}'` build to '$S3_BUCKET'"
       }
     }
   ]
