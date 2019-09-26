@@ -32,4 +32,4 @@ RUN npm run build
 FROM garland/aws-cli-docker as uploader
 WORKDIR /usr/src/
 COPY --from=builder /usr/src/dist/ ./src
-RUN aws s3 sync --acl public-read --sse --delete .src/ $S3_BUCKET
+CMD ['aws', 's3', 'sync', '--acl', 'public-read', '--sse', '--delete', '.src/', $S3_BUCKET]

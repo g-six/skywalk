@@ -36,7 +36,7 @@ docker build -t $IMAGE_NAME -f Dockerfile.build .
 docker run \
   --name $CONTAINER_NAME \
   --rm \
-  --env-file .env\
+  --env-file .env \
   $IMAGE_NAME
 
 # docker ps -a | grep -E Exited | awk -e '{print $1}' | xargs docker rm $GIT_REPO_NAME'-'$JOB_BASE_NAME
