@@ -7,13 +7,6 @@ import { Router } from 'react-router'
 
 import { errorSnackBar, LoginPage as Page } from '../'
 
-jest.mock('@services/mixpanel', () => ({
-  Mixpanel: {
-    init: jest.fn(),
-    track: jest.fn(),
-  },
-}))
-
 describe('Login', () => {
   const history = createMemoryHistory()
   describe('Rendering', () => {

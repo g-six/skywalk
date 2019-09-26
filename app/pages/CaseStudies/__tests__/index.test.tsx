@@ -10,13 +10,6 @@ import * as React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Records, CaseStudiesPage as Page } from '../'
 
-jest.mock('@services/mixpanel', () => ({
-  Mixpanel: {
-    init: jest.fn(),
-    track: jest.fn(),
-  },
-}))
-
 jest.mock('axios')
 const Axios = require('axios')
 Axios.get = jest.fn(

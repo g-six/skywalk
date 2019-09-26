@@ -1,4 +1,3 @@
-import { Mixpanel } from '@services/mixpanel'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.scss'
@@ -8,7 +7,6 @@ interface Props {
 }
 
 export const Page404Error = (props: Props) => {
-  Mixpanel.track('404', props)
   return (
     <section className="hero is-fullheight-with-navbar">
       <div className="hero-body">

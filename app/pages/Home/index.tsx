@@ -1,12 +1,7 @@
-import { Mixpanel } from '@services/mixpanel'
 import * as React from 'react'
 import './styles.scss'
 
 export const HomePage: React.FunctionComponent = () => {
-  Mixpanel.track('HomePage', { state: 'initial render' })
-  React.useEffect(() => {
-    Mixpanel.track('HomePage', { state: 'cDU,cDM' })
-  })
   return (
     <section className="section is-fullheight" id="HomePage">
       <div className="container">

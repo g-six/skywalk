@@ -1,7 +1,6 @@
 import { I18nContext } from '@components/I18nContextProvider'
 import { CookieStore } from '@providers/cookie-context'
 import { retrieveCookie, saveCookie } from '@providers/cookie-context/actions'
-import { Mixpanel } from '@services/mixpanel'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -138,11 +137,6 @@ export const LoginPage: React.FunctionComponent = () => {
     reducer,
     initial_state,
   )
-
-  Mixpanel.track('LoginPage', { state: 'initial render' })
-  React.useEffect(() => {
-    Mixpanel.track('LoginPage', { state: 'cDU,cDM' })
-  })
 
   React.useEffect(() => {
     cookies.dispatch(retrieveCookie('kasl-key'))

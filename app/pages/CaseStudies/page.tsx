@@ -1,5 +1,4 @@
 import Ellipsis from '@components/spinner/ellipsis'
-import { Mixpanel } from '@services/mixpanel'
 import { defaults } from 'lodash'
 import * as React from 'react'
 import * as ReactMarkdown from 'react-markdown/with-html'
@@ -15,10 +14,7 @@ export const CaseStudyPage: React.FunctionComponent<Props> = (props: Props) => {
     initial_state,
   )
 
-  Mixpanel.track('CaseStudyPage', { state: 'initial render' })
   React.useEffect(() => {
-    Mixpanel.track('CaseStudyPage', { state: 'cDU,cDM' })
-
     // Load initially - TODO: code far below causes the warning below
     // console.error node_modules/react-dom/cjs/react-dom.development.js:545
     // Warning: An update to null inside a test was not wrapped in act(...).

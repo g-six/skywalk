@@ -4,13 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { Records } from '../'
 import { CaseStudyForm } from '../form'
 
-jest.mock('@services/mixpanel', () => ({
-  Mixpanel: {
-    init: jest.fn(),
-    track: jest.fn(),
-  },
-}))
-
 describe('Loading', () => {
   describe('CaseStudyForm', () => {
     it('should show spinner on loading state', async () => {

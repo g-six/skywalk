@@ -1,6 +1,5 @@
 import { I18nContext } from '@components/I18nContextProvider'
 import { PrivatePage } from '@pages/Private'
-import { Mixpanel } from '@services/mixpanel'
 import * as React from 'react'
 import {
   copyToClipboard,
@@ -161,10 +160,7 @@ export const TokensPage: React.FunctionComponent = () => {
     initial_state,
   )
 
-  Mixpanel.track('TokensPage', { state: 'initial render' })
   React.useEffect(() => {
-    Mixpanel.track('TokensPage', { state: 'cDU,cDM' })
-
     // Load initially - TODO: code far below causes the warning below
     // console.error node_modules/react-dom/cjs/react-dom.development.js:545
     // Warning: An update to null inside a test was not wrapped in act(...).

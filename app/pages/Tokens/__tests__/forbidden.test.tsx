@@ -5,13 +5,6 @@ import * as React from 'react'
 import { Router } from 'react-router'
 import { TokensPage as Page } from '../'
 
-jest.mock('@services/mixpanel', () => ({
-  Mixpanel: {
-    init: jest.fn(),
-    track: jest.fn(),
-  },
-}))
-
 jest.useFakeTimers()
 jest.mock('axios')
 const Axios = require('axios')

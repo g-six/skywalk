@@ -4,13 +4,6 @@ import * as React from 'react'
 
 import { HomePage } from '../'
 
-jest.mock('@services/mixpanel', () => ({
-  Mixpanel: {
-    init: jest.fn(),
-    track: jest.fn(),
-  },
-}))
-
 describe('Koa Homepage', () => {
   describe('Rendering', () => {
     let comp: RenderResult
