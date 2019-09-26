@@ -31,16 +31,18 @@ curl -X POST -s $SLACK_URL -d '{
   ]
 }'
 
-docker build -t $IMAGE_NAME -f Dockerfile.build . > ./deploy.log
+docker build -t $IMAGE_NAME -f Dockerfile.build . > ./docker.log
 
 docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
   -d \
-  $IMAGE_NAME sleep 30 > ./deploy.log
+  $IMAGE_NAME sleep 30 > ./docker.log
 
-docker exec -it $CONTAINER_NAME aws s3 sync --acl public-read --sse --delete ./ $S3_BUCKET > ./deploy.log
+docker exec -it $CONTAINER_NAME aws s3 sync --acl public-read --sse --delete ./ $S3_BUCKET > ./docker.log
+
+docker images | grep -E $CONTAINER_NAME | awk -e '{print $3}'| xargs docker rmi -f > ./docker.log
 
 # docker ps -a | grep -E Exited | awk -e '{print $1}' | xargs docker rm $GIT_REPO_NAME'-'$JOB_BASE_NAME
 # docker images | grep -E none | awk -e '{print $3}'| xargs docker rmi $GIT_REPO_NAME'-'$JOB_BASE_NAME
