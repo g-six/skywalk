@@ -7,7 +7,7 @@ GIT_MESSAGE=$(cat .alfred/git-message.txt)
 sed ':a;N;$!ba;s/\n/\\n/g' .alfred/git-message.txt > .alfred/git-safe-message.txt
 GIT_SAFE_MESSAGE=$(cat .alfred/git-safe-message.txt)
 
-curl -X POST -s $SLACK_URL -d '{
+echo '{
   "type": "mrkdwn",
   "text": "Building Image",
   "blocks": [
@@ -31,6 +31,6 @@ curl -X POST -s $SLACK_URL -d '{
       }
     }
   ]
-}' > /dev/null
+}' > .alfred/checkout.json
 
 echo $GIT_SAFE_MESSAGE > ./docker.log
