@@ -4,7 +4,7 @@ COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 MESSAGE=$(cat .alfred/git-message.txt)
 
-curl -X POST -s $SLACK_URL -d '{
+echo '{
   "type": "mrkdwn",
   "text": "Building Image",
   "blocks": [
@@ -24,10 +24,14 @@ curl -X POST -s $SLACK_URL -d '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* ```${MESSAGE}```"
+        "text": "*Target bucket:* ```'$MESSAGE'```"
       }
     }
   ]
-}' > ./docker.log
+}' > checkout.json
+
+cat checkout.json > ./docker.log
+curl -X POST -s $SLACK_URL -d @checkout.json
+
 
 echo $GIT_MESSAGE >> ./docker.log
