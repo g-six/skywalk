@@ -11,55 +11,55 @@ properties(
 node {
   stage ('Checkout') {
     bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Checkout')
-  
+    checkout scm
+    env_file_id = 'env_file_integration'
+
+    env_file_id = sh (
+      script: "if [ $JOB_BASE_NAME = master ]; then echo 'env_file_master'; else echo 'env_file_integration'; fi",
+      returnStdout: true
+    ).trim()
+
+    TARGET_BASE = sh (
+      script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo 'integration'; fi",
+      returnStdout: true
+    ).trim()
+    
+    GIT_MESSAGE = sh (
+      script: "git log -1 > .alfred/git-message.txt",
+      returnStdout: true
+    ).trim()
+    GIT_REPO_NAME = sh (
+      script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
+      returnStdout: true
+    ).trim()
+    COMMIT_ID = sh (
+      script: "git rev-parse HEAD",
+      returnStdout: true
+    ).trim()
+    COMMIT_SHORT = sh (
+      script: "git rev-parse --short HEAD",
+      returnStdout: true
+    ).trim()
+    S3_BUCKET = sh (
+      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-bucket' --query Parameter.Value | sed 's/\"//g'",
+      returnStdout: true
+    ).trim()
+
+    withCredentials([file(credentialsId: env_file_id, variable: 'ENV_FILE'), file(credentialsId: 'AIRSIDE_PEM', variable: 'AIRSIDE_PEM')]) {
+      sh "cat ${AIRSIDE_PEM} > .alfred/access-key"
+      sh "cat ${ENV_FILE} > .env"
+    }
+
+    sh """
+      echo 'SKYWALK_API_HOST=/api' >> .env
+      echo 'S3_BUCKET='$S3_BUCKET >> .env
+      echo $GIT_REPO_NAME > .alfred/git-repo-name.txt
+      echo $COMMIT_ID > .alfred/git-commit-id.txt
+      echo $COMMIT_SHORT > .alfred/git-commit-short.txt
+      echo $S3_BUCKET > .alfred/s3-bucket.txt
+    """
+
     try {
-      checkout scm
-      env_file_id = 'env_file_integration'
-
-      env_file_id = sh (
-        script: "if [ $JOB_BASE_NAME = master ]; then echo 'env_file_master'; else echo 'env_file_integration'; fi",
-        returnStdout: true
-      ).trim()
-
-      TARGET_BASE = sh (
-        script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo 'integration'; fi",
-        returnStdout: true
-      ).trim()
-      
-      GIT_MESSAGE = sh (
-        script: "git log -1 > .alfred/git-message.txt",
-        returnStdout: true
-      ).trim()
-      GIT_REPO_NAME = sh (
-        script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
-        returnStdout: true
-      ).trim()
-      COMMIT_ID = sh (
-        script: "git rev-parse HEAD",
-        returnStdout: true
-      ).trim()
-      COMMIT_SHORT = sh (
-        script: "git rev-parse --short HEAD",
-        returnStdout: true
-      ).trim()
-      S3_BUCKET = sh (
-        script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-bucket' --query Parameter.Value | sed 's/\"//g'",
-        returnStdout: true
-      ).trim()
-
-      withCredentials([file(credentialsId: env_file_id, variable: 'ENV_FILE'), file(credentialsId: 'AIRSIDE_PEM', variable: 'AIRSIDE_PEM')]) {
-        sh "cat ${AIRSIDE_PEM} > .alfred/access-key"
-        sh "cat ${ENV_FILE} > .env"
-      }
-
-      sh """
-        echo 'SKYWALK_API_HOST=/api' >> .env
-        echo 'S3_BUCKET='$S3_BUCKET >> .env
-        echo $GIT_REPO_NAME > .alfred/git-repo-name.txt
-        echo $COMMIT_ID > .alfred/git-commit-id.txt
-        echo $COMMIT_SHORT > .alfred/git-commit-short.txt
-        echo $S3_BUCKET > .alfred/s3-bucket.txt
-      """
       sh '$(sh .alfred/checkout.sh)'
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Checkout')
