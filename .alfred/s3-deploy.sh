@@ -5,7 +5,9 @@ CONTAINER_NAME=$GIT_REPO_NAME'-'$JOB_BASE_NAME
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 VOLUME=$PWD':/app/'
 
-if [ $JOB_BASE_NAME != master && $JOB_BASE_NAME != integration ]; then CONTAINER_NAME=$GIT_REPO_NAME'-'$BUILD_NUMBER; fi
+if [ $JOB_BASE_NAME != master && $JOB_BASE_NAME != integration ]
+then CONTAINER_NAME=$GIT_REPO_NAME'-'$BUILD_NUMBER
+fi
 
 IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 

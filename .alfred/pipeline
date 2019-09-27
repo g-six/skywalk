@@ -57,6 +57,7 @@ node {
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
+      echo $GIT_MESSAGE
     """
 
     try {
