@@ -70,5 +70,40 @@ node {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Checkout')
     }
   }
-  
+  stage ('Testing') {
+    bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Running tests')
+    try {
+      sh (
+        script: 'sh .alfred/testing.sh',
+        returnStdout: false
+      )
+    } catch (e) {
+      bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Running tests')
+    }
+  }
+  stage ('Deploy to S3') {
+    bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Deploy to S3')
+    try {
+      sh (
+        script: 'sh .alfred/s3-deploy.sh',
+        returnStdout: true
+      )
+    } catch (e) {
+      bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Deploy to S3')
+    }
+  }
+  stage ('Clean up') {
+    bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Clean up')
+    try {
+      sh (
+        script: 'docker system prune -f',
+        returnStdout: true
+      )
+    } catch (e) {
+      bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Clean up')
+    }
+  }
+  stage ('Notify Bitbucket') {
+    bitbucketStatusNotify(buildState: 'SUCCESSFUL')
+  }
 }
