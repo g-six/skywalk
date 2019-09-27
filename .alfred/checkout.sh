@@ -1,7 +1,8 @@
 #!/bin/bash
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
-COMMIT_ID=$(cat .alfred/git-commit-id.txt)
+COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
+AUTHOR=$(cat .alfred/git-author.txt)
 MESSAGE=$(cat .alfred/git-message.txt)
 
 echo '{
@@ -24,7 +25,7 @@ echo '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* ```'$S3_BUCKET'\n'$MESSAGE'```"
+        "text": "*Target bucket:* ```'$S3_BUCKET'\n'$MESSAGE'\nBy: '$AUTHOR'```"
       }
     }
   ]

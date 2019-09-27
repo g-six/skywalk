@@ -23,6 +23,10 @@ node {
       returnStdout: true
     ).trim()
     
+    GIT_AUTHOR = sh (
+      script: "git log --pretty=oneline --abbrev-commit --format="By: %an" -n 1 | tr -d '\r\n'",
+      returnStdout: true
+    ).trim()
     GIT_MESSAGE = sh (
       script: "git log --pretty=oneline --abbrev-commit -n 1 | tr -d '\r\n'",
       returnStdout: true
@@ -56,6 +60,7 @@ node {
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
+      echo $GIT_AUTHOR > .alfred/git-author.txt
       echo $GIT_MESSAGE > .alfred/git-message.txt
     """
 
