@@ -10,7 +10,6 @@ properties(
 
 node {
   stage ('Checkout') {
-    bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Checkout')
     checkout scm
     env_file_id = 'env_file_integration'
 
@@ -60,11 +59,7 @@ node {
       echo $GIT_MESSAGE
     """
 
-    try {
-      sh '$(sh .alfred/checkout.sh)'
-    } catch (e) {
-      bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Checkout')
-    }
+    sh '$(sh .alfred/checkout.sh)'
   }
   stage ('Testing') {
     bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Running tests')
