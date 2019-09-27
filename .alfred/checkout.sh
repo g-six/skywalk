@@ -2,7 +2,7 @@
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
-GIT_MESSAGE=$(tr -d '\n' < .alfred/git-message.txt)
+GIT_MESSAGE=$(cat .alfred/git-message.txt)
 
 echo '{
   "type": "mrkdwn",
