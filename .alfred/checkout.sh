@@ -4,7 +4,7 @@ COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 GIT_MESSAGE=$(cat .alfred/git-message.txt)
 
-echo '{
+curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
   "text": "Building Image",
   "blocks": [
