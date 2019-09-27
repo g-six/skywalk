@@ -24,7 +24,7 @@ node {
     ).trim()
     
     GIT_MESSAGE = sh (
-      script: "git log --format=%B -n 1 | tr -d '\n' > .alfred/git-message.txt",
+      script: "git log --format=%B -n 1 | tr -d '\r\n' > .alfred/git-message.txt",
       returnStdout: true
     ).trim()
     GIT_REPO_NAME = sh (
