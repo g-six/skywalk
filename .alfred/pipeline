@@ -24,6 +24,10 @@ node {
       returnStdout: true
     ).trim()
     
+    GIT_MESSAGE = sh (
+      script: "git --no-pager show -s",
+      returnStdout: true
+    ).trim()
     GIT_REPO_NAME = sh (
       script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
       returnStdout: true
@@ -53,6 +57,7 @@ node {
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
+      echo $GIT_MESSAGE > .alfred/git-message.txt
     """
   
     try {

@@ -2,8 +2,6 @@
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
-
-git --no-pager show -s > .alfred/git-message.txt
 GIT_MESSAGE_SAFE=$(sed ':a;N;$!ba;s/\n/\\n/g' > .alfred/git-message.txt)
 
 
