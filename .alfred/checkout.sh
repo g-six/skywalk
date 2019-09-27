@@ -31,8 +31,6 @@ echo '{
   ]
 }' > checkout.json
 
-cat checkout.json > ./docker.log
-curl -X POST -s $SLACK_URL -d @checkout.json
+cat checkout.json > ./docker.log &
+SILENCE=$(curl -X POST $SLACK_URL -d @checkout.json)
 
-
-echo $GIT_MESSAGE >> ./docker.log

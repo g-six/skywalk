@@ -28,10 +28,10 @@ curl -X POST -s $SLACK_URL -d '{
     }
   ]
 }' &> /dev/null &
-docker build --target testing -t $IMAGE_NAME . >> ./docker.log
+docker build --no-cache --target testing -t $IMAGE_NAME . >> ./docker.log
 docker run --rm --name $CONTAINER_NAME $IMAGE_NAME >> ./docker.log
 
-curl -X POST -s $SLACK_URL -d '{
+curl -X POST $SLACK_URL -d '{
   "type": "mrkdwn",
   "text": "[<'$BUILD_URL'console|'$BUILD_NUMBER'>] *Removing test containers* '$IMAGE_NAME'"
 }' &> /dev/null &
