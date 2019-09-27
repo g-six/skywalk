@@ -30,5 +30,5 @@ curl -X POST -s $SLACK_URL -d '{
   ]
 }' > ./docker.log
 
-echo '"*Target bucket:* \n ```'$S3_BUCKET'\n'$MESSAGE'```"' >> ./docker.log
+echo '"*Target bucket:* \n ```'$S3_BUCKET' '$MESSAGE'```"' >> ./docker.log
 echo $GIT_MESSAGE >> ./docker.log
