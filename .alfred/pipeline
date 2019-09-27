@@ -29,6 +29,14 @@ node {
       script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
       returnStdout: true
     ).trim()
+    GIT_MESSAGE = sh (
+      script: "git --on-pager show -s",
+      returnStdout: true
+    ).trim()
+    GIT_MESSAGE = sh (
+      script: "printf \"${GIT_MESSAGE//$'\n'/'\\n'}\"",
+      returnStdout: true
+    ).trim()
     COMMIT_ID = sh (
       script: "git rev-parse HEAD",
       returnStdout: true
@@ -54,6 +62,7 @@ node {
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
+      echo $GIT_MESSAGE > .alfred/git-message.txt
     """
   
     try {
