@@ -4,7 +4,7 @@ COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 GIT_MESSAGE=$(cat .alfred/git-message.txt)
 
-sed ':a;N;$!ba;s/\n/\\n/g' .alfred/git-message.txt .alfred/git-safe-message.txt
+sed ':a;N;$!ba;s/\n/\\n/g' .alfred/git-message.txt > .alfred/git-safe-message.txt
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
