@@ -24,7 +24,7 @@ node {
     ).trim()
     
     GIT_MESSAGE = sh (
-      script: "git log --format=%B -n 1 | tr -d '\r\n' > .alfred/git-message.txt",
+      script: "git log --pretty=oneline --abbrev-commit -n 1 | tr -d '\r\n'",
       returnStdout: true
     ).trim()
     GIT_REPO_NAME = sh (
@@ -56,6 +56,7 @@ node {
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
+      echo $GIT_MESSAGE > .alfred/git-message.txt
     """
 
     try {
