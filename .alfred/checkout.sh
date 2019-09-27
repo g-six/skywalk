@@ -5,6 +5,7 @@ S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 GIT_MESSAGE=$(cat .alfred/git-message.txt)
 
 sed ':a;N;$!ba;s/\n/\\n/g' .alfred/git-message.txt > .alfred/git-safe-message.txt
+GIT_SAFE_MESSAGE=$(cat .alfred/git-safe-message.txt)
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -26,10 +27,10 @@ curl -X POST -s $SLACK_URL -d '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* \n ```'$S3_BUCKET'```"
+        "text": "*Target bucket:* \n ```'$S3_BUCKET'``` '$GIT_SAFE_MESSAGE'"
       }
     }
   ]
 }' > /dev/null
 
-touch ./docker.log
+echo $GIT_SAFE_MESSAGE > ./docker.log
