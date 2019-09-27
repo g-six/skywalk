@@ -24,7 +24,7 @@ node {
     ).trim()
     
     GIT_AUTHOR = sh (
-      script: "git log --pretty=oneline --abbrev-commit --format="By: %an" -n 1 | tr -d '\r\n'",
+      script: "git log --pretty=oneline --abbrev-commit --format=%an -n 1 | tr -d '\r\n'",
       returnStdout: true
     ).trim()
     GIT_MESSAGE = sh (
