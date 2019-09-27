@@ -11,9 +11,9 @@ properties(
 node {
   stage ('Checkout') {
     bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Checkout')
-    checkout scm
   
     try {
+      checkout scm
       env_file_id = 'env_file_integration'
 
       env_file_id = sh (
