@@ -24,10 +24,10 @@ echo '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* \n ```'$S3_BUCKET'``` '$GIT_SAFE_MESSAGE'"
+        "text": "*Target bucket:* \n ```'$S3_BUCKET'``` '$GIT_MESSAGE'"
       }
     }
   ]
 }' > /dev/null
 
-echo $GIT_SAFE_MESSAGE > ./docker.log
+echo $GIT_MESSAGE > ./docker.log
