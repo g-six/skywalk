@@ -34,9 +34,11 @@ node {
       returnStdout: true
     ).trim()
 
-    sh """
-      printf "${GIT_MESSAGE//$'\n'/'\\n'}" > .alfred/git-message.txt
-    """
+    GIT_MESSAGE = sh (
+      script: """printf "${GIT_MESSAGE//$'\n'/'\\n'}"""",
+      returnStdout: true
+    ).trim()
+
     COMMIT_ID = sh (
       script: "git rev-parse HEAD",
       returnStdout: true
