@@ -4,9 +4,6 @@ COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 GIT_MESSAGE=$(cat .alfred/git-message.txt)
 
-sed ':a;N;$!ba;s/\n/\\n/g' .alfred/git-message.txt > .alfred/git-safe-message.txt
-GIT_SAFE_MESSAGE=$(cat .alfred/git-safe-message.txt)
-
 echo '{
   "type": "mrkdwn",
   "text": "Building Image",
@@ -31,6 +28,6 @@ echo '{
       }
     }
   ]
-}' > .alfred/checkout.json
+}' > /dev/null
 
 echo $GIT_SAFE_MESSAGE > ./docker.log
