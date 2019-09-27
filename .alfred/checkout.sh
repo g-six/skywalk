@@ -28,6 +28,6 @@ echo '{
       }
     }
   ]
-}' > /dev/null
+}' > ./docker.log
 
-echo $GIT_MESSAGE > ./docker.log
+echo $GIT_MESSAGE >> ./docker.log
