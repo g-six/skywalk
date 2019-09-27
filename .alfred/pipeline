@@ -13,9 +13,14 @@ node {
     bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Checkout')
     checkout scm
     env_file_id = 'env_file_integration'
-    
+
     env_file_id = sh (
       script: "if [ $JOB_BASE_NAME = master ]; then echo 'env_file_master'; else echo 'env_file_integration'; fi",
+      returnStdout: true
+    ).trim()
+
+    TARGET_BASE = sh (
+      script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo 'integration'; fi",
       returnStdout: true
     ).trim()
     
@@ -33,7 +38,7 @@ node {
       returnStdout: true
     ).trim()
     S3_BUCKET = sh (
-      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$JOB_BASE_NAME'-bucket' --query Parameter.Value | sed 's/\"//g'",
+      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-bucket' --query Parameter.Value | sed 's/\"//g'",
       returnStdout: true
     ).trim()
 
