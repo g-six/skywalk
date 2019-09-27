@@ -27,7 +27,7 @@ node {
       ).trim()
       
       sh (
-        script: "git --no-pager show -s > .alfred/git-message.txt &> /dev/null &",
+        script: "git -log -1 > .alfred/git-message.txt &> /dev/null &",
         returnStdout: false
       ).trim()
       GIT_REPO_NAME = sh (
