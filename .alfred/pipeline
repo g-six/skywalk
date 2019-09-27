@@ -26,9 +26,9 @@ node {
         returnStdout: true
       ).trim()
       
-      sh (
-        script: "git -log -1 > .alfred/git-message.txt &",
-        returnStdout: false
+      GIT_MESSAGE = sh (
+        script: "git -log -1 > .alfred/git-message.txt",
+        returnStdout: true
       ).trim()
       GIT_REPO_NAME = sh (
         script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
