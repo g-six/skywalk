@@ -24,7 +24,7 @@ echo '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* \n ```'$S3_BUCKET'``` '$GIT_MESSAGE'"
+        "text": "*Target bucket:* \n ```'$S3_BUCKET'```"
       }
     }
   ]
