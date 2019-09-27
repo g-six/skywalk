@@ -24,7 +24,7 @@ curl -X POST -s $SLACK_URL -d '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* \n ```'$S3_BUCKET'```"
+        "text": "*Target bucket:* \n ```'$S3_BUCKET'\n'$GIT_MESSAGE'```"
       }
     }
   ]
