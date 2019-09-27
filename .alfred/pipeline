@@ -29,8 +29,12 @@ node {
       returnStdout: true
     ).trim()
     
+    GIT_MESSAGE = sh (
+      script: "git --on-pager show -s",
+      returnStdout: true
+    ).trim()
+
     sh """
-      GIT_MESSAGE=`git --on-pager show -s`
       printf "${GIT_MESSAGE//$'\n'/'\\n'}" > .alfred/git-message.txt
     """
     COMMIT_ID = sh (
