@@ -30,3 +30,5 @@ curl -X POST -s $SLACK_URL -d '{
     }
   ]
 }' > /dev/null
+
+touch ./docker.log

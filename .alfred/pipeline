@@ -26,9 +26,9 @@ node {
         returnStdout: true
       ).trim()
       
-      GIT_MESSAGE = sh (
+      sh (
         script: "git --no-pager show -s > .alfred/git-message.txt",
-        returnStdout: true
+        returnStdout: false
       ).trim()
       GIT_REPO_NAME = sh (
         script: "basename `git config --get remote.origin.url` | sed 's/.git//'",

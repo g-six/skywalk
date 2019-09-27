@@ -35,7 +35,7 @@ curl -X POST -s $SLACK_URL -d '{
   ]
 }'
 
-docker build -t $IMAGE_NAME -f Dockerfile.build . > ./docker.log
+docker build -t $IMAGE_NAME -f Dockerfile.build . >> ./docker.log
 
 docker run \
   --name $CONTAINER_NAME \
