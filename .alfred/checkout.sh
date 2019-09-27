@@ -2,9 +2,8 @@
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_ID=$(cat .alfred/git-commit-id.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
-GIT_MESSAGE=$(git --on-pager show -s)
-
-printf "${GIT_MESSAGE//$'\n'/'\\n'}" > .alfred/git-message.txt
+GIT_MESSAGE=$(git --no-pager show -s)
+GIT_MESSAGE_SAFE=$(printf "${GIT_MESSAGE//$'\n'/'\\n'}")
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -26,7 +25,7 @@ curl -X POST -s $SLACK_URL -d '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* \n ```'$S3_BUCKET'```"
+        "text": "*Target bucket:* \n ```'$S3_BUCKET'``` ```'$GIT_MESSAGE_SAFE'```"
       }
     }
   ]
