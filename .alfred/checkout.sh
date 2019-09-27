@@ -25,7 +25,7 @@ echo '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Target bucket:* ```'$S3_BUCKET'\n'$MESSAGE'\nBy: '$AUTHOR'```"
+        "text": "*Target bucket:* ```'$S3_BUCKET'\\n'$MESSAGE'\\nBy: '$AUTHOR'```"
       }
     }
   ]
