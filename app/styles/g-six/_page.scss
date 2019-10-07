@@ -1,7 +1,4 @@
 #root {
-  height: calc(100vh - #{$navbar-height} - #{$footer-height});
-  padding-bottom: $footer-height;
-
   ::selection {
     background: $royal-3; /* WebKit/Blink Browsers */
     color: $white;
@@ -12,9 +9,6 @@
   }
 
   #page {
-    min-height: calc(100% + #{$navbar-height} + #{$footer-height});
-    padding-bottom: $footer-height;
-
     > .is-fullheight {
       align-items: center;
       display: flex;
@@ -60,7 +54,7 @@
     }
   }
 
-  > .root-child-item {
+  > .root-child-itemx {
     margin-top: $navbar-height;
     min-height: calc(100% + #{$navbar-height} + #{$footer-height});
 

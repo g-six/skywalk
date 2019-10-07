@@ -1,25 +1,55 @@
 import * as React from 'react'
-import './styles.scss'
 
 const Footer = () => (
   <footer className="footer">
     <div className="container">
-      <div className="level">
-        <div className="level-left">
-          <div className="level-item">
-            <a href="https://www.idearobin.com/">IdeaRobin</a>
-            &nbsp;<span>&copy;</span>&nbsp;{new Date().getFullYear()}.
-          </div>
+      <div className="columns has-text-centered is-multiline is-centered">
+        <div className="column is-one-third">
+          <strong>Indonesia</strong>
+          <p>
+            Jln. Rose Garden 62 Dago Pakar<br />
+            40198 Bandung Indonesia
+          </p>
         </div>
-        <div className="level-right is-pulled-right">
-          <div className="level-item">
-            <a href="https://www.idearobin.com/start">Contact Us</a>
-          </div>
-          <div className="level-item">
-            <span className="is-text-black"> | </span>
-          </div>
-          <div className="level-item">
-            <a href="https://www.idearobin.com/careers">Careers</a>
+        <div className="column is-one-third">
+          <strong>Vietnam</strong>
+          <p>
+            012 Tòa Nhà H1, Đường Hoàng Diệu, <br />
+            Phường 9, Quận 4, TP Hồ Chí Minh
+          </p>
+        </div>
+        <div className="column is-one-third">
+          <strong>Singapore</strong>
+          <p>
+            449 Sin Ming Avenue Crescent <br />
+            #04-515 Singapore 570449
+          </p>
+        </div>
+        <div className="column is-one-third">
+          <strong>Sri Lanka</strong>
+          <p>
+            Jln. Rose Garden 62 Dago Pakar<br />
+            40198 Bandung Indonesia
+          </p>
+        </div>
+        <div className="column is-one-third">
+          <strong>Philippines</strong>
+          <p>
+            Basaca Building, Purok Gemilina, <br />
+            Tayud, Liloan,Cebu  Region VII, <br />
+            Philippines 6002
+          </p>
+        </div>
+        <div className="column is-one-third">
+          <strong>France</strong>
+          <p>
+            Jln. Rose Garden 62 Dago Pakar<br />
+            40198 Bandung Indonesia
+          </p>
+        </div>
+        <div className="column is-one-third">
+          <div className="footer-brand">
+            Wonder
           </div>
         </div>
       </div>

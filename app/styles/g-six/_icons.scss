@@ -1,0 +1,15 @@
+i.icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  vertical-align: text-top;
+}
+
+$icon-url: "//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/icons";
+
+i.icon {
+  &.star {
+    background: url(#{$icon-url}/star.svg);
+  }
+}

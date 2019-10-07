@@ -139,7 +139,7 @@ const I18nContextProvider = props => {
 
   return (
     <I18nContext.Provider value={{ ...state, dispatch }}>
-      <div id="i18n" className="root-child-item" {...props} />
+      <div id="i18n" className="page" {...props} />
     </I18nContext.Provider>
   )
 }

@@ -40,12 +40,12 @@ export const HeaderComponent: React.FunctionComponent = props => {
   const [scroll_y, setScrollY] = React.useState(window.scrollY)
   const [is_expanded, setExpanded] = React.useState(false)
 
-  const paths = document.location.pathname
-    .substr(1)
-    .split('/')
+  const directories = document.location.pathname.substr(1).split('/')
+  const [parent_path] = directories
+  const paths = directories
     .join('-')
 
-  const nav_class: string[] = ['navbar', 'is-fixed-top', paths]
+  const nav_class: string[] = ['navbar', paths]
 
   /* istanbul ignore next */
   const listener: EventListener = ({ currentTarget }) => {
@@ -72,9 +72,11 @@ export const HeaderComponent: React.FunctionComponent = props => {
   if (is_expanded) {
     nav_class.push('is-expanded')
   }
-  
+
   if (props['location'].pathname === '/') {
     nav_class.push('home')
+  } else {
+    nav_class.push('is-fixed-top')
   }
 
   return (
@@ -86,7 +88,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
-            IdeaRobin
+            <i>Wonderlabs</i>
           </Link>
 
           <BurgerComponent is_expanded={is_expanded} toggleMenu={toggleMenu} />
@@ -97,8 +99,11 @@ export const HeaderComponent: React.FunctionComponent = props => {
           className={`navbar-menu${is_expanded ? ' is-active' : ''}`}
         >
           <div className="navbar-end">
-            <Link className="navbar-item" to="/case-studies">
-              {translate('Case studies')}
+            <Link className={`navbar-item${!paths ? ' is-active' : ''}`} to="/">
+              {translate('Home')}
+            </Link>
+            <Link className={`navbar-item${parent_path === 'talent-solutions' ? ' is-active' : ''}`} to="/talent-solutions">
+              {translate('Talent Solutions')}
             </Link>
             {cookie.state['kasl-key'] ? (
               <>
@@ -111,8 +116,8 @@ export const HeaderComponent: React.FunctionComponent = props => {
                 </Link>
               </>
             ) : (
-              ''
-            )}
+                ''
+              )}
           </div>
         </div>
       </div>

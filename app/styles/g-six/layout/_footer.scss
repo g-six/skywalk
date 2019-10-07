@@ -1,8 +1,34 @@
-$footer-background-color: $white-bis;
-.root-child-item > footer.footer {
-  height: $footer-height;
+$footer-background-color: $wl-inv-5;
+$footer-text-color: $white;
+footer.footer {
+  color: $footer-text-color;
+  min-height: $footer-height;
+  padding-top: 88px;
   a {
     font-size: $size-7;
     font-weight: 600;
+  }
+  strong {
+    color: $footer-text-color;
+  }
+
+  .column > strong {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .column > p {
+    margin-bottom: 40px;
+  }
+
+  .footer-brand {
+    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    display: block;
+    margin: auto;
+    height: 50px;
+    width: 180px;
+    text-indent: -99999px;
   }
 }

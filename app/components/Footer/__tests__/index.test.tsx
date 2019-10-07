@@ -26,7 +26,7 @@ describe('Header component', () => {
       </Router>,
     )
 
-    const link = await comp.findByText('IdeaRobin')
-    expect(link).toBeDefined()
+    const colums = await comp.container.querySelectorAll('.column')
+    expect(colums).toHaveLength(7)
   })
 })

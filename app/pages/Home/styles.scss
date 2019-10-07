@@ -1,11 +1,71 @@
 @import '@styles';
 
+.navbar.home {
+  margin-top: 64px;
+  position: absolute;
+  width: 100%;
+
+  .navbar-end > .navbar-item {
+    color: $white;
+
+    &.is-active,
+    &:active {
+      color: $white;
+    }
+  }
+
+  + section .hero-body .container {
+    padding-top: 100px;
+  }
+}
 #HomePage {
-  > .container {
-    margin-top: 2rem;
+  .hero-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .hero-body > .container {
+    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/people.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    margin-top: 60px;
 
     .columns + .columns {
       margin-top: 3rem;
+    }
+
+    .text-content {
+      align-items: flex-end;
+      display: flex;
+      min-height: 577px;
+      max-width: 588px;
+
+      > div {
+        background: $black-bis;
+        padding: 10px 60px 10px 0;
+      }
+
+      .title {
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 110.69%;
+        em {
+          color: $primary;
+          font-style: normal;
+        }
+      }
+
+      .subtitle {
+        color: $grey-light;
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 45px;
+      }
+
+      p {
+        color: $grey-light;
+        font-size: 20px;
+        line-height: 31px;
+      }
     }
   }
 

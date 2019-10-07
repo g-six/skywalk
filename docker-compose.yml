@@ -12,7 +12,7 @@ services:
       - '9001:80'
     volumes:
       - ./app:/usr/src/app
-      - ../sockets/skywalk:/usr/src/sockets
+      - /usr/share/skywalk/sockets/g-six:/usr/src/sockets
       - ./webpack.config.js:/usr/src/webpack.config.js:ro
       - ../coverages/skywalk:/usr/src/coverage
 
