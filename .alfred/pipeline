@@ -11,15 +11,13 @@ properties(
 node {
   stage ('Checkout') {
     checkout scm
-    env_file_id = 'env_file_integration'
-
-    env_file_id = sh (
-      script: "if [ $JOB_BASE_NAME = master ]; then echo 'env_file_master'; else echo 'env_file_integration'; fi",
-      returnStdout: true
-    ).trim()
 
     TARGET_BASE = sh (
       script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo 'integration'; fi",
+      returnStdout: true
+    ).trim()
+    STAGE = sh (
+      script: "if [ $JOB_BASE_NAME = master ]; then echo 'live'; else echo 'dev'; fi",
       returnStdout: true
     ).trim()
     
@@ -47,19 +45,21 @@ node {
       script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo $GIT_REPO_NAME'-'$GIT_AUTHOR; fi",
       returnStdout: true
     ).trim()
+    
+    SKYWALK_API = sh (
+      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-api' --query Parameter.Value | sed 's/\"//g'",
+      returnStdout: true
+    ).trim()
     S3_BUCKET = sh (
       script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-bucket' --query Parameter.Value | sed 's/\"//g'",
       returnStdout: true
     ).trim()
 
-    withCredentials([file(credentialsId: env_file_id, variable: 'ENV_FILE'), file(credentialsId: 'AIRSIDE_PEM', variable: 'AIRSIDE_PEM')]) {
-      sh "cat ${AIRSIDE_PEM} > .alfred/access-key"
-      sh "cat ${ENV_FILE} > .env"
-    }
-
     sh """
-      echo 'SKYWALK_API_HOST=/api' >> .env
+      echo 'SKYWALK_API_HOST='$SKYWALK_API'/'$STAGE > .env
       echo 'S3_BUCKET='$S3_BUCKET >> .env
+      echo 'STAGE='$STAGE >> .env
+      echo 'GIT_SHA='$COMMIT_SHORT >> .env
       echo $GIT_REPO_NAME > .alfred/git-repo-name.txt
       echo $COMMIT_ID > .alfred/git-commit-id.txt
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
