@@ -12,7 +12,7 @@ COPY *.config.js ./
 COPY *.json ./
 COPY *.yaml ./
 
-RUN npm install --production 2>&1
+RUN npm install 2>&1
 
 FROM node:10 as builder
 WORKDIR /usr/src/

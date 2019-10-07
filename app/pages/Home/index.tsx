@@ -11,7 +11,7 @@ export const HomePage: React.FunctionComponent = () => {
               <div>
                 <h4 className="subtitle">
                   <i className="icon star" /> For Talent, Let us help you find a
-                  job you love
+                  job you love.
                 </h4>
                 <h1 className="title">
                   We help you <br />
