@@ -46,17 +46,13 @@ node {
       returnStdout: true
     ).trim()
     
-    SKYWALK_API = sh (
-      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-api' --query Parameter.Value | sed 's/\"//g'",
-      returnStdout: true
-    ).trim()
     S3_BUCKET = sh (
       script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-bucket' --query Parameter.Value | sed 's/\"//g'",
       returnStdout: true
     ).trim()
 
     sh """
-      echo 'SKYWALK_API_HOST='$SKYWALK_API'/'$STAGE > .env
+      echo 'SKYWALK_API_HOST=/'$STAGE > .env
       echo 'S3_BUCKET='$S3_BUCKET >> .env
       echo 'STAGE='$STAGE >> .env
       echo 'GIT_SHA='$COMMIT_SHORT >> .env
