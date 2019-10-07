@@ -42,8 +42,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
 
   const directories = document.location.pathname.substr(1).split('/')
   const [parent_path] = directories
-  const paths = directories
-    .join('-')
+  const paths = directories.join('-')
 
   const nav_class: string[] = ['navbar', paths]
 
@@ -102,7 +101,12 @@ export const HeaderComponent: React.FunctionComponent = props => {
             <Link className={`navbar-item${!paths ? ' is-active' : ''}`} to="/">
               {translate('Home')}
             </Link>
-            <Link className={`navbar-item${parent_path === 'talent-solutions' ? ' is-active' : ''}`} to="/talent-solutions">
+            <Link
+              className={`navbar-item${
+                parent_path === 'talent-solutions' ? ' is-active' : ''
+              }`}
+              to="/talent-solutions"
+            >
               {translate('Talent Solutions')}
             </Link>
             {cookie.state['kasl-key'] ? (
@@ -116,8 +120,8 @@ export const HeaderComponent: React.FunctionComponent = props => {
                 </Link>
               </>
             ) : (
-                ''
-              )}
+              ''
+            )}
           </div>
         </div>
       </div>

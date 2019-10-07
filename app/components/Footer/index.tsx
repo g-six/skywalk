@@ -7,7 +7,8 @@ const Footer = () => (
         <div className="column is-one-third">
           <strong>Indonesia</strong>
           <p>
-            Jln. Rose Garden 62 Dago Pakar<br />
+            Jln. Rose Garden 62 Dago Pakar
+            <br />
             40198 Bandung Indonesia
           </p>
         </div>
@@ -28,7 +29,8 @@ const Footer = () => (
         <div className="column is-one-third">
           <strong>Sri Lanka</strong>
           <p>
-            Jln. Rose Garden 62 Dago Pakar<br />
+            Jln. Rose Garden 62 Dago Pakar
+            <br />
             40198 Bandung Indonesia
           </p>
         </div>
@@ -36,21 +38,20 @@ const Footer = () => (
           <strong>Philippines</strong>
           <p>
             Basaca Building, Purok Gemilina, <br />
-            Tayud, Liloan,Cebu  Region VII, <br />
+            Tayud, Liloan,Cebu Region VII, <br />
             Philippines 6002
           </p>
         </div>
         <div className="column is-one-third">
           <strong>France</strong>
           <p>
-            Jln. Rose Garden 62 Dago Pakar<br />
+            Jln. Rose Garden 62 Dago Pakar
+            <br />
             40198 Bandung Indonesia
           </p>
         </div>
         <div className="column is-one-third">
-          <div className="footer-brand">
-            Wonder
-          </div>
+          <div className="footer-brand">Wonder</div>
         </div>
       </div>
     </div>

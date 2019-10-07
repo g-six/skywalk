@@ -10,12 +10,18 @@ export const HomePage: React.FunctionComponent = () => {
             <div className="text-content">
               <div>
                 <h4 className="subtitle">
-                  <i className="icon star" /> For Talent, Let us help you find a job you love
+                  <i className="icon star" /> For Talent, Let us help you find a
+                  job you love
                 </h4>
-                <h1 className="title">We help you <br /><em>access</em> the world.</h1>
+                <h1 className="title">
+                  We help you <br />
+                  <em>access</em> the world.
+                </h1>
                 <p>
-                  At Wonder, we build and manage<br />
-                  your software development teams<br />
+                  At Wonder, we build and manage
+                  <br />
+                  your software development teams
+                  <br />
                   around the globe.
                 </p>
               </div>
