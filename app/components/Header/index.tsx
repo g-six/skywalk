@@ -103,9 +103,9 @@ export const HeaderComponent: React.FunctionComponent = props => {
             </Link>
             <Link
               className={`navbar-item${
-                parent_path === 'talent-solutions' ? ' is-active' : ''
-              }`}
-              to="/talent-solutions"
+                parent_path === 'our-team' ? ' is-active' : ''
+                }`}
+              to="/our-team"
             >
               {translate('Talent Solutions')}
             </Link>
@@ -120,8 +120,8 @@ export const HeaderComponent: React.FunctionComponent = props => {
                 </Link>
               </>
             ) : (
-              ''
-            )}
+                ''
+              )}
           </div>
         </div>
       </div>

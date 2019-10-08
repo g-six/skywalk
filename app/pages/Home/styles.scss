@@ -8,6 +8,14 @@
     background-color: #fff;
   }
 
+  .navbar-brand {
+    .navbar-item {
+      > i {
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+      }
+    }
+  }
+
   .navbar-end > .navbar-item {
     color: $white;
 
@@ -40,6 +48,7 @@
     .text-content {
       align-items: flex-end;
       display: flex;
+      margin-bottom: 30px;
       min-height: 577px;
       max-width: 588px;
 

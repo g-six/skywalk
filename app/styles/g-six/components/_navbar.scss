@@ -15,7 +15,7 @@ nav.navbar {
   background-color: $navbar-background-color;
   font-size: 14px;
   line-height: 16px;
-  padding-top: 40px;
+  padding-top: 35px;
   transition: 300ms ease-out background-color, border-color, box-shadow, color;
 
   @include until($tablet - 1) {
@@ -44,14 +44,14 @@ nav.navbar {
     .navbar-item:hover {
       background-color: transparent;
       text-indent: -9999px;
-      color: $white;
+      color: $black;
       font-weight: 700;
       font-size: $size-7;
       letter-spacing: 0;
       text-transform: uppercase;
 
       > i {
-        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-black-text.svg);
         background-repeat: no-repeat;
         height: 48.62px;
         width: 180px;
@@ -74,7 +74,7 @@ nav.navbar {
 
       .navbar-item,
       .navbar-link {
-        color: #ffffff;
+        color: $black;
 
         &:hover {
           background: none;
@@ -94,7 +94,7 @@ nav.navbar {
   }
 
   .navbar-item {
-    color: $white;
+    color: $black;
     font-weight: 700;
     text-transform: uppercase;
     transition: background-color 0.3s ease-out;

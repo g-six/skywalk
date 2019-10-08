@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 
 export default () => {
   return <section id="GlobalFootprint">
@@ -91,9 +92,9 @@ export default () => {
       </div>
 
       <div className="has-text-centered meet-our-team">
-        <button className="button is-large is-primary">
+        <Link className="button is-large is-primary" to="/our-team">
           <span>Meet our Team</span>
-        </button>
+        </Link>
       </div>
     </div>
 
