@@ -101,7 +101,7 @@ node {
     bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Clean up')
     try {
       sh (
-        script: 'docker system prune -f',
+        script: 'docker system prune -af',
         returnStdout: true
       )
     } catch (e) {
