@@ -22,12 +22,12 @@
   .hero-body {
     padding-left: 0;
     padding-right: 0;
+    min-height: 850px;
   }
   .hero-body > .container {
     background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/people.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
-    margin-top: 60px;
 
     .columns + .columns {
       margin-top: 3rem;
