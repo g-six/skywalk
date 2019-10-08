@@ -38,7 +38,7 @@ node {
       returnStdout: true
     ).trim()
     CONTAINER_NAME = sh (
-      script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo $GIT_REPO_NAME'-'$GIT_AUTHOR; fi",
+      script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo $GIT_REPO_NAME'-'$COMMIT_SHORT; fi",
       returnStdout: true
     ).trim()
     
@@ -62,7 +62,6 @@ node {
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
       echo $GIT_AUTHOR > .alfred/git-author.txt
-      echo $GIT_MESSAGE > .alfred/git-message.txt
       echo $CONTAINER_NAME > .alfred/container-name.txt
       echo $CLOUDFRONT_DIST > .alfred/cdn.txt
     """

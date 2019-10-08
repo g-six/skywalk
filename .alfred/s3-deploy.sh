@@ -1,4 +1,5 @@
 #!/bin/bash
+GIT_AUTHOR=$(cat .alfred/git-author.txt)
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
 CONTAINER_NAME=$(cat .alfred/container-name.txt)
@@ -29,7 +30,16 @@ curl -X POST -s $SLACK_URL -d '{
         "type": "mrkdwn",
         "text": "*Synching* `'${IMAGE_NAME}'` build to '$S3_BUCKET'"
       }
-    }
+    },
+    {
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": "*Author:* '$GIT_AUTHOR'"
+				}
+			]
+		}
   ]
 }'
 
