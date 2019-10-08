@@ -70,6 +70,10 @@ node {
       sh '$(sh .alfred/checkout.sh)'
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Checkout')
+      sh (
+        script: 'sh .alfred/failed.sh "Checkout"',
+        returnStdout: false
+      )
       throw e
     }
   }
@@ -79,6 +83,10 @@ node {
       sh '$(sh .alfred/testing.sh) &> /dev/null &'
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Running tests')
+      sh (
+        script: 'sh .alfred/failed.sh "Running tests"',
+        returnStdout: false
+      )
       throw e
     }
   }
@@ -91,6 +99,10 @@ node {
       )
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Deploy to S3')
+      sh (
+        script: 'sh .alfred/failed.sh "Deploy to S3"',
+        returnStdout: false
+      )
       throw e
     }
   }
@@ -103,6 +115,10 @@ node {
       )
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Clean up')
+      sh (
+        script: 'sh .alfred/failed.sh "Clean up"',
+        returnStdout: false
+      )
       throw e
     }
   }
@@ -115,6 +131,10 @@ node {
       )
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Invalidate CDN')
+      sh (
+        script: 'sh .alfred/failed.sh "Invalidate CDN"',
+        returnStdout: false
+      )
       throw e
     }
   }
