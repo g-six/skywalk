@@ -25,10 +25,6 @@ node {
       script: "git log --pretty=oneline --abbrev-commit --format=%an -n 1 | tr -d '\r\n'",
       returnStdout: true
     ).trim()
-    GIT_MESSAGE = sh (
-      script: "git log --pretty=oneline --abbrev-commit -n 1 | tr -d '\r\n()'",
-      returnStdout: true
-    ).trim()
     GIT_REPO_NAME = sh (
       script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
       returnStdout: true
@@ -50,6 +46,11 @@ node {
       script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-bucket' --query Parameter.Value | sed 's/\"//g'",
       returnStdout: true
     ).trim()
+    
+    CLOUDFRONT_DIST = sh (
+      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-cdn' --query Parameter.Value --output text",
+      returnStdout: true
+    ).trim()
 
     sh """
       echo 'SKYWALK_API_HOST=/'$STAGE > .env
@@ -63,6 +64,7 @@ node {
       echo $GIT_AUTHOR > .alfred/git-author.txt
       echo $GIT_MESSAGE > .alfred/git-message.txt
       echo $CONTAINER_NAME > .alfred/container-name.txt
+      echo $CLOUDFRONT_DIST > .alfred/cdn.txt
     """
 
     try {
@@ -102,6 +104,18 @@ node {
       )
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Clean up')
+      throw e
+    }
+  }
+  stage ('Invalidate CDN') {
+    bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Invalidate CDN')
+    try {
+      sh (
+        script: 'sh .alfred/cf-invalidate.sh',
+        returnStdout: true
+      )
+    } catch (e) {
+      bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Invalidate CDN')
       throw e
     }
   }
