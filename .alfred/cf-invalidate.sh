@@ -32,5 +32,5 @@ curl -X POST -s $SLACK_URL -d '{
 }'
 
 aws cloudfront create-invalidation \
-  --invalidation-batch file://inv.json \
+  --invalidation-batch file://.alfred/inv.json \
   --distribution-id $CLOUDFRONT_DIST > alfred-cloudfront.json
