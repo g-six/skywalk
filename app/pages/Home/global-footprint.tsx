@@ -75,7 +75,7 @@ export default () => {
       </div>
 
       <div className="level">
-        <div className="level-item nav has-text-right">
+        <div className="level-item nav has-text-right prev">
           <button className="button is-circle is-white prev">
             <span>Previous</span>
           </button>
@@ -83,7 +83,7 @@ export default () => {
         <div className="level-item image-placeholder">
           <div className="image" style={{ backgroundImage: `url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/bearded-guy-min.png)` }} />
         </div>
-        <div className="level-item nav">
+        <div className="level-item nav next">
           <button className="button is-circle is-white next">
             <span>Next</span>
           </button>

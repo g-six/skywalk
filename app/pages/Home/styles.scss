@@ -1,7 +1,6 @@
 @import '@styles';
 
 .navbar.home {
-  margin-top: 50px;
   position: absolute;
   width: 100%;
 
@@ -156,6 +155,7 @@
     h4 {
       font-size: 22px;
       line-height: 26px;
+      margin-bottom: 18px;
     }
 
     > div {
@@ -301,10 +301,6 @@
 }
 
 @include from(tablet) {
-  .navbar.home {
-    margin-top: 64px;
-  }
-
   #HomePage {
     .hero {
       height: 100vh;
@@ -318,10 +314,6 @@
 }
 
 @include mobile {
-  .navbar.home {
-    margin-top: 0;
-    padding-top: 50px;
-  }
   #HomePage {
     .hero-body {
       > .container {
@@ -350,6 +342,7 @@
 
     .image-placeholder {
       > div {
+        background-size: contain;
         width: 705px;
         height: 360px;
       }
@@ -372,8 +365,11 @@
       top: calc(50% - 24px);
       position: absolute;
 
+      &.prev {
+        left: 40px;
+      }
       &.next {
-        right: 0;
+        right: 40px;
       }
     }
   }
@@ -394,5 +390,9 @@
   #GetMatched,
   #TrustUs {
     background-image: none;
+
+    p {
+      padding: 0 15px;
+    }
   }
 }

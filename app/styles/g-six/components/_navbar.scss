@@ -15,6 +15,8 @@ nav.navbar {
   background-color: $navbar-background-color;
   font-size: 14px;
   line-height: 16px;
+  padding-top: 40px;
+  transition: 300ms ease-out background-color, border-color, box-shadow, color;
 
   @include until($tablet - 1) {
     padding-left: 1.5rem;
@@ -36,9 +38,6 @@ nav.navbar {
       }
     }
   }
-}
-nav.navbar {
-  transition: 300ms ease-out background-color, border-color, box-shadow, color;
 
   .navbar-brand {
     .navbar-item,
