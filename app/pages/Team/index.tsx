@@ -1,10 +1,14 @@
 import React, { lazy, Suspense } from 'react'
 import './styles.scss'
 
-const PageComponent = lazy(() => import('./page'))
+const BannerComponent = lazy(() => import('./page'))
+const MissionComponent = lazy(() => import('./mission'))
+const VisionComponent = lazy(() => import('./vision'))
 
 const renderLoader = () => <p>Loading...</p>
 
 export const OurTeam = () => (<Suspense fallback={renderLoader()}>
-  <PageComponent />
+  <BannerComponent />
+  <VisionComponent />
+  <MissionComponent />
 </Suspense>)

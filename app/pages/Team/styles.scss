@@ -1,8 +1,14 @@
-#OurTeam {
+#OurTeam #Banner {
   margin-top: 140px;
   .hero-body {
     background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/watermark-2.png);
     background-repeat: no-repeat;
     background-position: left bottom;
+    padding: 85px;
+
+    .banner {
+      font-size: 36px;
+      line-height: 118%;
+    }
   }
 }
