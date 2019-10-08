@@ -21,6 +21,10 @@
 
 
 #HomePage {
+  h2 {
+    margin-bottom: 20px;
+  }
+
   .hero-body {
     padding-left: 0;
     padding-right: 0;
@@ -112,11 +116,72 @@
   }
 }
 
+#GetMatched, #TrustUs {
+  .box {
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 10px 25px rgba(64, 96, 145, 0.1);
+    display: flex;
+    height: 192px;
+    justify-content: center;
+    margin: 10px;
+  }
+}
+
+
+#GetMatched {
+  padding-top: 130px;
+  padding-bottom: 130px;
+  
+  .positions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 45px;
+    margin-top: 45px;
+  }
+
+  .box {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 260px;
+    width: 280px;
+
+    h4 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    p {
+      width: 100%;
+    }
+
+    ul {
+      margin-bottom: 30px;
+      width: 100%;
+
+      li {
+        margin-bottom: 5px;
+        padding-left: 15px;
+      }
+      li:before {
+        content: "•";
+        color: $grey-lighter;
+        float: left;
+        font-size: 24px;
+        margin-left: -16px;
+        margin-top: -6px;
+      }
+    }
+  }
+}
+
 
 #GlobalFootprint {
-  h2 {
-    margin-bottom: 20px;
-  }
+  padding-bottom: 125px;
 
   figure {
     > .is-rounded {
@@ -161,6 +226,32 @@
     display: block;
     height: 1px;
     width: 100%;
+  }
+
+  .meet-our-team {
+    margin-top: 50px;
+  }
+}
+
+#TrustUs {
+  background-color: $wl-0;
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: calc(100% + 163px);
+  padding-bottom: 120px;
+  padding-top: 120px;
+  
+  .brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 48px;
+
+    .box {
+      text-align: center;
+      width: 218px;
+    }
   }
 }
 

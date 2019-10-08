@@ -12,4 +12,11 @@ i.icon {
   &.star {
     background: url(#{$icon-url}/star.svg);
   }
+
+  &.right-arrow {
+    background: url(#{$icon-url}/right-arrow.svg);
+    height: 11px;
+    margin-top: 4px;
+    width: 14px;
+  }
 }

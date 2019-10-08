@@ -2,7 +2,9 @@ import * as React from 'react'
 import GlobalFootprint from './global-footprint'
 import TalentSolutions from './talent-solutions'
 import TechhnologySolutions from './technology-solutions'
+import TrustUs from './trust-us'
 import './styles.scss'
+import GetMatched from './get-matched'
 
 export const HomePage: React.FunctionComponent = () => {
   return (
@@ -41,6 +43,10 @@ export const HomePage: React.FunctionComponent = () => {
       </section>
 
       <GlobalFootprint />
+
+      <TrustUs />
+
+      <GetMatched />
     </>
   )
 }

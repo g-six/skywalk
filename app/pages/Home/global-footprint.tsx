@@ -90,9 +90,11 @@ export default () => {
         </div>
       </div>
 
-      <button className="button is-large is-primary">
-        <span>Meet our Team</span>
-      </button>
+      <div className="has-text-centered meet-our-team">
+        <button className="button is-large is-primary">
+          <span>Meet our Team</span>
+        </button>
+      </div>
     </div>
 
   </section>
