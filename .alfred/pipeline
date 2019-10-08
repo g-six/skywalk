@@ -38,7 +38,7 @@ node {
       returnStdout: true
     ).trim()
     CONTAINER_NAME = sh (
-      script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo $GIT_REPO_NAME'-'$COMMIT_SHORT; fi",
+      script: "if [ $JOB_BASE_NAME = master ]; then echo $GIT_REPO_NAME'-master'; else echo $GIT_REPO_NAME'-uat-'$COMMIT_SHORT; fi",
       returnStdout: true
     ).trim()
     
