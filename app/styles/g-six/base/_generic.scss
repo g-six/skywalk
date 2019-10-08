@@ -3,3 +3,7 @@ $footer-height: 5.5rem;
 $text: $black-bis;
 
 $control-padding-vertical: 0.25rem;
+
+.has-border-grey-lighter {
+  border: 1px solid $grey-lighter;
+}

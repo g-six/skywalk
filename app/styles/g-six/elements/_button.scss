@@ -1,7 +1,12 @@
 .button {
   font-size: $size-6;
-  font-weight: 800;
   transition: all 0.6s ease-out !important;
+
+  &.is-large {
+    font-size: 18px;
+    min-height: 64px;
+    padding: 22px 42px;
+  }
 
   &.is-primary {
     background-color: $primary;
@@ -75,5 +80,21 @@
       width: 3rem;
       text-indent: -2px;
     }
+  }
+
+  &.prev, &.next {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 48px;
+    width: 20px;
+    text-indent: -999px;
+  }
+
+  &.prev {
+    background-image: url('//wl-cebu-assets.s3.amazonaws.com/icons/left-caret.svg');
+  }
+  &.next {
+    background-image: url('//wl-cebu-assets.s3.amazonaws.com/icons/right-caret.svg');
   }
 }

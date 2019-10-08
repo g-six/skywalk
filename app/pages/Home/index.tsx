@@ -1,4 +1,7 @@
 import * as React from 'react'
+import GlobalFootprint from './global-footprint'
+import TalentSolutions from './talent-solutions'
+import TechhnologySolutions from './technology-solutions'
 import './styles.scss'
 
 export const HomePage: React.FunctionComponent = () => {
@@ -29,6 +32,15 @@ export const HomePage: React.FunctionComponent = () => {
           </div>
         </div>
       </section>
+
+      <section id="Solutions" className="container">
+        <div className="columns is-multiline">
+          <TalentSolutions />
+          <TechhnologySolutions />
+        </div>
+      </section>
+
+      <GlobalFootprint />
     </>
   )
 }

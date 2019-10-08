@@ -18,6 +18,8 @@
     padding-top: 100px;
   }
 }
+
+
 #HomePage {
   .hero-body {
     padding-left: 0;
@@ -106,6 +108,81 @@
 
     100% {
       opacity: 1;
+    }
+  }
+}
+
+
+#GlobalFootprint {
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  figure {
+    > .is-rounded {
+      align-items: center;
+      border-radius: 50%;
+      display: flex;
+      height: 103px;
+      margin: 35px 20px 15px;
+      width: 103px;
+
+      > span {
+        font-size: 30px;
+        font-weight: 700;
+        margin: auto;
+      }
+    }
+
+    > em {
+      color: $primary;
+      font-style: normal;
+    }
+  }
+
+  .level.stats {
+    margin: auto auto 50px;
+    max-width: 980px;
+
+    .line {
+      min-width: 150px;
+    }
+  }
+
+  .level-item.nav {
+    justify-content: flex-start;
+
+    &.has-text-right {
+      justify-content: flex-end;
+    }
+  }
+
+  .line {
+    display: block;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+#Solutions {
+  .columns {
+    margin-left: -50px;
+    margin-right: -50px;
+  }
+}
+
+
+#TalentSolutions, #TechnologySolutions {
+  padding: 100px 50px;
+
+  h5 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 33px;
+
+    + p {
+      margin-bottom: 35px;
+      margin-top: 22px;
     }
   }
 }
