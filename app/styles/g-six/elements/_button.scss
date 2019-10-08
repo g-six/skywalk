@@ -83,18 +83,37 @@
   }
 
   &.prev, &.next {
-    background-repeat: no-repeat;
-    background-size: contain;
     display: inline-block;
-    height: 48px;
-    width: 20px;
+    height: 60px;
+    width: 60px;
     text-indent: -999px;
+
+    > span {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: block;
+      height: 48px;
+      margin: auto;
+      width: 20px;
+    }
   }
 
-  &.prev {
+  &.prev > span {
     background-image: url('//wl-cebu-assets.s3.amazonaws.com/icons/left-caret.svg');
   }
-  &.next {
+  &.next > span {
     background-image: url('//wl-cebu-assets.s3.amazonaws.com/icons/right-caret.svg');
+  }
+}
+
+@include mobile {
+  .button {
+    &.prev, &.next {
+      > span {
+        height: 24px;
+        width: 12px;
+      }
+    }
   }
 }

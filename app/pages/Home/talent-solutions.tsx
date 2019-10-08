@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 export default () => {
-  return <div id="TalentSolutions" className="column is-half-tablet">
+  return <div id="TalentSolutions">
     <h5 className="has-text-grey-dark">Talent Solutions</h5>
     <p className="has-text-grey-light">
       Helping you access talent around the world to

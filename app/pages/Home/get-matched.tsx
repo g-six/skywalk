@@ -17,7 +17,7 @@ export const GetMatched: React.FunctionComponent = () => (<section id="GetMatche
   <div className="container positions">
     <div className="box">
       <h4>Integration Architect</h4>
-      <p>
+      <div>
         <ul>
           <li>Hiring for LiquidPay</li>
           <li>Kiev, Ukraine</li>
@@ -26,54 +26,54 @@ export const GetMatched: React.FunctionComponent = () => (<section id="GetMatche
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
 
     <div className="box">
-      <h4>Integration Architect</h4>
-      <p>
+      <h4>Full-Stack Developer</h4>
+      <div>
         <ul>
-          <li>Hiring for LiquidPay</li>
-          <li>Kiev, Ukraine</li>
+          <li>Hiring for BCG</li>
+          <li>Jakarta, Indonesia</li>
         </ul>
 
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
 
     <div className="box">
-      <h4>Integration Architect</h4>
-      <p>
+      <h4>Project <br />Manager</h4>
+      <div>
         <ul>
-          <li>Hiring for LiquidPay</li>
-          <li>Kiev, Ukraine</li>
+          <li>Hiring for BCG</li>
+          <li>Jakarta, Indonesia</li>
         </ul>
 
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
 
     <div className="box">
-      <h4>Integration Architect</h4>
-      <p>
+      <h4>Senior <br />PHP</h4>
+      <div>
         <ul>
-          <li>Hiring for LiquidPay</li>
-          <li>Kiev, Ukraine</li>
+          <li>Hiring for Float.sg</li>
+          <li>All locations</li>
         </ul>
 
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
 
     <div className="box">
-      <h4>Integration Architect</h4>
-      <p>
+      <h4>.Net Software <br />Developer</h4>
+      <div>
         <ul>
           <li>Hiring for LiquidPay</li>
           <li>Kiev, Ukraine</li>
@@ -82,49 +82,49 @@ export const GetMatched: React.FunctionComponent = () => (<section id="GetMatche
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
 
     <div className="box">
-      <h4>Integration Architect</h4>
-      <p>
+      <h4>.Net Software <br />Developer</h4>
+      <div>
         <ul>
-          <li>Hiring for LiquidPay</li>
-          <li>Kiev, Ukraine</li>
+          <li>Hiring for Lyte Ventures</li>
+          <li>Jakarta, Indonesia</li>
         </ul>
 
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
 
     <div className="box">
-      <h4>Integration Architect</h4>
-      <p>
+      <h4>Business <br />Development Head</h4>
+      <div>
         <ul>
-          <li>Hiring for LiquidPay</li>
-          <li>Kiev, Ukraine</li>
+          <li>Hiring for BigBool</li>
+          <li>Jakarta, Indonesia</li>
         </ul>
 
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
 
     <div className="box">
-      <h4>Integration Architect</h4>
-      <p>
+      <h4>Cloud <br />Architect</h4>
+      <div>
         <ul>
-          <li>Hiring for LiquidPay</li>
-          <li>Kiev, Ukraine</li>
+          <li>Hiring for Li&amp;Fung</li>
+          <li>Vietnam</li>
         </ul>
 
         <Link to="/ukraine/1">
           <i className="icon right-arrow" /> <span>Find out more</span>
         </Link>
-      </p>
+      </div>
     </div>
   </div>
 

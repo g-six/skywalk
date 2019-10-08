@@ -20,7 +20,7 @@ export default () => {
         </p>
       </div>
 
-      <div className="level stats">
+      <div className="level is-mobile stats">
         <div className="level-item has-text-centered">
           <div>
             <figure>
@@ -76,15 +76,15 @@ export default () => {
 
       <div className="level">
         <div className="level-item nav has-text-right">
-          <button className="button is-white prev">
+          <button className="button is-circle is-white prev">
             <span>Previous</span>
           </button>
         </div>
-        <div className="level-item">
-          <img src="//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/bearded-guy-min.png" />
+        <div className="level-item image-placeholder">
+          <div className="image" style={{ backgroundImage: `url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/bearded-guy-min.png)` }} />
         </div>
         <div className="level-item nav">
-          <button className="button is-white next">
+          <button className="button is-circle is-white next">
             <span>Next</span>
           </button>
         </div>

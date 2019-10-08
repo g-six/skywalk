@@ -15,8 +15,29 @@ nav.navbar {
   background-color: $navbar-background-color;
   font-size: 14px;
   line-height: 16px;
+
+  @include until($tablet - 1) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    .navbar-brand .navbar-item {
+      padding: 0;
+    }
+
+    .navbar-burger {
+      padding: 0rem;
+      width: 36px;
+
+      span {
+        height: 3px;
+        left: 0;
+        width: 100%;
+        
+      }
+    }
+  }
 }
-.navbar {
+nav.navbar {
   transition: 300ms ease-out background-color, border-color, box-shadow, color;
 
   .navbar-brand {
@@ -79,11 +100,12 @@ nav.navbar {
     text-transform: uppercase;
     transition: background-color 0.3s ease-out;
 
-    &:hover {
+    &:focus,
+    &:hover,
+    &.is-active {
       background: none;
     }
     &:focus {
-      background-color: $white-bis;
       border: none;
       color: $primary-1;
       outline-color: rgba($white, 0.1);
@@ -144,45 +166,6 @@ nav.navbar {
         a.navbar-item:hover {
           color: $white;
           text-decoration: underline;
-        }
-      }
-    }
-
-    &.is-scrolledx {
-      background-color: rgba(0, 0, 0, 0.7);
-      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.02);
-      color: #fff;
-
-      a {
-        color: #fff;
-      }
-
-      .is-hoverable:hover {
-        .navbar-link {
-          background: none;
-        }
-      }
-
-      .navbar-link:not(.is-arrowless) {
-        padding-right: 1.7rem;
-
-        &::after {
-          border-top: 0.3rem solid #ffffff;
-        }
-      }
-
-      .navbar-item {
-        background: none;
-        color: #fff;
-
-        .navbar-link:hover {
-          background: none;
-        }
-
-        &.has-dropdown.is-active {
-          .navbar-link {
-            background: none;
-          }
         }
       }
     }

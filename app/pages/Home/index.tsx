@@ -9,7 +9,7 @@ import GetMatched from './get-matched'
 export const HomePage: React.FunctionComponent = () => {
   return (
     <>
-      <section className="hero is-dark is-fullheight" id="HomePage">
+      <section className="hero is-dark" id="HomePage">
         <div className="hero-body">
           <div className="container">
             <div className="text-content">
@@ -19,7 +19,7 @@ export const HomePage: React.FunctionComponent = () => {
                   job you love.
                 </h4>
                 <h1 className="title">
-                  We help you <br />
+                  We help you <br className="is-hidden-touch" />
                   <em>access</em> the world.
                 </h1>
                 <p>
@@ -36,7 +36,7 @@ export const HomePage: React.FunctionComponent = () => {
       </section>
 
       <section id="Solutions" className="container">
-        <div className="columns is-multiline">
+        <div>
           <TalentSolutions />
           <TechhnologySolutions />
         </div>
