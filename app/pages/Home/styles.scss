@@ -146,6 +146,19 @@
   background-position-y: -145px;
   padding-top: 130px;
   padding-bottom: 130px;
+  position: relative;
+
+  &:before {
+    background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 460px;
+    width: 300px;
+  }
   
   .positions {
     display: flex;
