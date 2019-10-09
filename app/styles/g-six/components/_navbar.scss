@@ -110,6 +110,12 @@ nav.navbar {
       color: $primary-1;
       outline-color: rgba($white, 0.1);
     }
+    &.call-keith {
+      &.is-active,
+      &:active {
+        font-weight: 300;
+      }
+    }
   }
 
   .navbar-link:not(.is-arrowless) {

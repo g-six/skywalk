@@ -11,6 +11,10 @@ interface BurgerProps {
   toggleMenu(): void
 }
 
+export const callKeith = () => {
+  alert('Please contact me on WhatsApp at +6582003305\nas I am continuously traveling!')
+}
+
 export const BurgerComponent = (props: BurgerProps) => (
   <a
     aria-expanded="false"
@@ -103,12 +107,31 @@ export const HeaderComponent: React.FunctionComponent = props => {
             </Link>
             <Link
               className={`navbar-item${
+                parent_path === 'talent-solutions' ? ' is-active' : ''
+                }`}
+              to="/talent-solutions"
+            >
+              {translate('Talent Solutions')}
+            </Link>
+            <Link
+              className={`navbar-item${
+                parent_path === 'technology-solutions' ? ' is-active' : ''
+                }`}
+              to="/technology-solutions"
+            >
+              {translate('Technology Solutions')}
+            </Link>
+            <Link
+              className={`navbar-item${
                 parent_path === 'our-team' ? ' is-active' : ''
                 }`}
               to="/our-team"
             >
-              {translate('Talent Solutions')}
+              {translate('Our Team')}
             </Link>
+            <a href="javascript: void(0)" className="navbar-item call-keith" onClick={callKeith}>
+              {translate('Call Keith')}
+            </a>
             {cookie.state['kasl-key'] ? (
               <>
                 <Link
