@@ -129,9 +129,9 @@ export const GetMatched: React.FunctionComponent = () => (<section id="GetMatche
   </div>
 
   <div className="has-text-centered apply-now">
-    <button className="button is-large is-primary">
+    <a className="button is-large is-primary" href="mailto:keith@wonderlabs.io">
       <span>Apply now</span>
-    </button>
+    </a>
   </div>
 </section>)
 
