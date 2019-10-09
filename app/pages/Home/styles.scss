@@ -284,7 +284,8 @@
     display: flex;
     margin: auto -30px;
     > div {
-      padding: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
       width: 50%;
 
       > p {
@@ -323,7 +324,7 @@
   }
 }
 
-@include mobile {
+@include until($tablet - 1) {
   #HomePage {
     .hero-body {
       > .container {
