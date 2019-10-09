@@ -1,0 +1,100 @@
+.talent-solutions {
+  #Banner {
+    margin-top: 140px;
+    .hero-body {
+      background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/watermark-2.png);
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      padding: 85px 0;
+
+      .banner {
+        font-size: 36px;
+        line-height: 118%;
+
+        p {
+          font-size: 16px;
+          line-height: 150%;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  figure {
+    margin: 50px 0;
+    width: 243px;
+    > img.is-rounded,
+    > .image-placeholder {
+      border-radius: 50%;
+      border: 1px solid #EBECEE;
+      padding: 12px;
+      margin-bottom: 20px;
+    }
+
+    dl {
+      dt {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 23px;
+      }
+      dd {
+        font-size: 13px;
+        line-height: 141.69%;
+      }
+    }
+  }
+
+  .offers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 45px;
+    margin-top: 45px;
+
+    .box {
+      align-items: center;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 10px 25px rgba(64, 96, 145, 0.1);
+      display: inline-block;
+      height: 253px;
+      justify-content: center;
+      margin: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 569px;
+  
+      h4 {
+        font-size: 22px;
+        line-height: 26px;
+        margin-bottom: 18px;
+      }
+  
+      > div {
+        width: 100%;
+      }
+  
+      p {
+        margin-bottom: 30px;
+        width: 100%;
+      }
+    }
+  }
+
+  .people, .values {
+    padding-bottom: 90px;
+    padding-top: 90px;
+    h3 {
+      font-size: 40px;
+      line-height: 47px;
+      margin-bottom: 30px;
+    }
+
+    .faces {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }  
+  }
+}
