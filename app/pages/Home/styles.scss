@@ -1,6 +1,7 @@
 @import '@styles';
 
 .navbar.home {
+  background-color: $black-bis;
   position: absolute;
   width: 100%;
 
@@ -37,7 +38,7 @@
   }
 
   .hero-body > .container {
-    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/people.svg);
+    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/people-min.png);
     background-repeat: no-repeat;
     background-position: bottom right;
 

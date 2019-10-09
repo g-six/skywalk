@@ -1,0 +1,47 @@
+#Values.our-team {
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  figure {
+    width: 290px;
+    > .image-placeholder {
+      height: 138px;
+      margin: 0 auto 20px;
+      width: 138px;
+
+      > img {
+        border: none;
+        height: calc(138px - 80px);
+        margin: calc(50% - 30px) auto;
+        padding: 0;
+        width: calc(138px - 80px);
+
+        &.chain {
+          height: 47px;
+          width: 47px;
+        }
+
+        &.globe {
+          height: 58px;
+          width: 58px;
+        }
+
+        &.puzzle {
+          height: 60px;
+          width: 60px;
+        }
+
+        &.speech-bubbles {
+          height: 60px;
+          width: 66px;
+        }
+
+        &.trophy {
+          height: 64px;
+          width: 54px;
+        }
+      }
+    }
+  }
+}

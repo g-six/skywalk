@@ -1,4 +1,4 @@
-$navbar-background-color: transparent;
+$navbar-background-color: white;
 $navbar-dropdown-border-top: none;
 $navbar-dropdown-background-color: $black;
 $navbar-dropdown-item-hover-background-color: #181818;
@@ -16,6 +16,7 @@ nav.navbar {
   font-size: 14px;
   line-height: 16px;
   padding-top: 35px;
+  padding-bottom: 35px;
   transition: 300ms ease-out background-color, border-color, box-shadow, color;
 
   @include until($tablet - 1) {
@@ -135,6 +136,9 @@ nav.navbar {
     &.news,
     &.start {
       background: rgba(0, 0, 0, 0.7);
+      .navbar-brand .navbar-item i {
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+      }
 
       .navbar-burger,
       .navbar-item,
@@ -158,8 +162,6 @@ nav.navbar {
   }
 
   @media screen and (min-width: 1088px) {
-    background-color: transparent;
-
     &.is-transparent {
       .navbar-dropdown {
         a.navbar-item:hover {

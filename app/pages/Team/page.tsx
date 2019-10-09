@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export const Banner: React.FunctionComponent = () => {
   return (
-    <section id="OurTeam">
+    <section className="our-team">
       <section id="Banner" className="hero is-primary">
         <div className="hero-body">
           <div className="container">

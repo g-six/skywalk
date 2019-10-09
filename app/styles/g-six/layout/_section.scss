@@ -5,3 +5,14 @@ $section-padding: 5rem $size-3;
 .hero.is-dark {
   background-color: $black-bis;
 }
+
+.hero-body {
+  blockquote {
+    &:after {
+      content: "”";
+      display: block;
+      color: $primary;
+      font-size: 64px;
+    }
+  }
+}

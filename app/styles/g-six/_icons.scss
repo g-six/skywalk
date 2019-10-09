@@ -11,6 +11,10 @@ $icon-url: '//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/icons';
 i.icon {
   &.star {
     background: url(#{$icon-url}/star.svg);
+
+    &.primary {
+      background: url(#{$icon-url}/star-primary.svg);
+    }
   }
 
   &.right-arrow {
