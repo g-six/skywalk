@@ -9,7 +9,7 @@ $section-padding: 5rem $size-3;
 .hero-body {
   blockquote {
     &:after {
-      content: "”";
+      content: '”';
       display: block;
       color: $primary;
       font-size: 64px;

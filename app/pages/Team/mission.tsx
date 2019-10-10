@@ -11,7 +11,8 @@ export const Mission: React.FunctionComponent = () => {
               <div className="column is-8 has-text-centered has-text-white">
                 <h3>Our Mission</h3>
                 <blockquote>
-                  To make doing global business<br />
+                  To make doing global business
+                  <br />
                   incredibly easy
                 </blockquote>
               </div>

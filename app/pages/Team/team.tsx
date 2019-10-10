@@ -68,7 +68,9 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Shriwanthi Amarasinghe</dt>
-              <dd className="has-text-grey-light">Country Director Sri Lanka</dd>
+              <dd className="has-text-grey-light">
+                Country Director Sri Lanka
+              </dd>
             </dl>
           </figure>
 
@@ -79,7 +81,9 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Luke Robert</dt>
-              <dd className="has-text-grey-light">Country Director Philippines</dd>
+              <dd className="has-text-grey-light">
+                Country Director Philippines
+              </dd>
             </dl>
           </figure>
 
@@ -112,7 +116,9 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Krystel Caballo</dt>
-              <dd className="has-text-grey-light">Marketing &amp; Communications</dd>
+              <dd className="has-text-grey-light">
+                Marketing &amp; Communications
+              </dd>
             </dl>
           </figure>
         </div>

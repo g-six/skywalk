@@ -10,11 +10,13 @@ const VisionComponent = lazy(() => import(/* team-vision */ './vision'))
 
 const renderLoader = () => <p>Loading...</p>
 
-export const OurTeam = () => (<Suspense fallback={renderLoader()}>
-  <BannerComponent />
-  <TeamComponent />
-  <VisionComponent />
-  <BoardComponent />
-  <MissionComponent />
-  <ValuesComponent />
-</Suspense>)
+export const OurTeam = () => (
+  <Suspense fallback={renderLoader()}>
+    <BannerComponent />
+    <TeamComponent />
+    <VisionComponent />
+    <BoardComponent />
+    <MissionComponent />
+    <ValuesComponent />
+  </Suspense>
+)

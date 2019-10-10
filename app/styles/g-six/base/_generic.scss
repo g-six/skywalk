@@ -7,3 +7,7 @@ $control-padding-vertical: 0.25rem;
 .has-border-grey-lighter {
   border: 1px solid $grey-lighter;
 }
+
+img.is-rounded {
+  border-radius: 8px;
+}

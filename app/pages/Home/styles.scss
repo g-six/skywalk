@@ -31,7 +31,6 @@
   }
 }
 
-
 #HomePage {
   h2 {
     margin-bottom: 20px;
@@ -124,7 +123,8 @@
   }
 }
 
-#GetMatched, #TrustUs {
+#GetMatched,
+#TrustUs {
   .box {
     align-items: center;
     background-color: #fff;
@@ -137,7 +137,6 @@
     margin: 10px;
   }
 }
-
 
 #GetMatched {
   background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
@@ -152,14 +151,14 @@
     background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
     background-repeat: no-repeat;
     background-position-x: left;
-    content: " ";
+    content: ' ';
     position: absolute;
     bottom: 0;
     left: 0;
     height: 460px;
     width: 300px;
   }
-  
+
   .positions {
     display: flex;
     flex-wrap: wrap;
@@ -194,7 +193,7 @@
         padding-left: 15px;
       }
       li:before {
-        content: "•";
+        content: '•';
         color: $grey-lighter;
         float: left;
         font-size: 24px;
@@ -204,7 +203,6 @@
     }
   }
 }
-
 
 #GlobalFootprint {
   padding-bottom: 125px;
@@ -278,7 +276,7 @@
   background-position-y: calc(100% + 163px);
   padding-bottom: 120px;
   padding-top: 120px;
-  
+
   .brands {
     display: flex;
     flex-wrap: wrap;
@@ -302,14 +300,14 @@
       width: 50%;
 
       > p {
-        flex: 1
+        flex: 1;
       }
     }
   }
 }
 
-
-#TalentSolutions, #TechnologySolutions {
+#TalentSolutions,
+#TechnologySolutions {
   padding: 100px 50px;
 
   h5 {
@@ -351,7 +349,6 @@
     }
   }
 
-
   #GetMatched {
     padding-left: 30px;
     padding-right: 30px;
@@ -359,7 +356,6 @@
       width: calc(50% - 20px);
     }
   }
-
 
   #GlobalFootprint {
     padding: 40px 0;
@@ -397,7 +393,6 @@
       }
     }
   }
-
 
   #Solutions {
     padding: 40px 0;

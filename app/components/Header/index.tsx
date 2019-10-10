@@ -12,7 +12,9 @@ interface BurgerProps {
 }
 
 export const callKeith = () => {
-  alert('Please contact me on WhatsApp at +6582003305\nas I am continuously traveling!')
+  alert(
+    'Please contact me on WhatsApp at +6582003305\nas I am continuously traveling!',
+  )
 }
 
 export const BurgerComponent = (props: BurgerProps) => (
@@ -108,7 +110,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
             <Link
               className={`navbar-item${
                 parent_path === 'talent-solutions' ? ' is-active' : ''
-                }`}
+              }`}
               to="/talent-solutions"
             >
               {translate('Talent Solutions')}
@@ -116,7 +118,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
             <Link
               className={`navbar-item${
                 parent_path === 'technology-solutions' ? ' is-active' : ''
-                }`}
+              }`}
               to="/technology-solutions"
             >
               {translate('Technology Solutions')}
@@ -124,12 +126,16 @@ export const HeaderComponent: React.FunctionComponent = props => {
             <Link
               className={`navbar-item${
                 parent_path === 'our-team' ? ' is-active' : ''
-                }`}
+              }`}
               to="/our-team"
             >
               {translate('Our Team')}
             </Link>
-            <a href="javascript: void(0)" className="navbar-item call-keith" onClick={callKeith}>
+            <a
+              href="javascript: void(0)"
+              className="navbar-item call-keith"
+              onClick={callKeith}
+            >
               {translate('Call Keith')}
             </a>
             {cookie.state['kasl-key'] ? (
@@ -143,8 +149,8 @@ export const HeaderComponent: React.FunctionComponent = props => {
                 </Link>
               </>
             ) : (
-                ''
-              )}
+              ''
+            )}
           </div>
         </div>
       </div>

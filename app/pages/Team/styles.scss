@@ -20,7 +20,7 @@
     > img.is-rounded,
     > .image-placeholder {
       border-radius: 50%;
-      border: 1px solid #EBECEE;
+      border: 1px solid #ebecee;
       padding: 12px;
       margin-bottom: 20px;
     }
@@ -38,7 +38,8 @@
     }
   }
 
-  .people, .values {
+  .people,
+  .values {
     padding-bottom: 90px;
     padding-top: 90px;
     h3 {
@@ -51,6 +52,6 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-    }  
+    }
   }
 }

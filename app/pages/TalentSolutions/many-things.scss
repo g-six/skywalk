@@ -1,0 +1,70 @@
+#ManyThings.talent-solutions {
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  padding-top: 60px;
+
+  h3 + p {
+    margin: 20px auto 40px;
+    max-width: 740px;
+  }
+
+  .level.things {
+    margin: auto;
+    max-width: 1200px;
+
+    .level-item {
+      height: 154px;
+      width: 154px;
+      max-width: 106px;
+      max-height: 154px;
+      padding: 20px;
+      position: relative;
+
+      &.is-circle {
+        max-width: 154px;
+        padding: 30px;
+      }
+
+      .thing-checked {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        position: absolute;
+        height: 44px;
+        width: 44px;
+        right: -3px;
+        top: -5px;
+      }
+    }
+
+    .line {
+      display: block;
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  .tailor-legal {
+    margin: 88px auto;
+    max-width: 1200px;
+
+    .fig-paragraph {
+      display: flex;
+      margin: 70px auto 30px;
+    }
+
+    .idearobin-icon {
+      display: flex;
+      flex-flow: column;
+      height: 84px;
+      justify-content: center;
+      min-width: 84px;
+      text-align: center;
+
+      + div {
+        padding-left: 20px;
+      }
+    }
+  }
+}

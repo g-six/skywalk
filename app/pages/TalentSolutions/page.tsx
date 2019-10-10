@@ -8,10 +8,13 @@ export const Banner: React.FunctionComponent = () => {
           <div className="container">
             <div className="columns is-mobile is-centered">
               <div className="column is-two-thirds-tablet is-four-fifths-mobile has-text-centered has-text-white banner responsive-text">
-                <span className="has-text-wl-1">We're making </span> the world <strong className="has-text-white">easily accessible.</strong>
+                <span className="has-text-wl-1">We&rsquo;re making </span> the
+                world{' '}
+                <strong className="has-text-white">easily accessible.</strong>
                 <p>
-                  Businesses today need to go Global from Day 1. We help you navigate the uncertainty and often
-                  complex and confusing labor laws and tax regimes across different emerging markets.
+                  Businesses today need to go Global from Day 1. We help you
+                  navigate the uncertainty and often complex and confusing labor
+                  laws and tax regimes across different emerging markets.
                 </p>
               </div>
             </div>

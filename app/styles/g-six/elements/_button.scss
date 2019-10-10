@@ -82,7 +82,8 @@
     }
   }
 
-  &.prev, &.next {
+  &.prev,
+  &.next {
     display: inline-block;
     height: 60px;
     width: 60px;
@@ -109,7 +110,8 @@
 
 @include mobile {
   .button {
-    &.prev, &.next {
+    &.prev,
+    &.next {
       > span {
         height: 24px;
         width: 12px;
