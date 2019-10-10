@@ -13,7 +13,7 @@ const GlobalFootprint: React.FunctionComponent = () => {
           </p>
         </div>
 
-        <div className="level is-mobile stats">
+        <div className="level stats">
           <div className="level-item has-text-centered">
             <div>
               <figure>
