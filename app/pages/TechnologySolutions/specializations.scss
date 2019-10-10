@@ -1,0 +1,35 @@
+#Specializations.tech-solutions {
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  padding-bottom: 100px;
+  padding-top: 80px;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .boxes {
+    margin: auto;
+    max-width: 1200px;
+
+    .fig-paragraph {
+      align-items: center;
+      display: flex;
+      margin: 30px auto;
+    }
+
+    .idearobin-icon {
+      display: flex;
+      flex-flow: column;
+      height: 84px;
+      justify-content: center;
+      min-width: 84px;
+      text-align: center;
+
+      + div {
+        padding-left: 20px;
+      }
+    }
+  }
+}
