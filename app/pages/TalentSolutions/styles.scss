@@ -1,22 +1,9 @@
 .talent-solutions {
   #Banner {
-    margin-top: 140px;
     .hero-body {
       background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/watermark-2.png);
       background-repeat: no-repeat;
       background-position: left bottom;
-      padding: 85px 0;
-
-      .banner {
-        font-size: 36px;
-        line-height: 118%;
-
-        p {
-          font-size: 16px;
-          line-height: 150%;
-          margin-top: 10px;
-        }
-      }
     }
   }
 
@@ -44,18 +31,9 @@
     }
   }
 
-  .hop-on-call {
-    padding: 66px;
-
-    p {
-      font-size: 28px;
-      line-height: 33px;
-      margin-bottom: 30px;
-    }
-  }
-
   .offers {
     margin: 45px auto;
+    max-width: 1160px;
 
     .box {
       align-self: flex-start;
@@ -63,15 +41,6 @@
       border: none;
       border-radius: 5px;
       box-shadow: 0px 10px 25px rgba(64, 96, 145, 0.1);
-      margin: 10px;
-      padding: 50px 48px;
-      width: 569px;
-
-      h4 {
-        font-size: 22px;
-        line-height: 26px;
-        margin-bottom: 18px;
-      }
 
       > div {
         width: 100%;
@@ -106,7 +75,6 @@
         margin-bottom: 20px;
         padding-right: 25px;
         padding-left: 35px;
-        width: 50%;
 
         i.checkmark {
           float: left;

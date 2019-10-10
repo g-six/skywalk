@@ -15,8 +15,8 @@ nav.navbar {
   background-color: $navbar-background-color;
   font-size: 14px;
   line-height: 16px;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   transition: 300ms ease-out background-color, border-color, box-shadow, color;
 
   @include until($tablet - 1) {

@@ -6,3 +6,23 @@ $box-shadow: 0 2px $size-6 rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
 
 $box-link-hover-shadow: 0 2px 3px rgba($white-bis, 0.1), 0 0 0 1px $link !default;
 $box-link-active-shadow: inset 0 1px 2px rgba($white-bis, 0.2), 0 0 0 1px $link !default;
+
+.container .column .box {
+  @include from($tablet) {
+    padding: 50px 48px;
+
+    h4 {
+      font-size: 22px;
+      line-height: 26px;
+      margin-bottom: 18px;
+    }
+  }
+
+  @include until($tablet - 1) {
+    h4 {
+      font-size: 20px;
+      line-height: 22px;
+      margin-bottom: 12px;
+    }
+  }
+}

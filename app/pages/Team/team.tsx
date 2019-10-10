@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export const Board: React.FunctionComponent = () => {
   return (
-    <section className="our-team">
+    <section className="our-team section">
       <div id="Team" className="container people has-text-centered">
         <h3>Our Team</h3>
         <div className="faces">

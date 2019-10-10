@@ -16,3 +16,20 @@ $section-padding: 5rem $size-3;
     }
   }
 }
+
+section.section {
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+section.has-background-primary {
+  margin-bottom: 0;
+}
+
+@include from($tablet) {
+  ul.split-list {
+    li {
+      width: 50%;
+    }
+  }
+}

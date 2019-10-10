@@ -4,8 +4,12 @@
   background-position: center bottom;
 
   .hero-body {
-    padding: 85px;
+    padding: 58px 20px;
     position: relative;
+
+    @media screen and (min-width: 768px) {
+      padding: 85px;
+    }
 
     h3:before {
       content: ' ';

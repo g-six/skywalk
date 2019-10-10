@@ -9,7 +9,10 @@ import PersonAvatar from './person-avatar'
 
 export const Specializations: React.FunctionComponent = () => {
   return (
-    <section id="Specializations" className="tech-solutions our-specializations">
+    <section
+      id="Specializations"
+      className="tech-solutions our-specializations"
+    >
       <div className="container specializations has-text-centered">
         <h2>Our Specializations</h2>
       </div>
@@ -22,7 +25,8 @@ export const Specializations: React.FunctionComponent = () => {
             </div>
             <div>
               <p className="has-text-grey-light">
-                Civic Engagement <br />Solutions
+                Civic Engagement <br />
+                Solutions
               </p>
             </div>
           </div>
@@ -33,7 +37,8 @@ export const Specializations: React.FunctionComponent = () => {
             </div>
             <div>
               <p className="has-text-grey-light">
-                Fleet Management <br />Solutions
+                Fleet Management <br />
+                Solutions
               </p>
             </div>
           </div>
@@ -44,7 +49,8 @@ export const Specializations: React.FunctionComponent = () => {
             </div>
             <div>
               <p className="has-text-grey-light">
-                Enterprise Management <br />Solutions
+                Enterprise Management <br />
+                Solutions
               </p>
             </div>
           </div>
@@ -54,9 +60,7 @@ export const Specializations: React.FunctionComponent = () => {
               <Gaming />
             </div>
             <div>
-              <p className="has-text-grey-light">
-                Gaming Applications
-              </p>
+              <p className="has-text-grey-light">Gaming Applications</p>
             </div>
           </div>
 
@@ -66,7 +70,8 @@ export const Specializations: React.FunctionComponent = () => {
             </div>
             <div>
               <p className="has-text-grey-light">
-                Education Management <br />Solutions
+                Education Management <br />
+                Solutions
               </p>
             </div>
           </div>
@@ -77,7 +82,8 @@ export const Specializations: React.FunctionComponent = () => {
             </div>
             <div>
               <p className="has-text-grey-light">
-                Non-Profit Management <br />Solutions
+                Non-Profit Management <br />
+                Solutions
               </p>
             </div>
           </div>

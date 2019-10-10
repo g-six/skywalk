@@ -1,3 +1,18 @@
+a {
+  > i.icon {
+    display: inline-block;
+    width: 20px;
+    vertical-align: text-bottom;
+
+    + span {
+      display: inline-block;
+      padding-top: 1px;
+      width: calc(100% - 20px);
+      vertical-align: text-top;
+    }
+  }
+}
+
 blockquote {
   color: $grey;
 
@@ -67,10 +82,26 @@ h6 {
   color: $wl-1 !important;
 }
 
+@include from($tablet) {
+  #Banner .hero-body {
+    padding: 85px 0;
+  }
+}
 @include until($tablet - 1) {
+  h3 {
+    font-size: 36px;
+  }
+  #Banner .hero-body {
+    padding: 48px 0;
+  }
+
   .banner {
     &.responsive-text {
       font-size: 28px !important;
+
+      p {
+        padding: 25px;
+      }
     }
   }
 }

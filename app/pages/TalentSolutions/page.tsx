@@ -7,7 +7,7 @@ export const Banner: React.FunctionComponent = () => {
         <div className="hero-body">
           <div className="container">
             <div className="columns is-mobile is-centered">
-              <div className="column is-two-thirds-tablet is-four-fifths-mobile has-text-centered has-text-white banner responsive-text">
+              <div className="column is-two-thirds-tablet has-text-centered has-text-white banner responsive-text">
                 <span className="has-text-wl-1">We&rsquo;re making </span> the
                 world{' '}
                 <strong className="has-text-white">easily accessible.</strong>

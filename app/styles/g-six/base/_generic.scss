@@ -4,10 +4,55 @@ $text: $black-bis;
 
 $control-padding-vertical: 0.25rem;
 
+@mixin gap-from-top {
+  margin-top: 102px;
+}
+
+#Banner {
+  @include gap-from-top;
+  .hero-body {
+    .banner {
+      font-size: 36px;
+      line-height: 118%;
+
+      p {
+        font-size: 16px;
+        line-height: 150%;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .hero-body {
+      .responsive-text {
+        padding: 0 30px;
+      }
+    }
+  }
+}
+
 .has-border-grey-lighter {
   border: 1px solid $grey-lighter;
 }
 
 img.is-rounded {
   border-radius: 8px;
+}
+
+.hop-on-call {
+  padding: 66px;
+
+  @media screen and (max-width: 767px) {
+    padding: 66px 20px;
+    a {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 30px;
+  }
 }

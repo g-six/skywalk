@@ -5,6 +5,7 @@
 
   .hero-body {
     padding: 85px 85px 110px;
+
     blockquote {
       color: #fff;
       font-size: 24px;
@@ -17,10 +18,18 @@
         width: 100%;
       }
     }
-  }
 
-  .banner {
-    font-size: 36px;
-    line-height: 118%;
+    @media screen and (max-width: 767px) {
+      padding: 85px 20px 110px;
+      h3 {
+        font-size: 30px;
+        line-height: 35px;
+      }
+
+      blockquote {
+        font-size: 20px;
+        line-height: 23px;
+      }
+    }
   }
 }

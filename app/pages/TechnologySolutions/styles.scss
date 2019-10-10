@@ -1,22 +1,9 @@
 .tech-solutions {
   #Banner {
-    margin-top: 140px;
     .hero-body {
       background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/watermark-2.png);
       background-repeat: no-repeat;
       background-position: left bottom;
-      padding: 85px 0;
-
-      .banner {
-        font-size: 36px;
-        line-height: 118%;
-
-        p {
-          font-size: 16px;
-          line-height: 150%;
-          margin-top: 10px;
-        }
-      }
     }
   }
 
@@ -41,16 +28,6 @@
         font-size: 13px;
         line-height: 141.69%;
       }
-    }
-  }
-
-  .hop-on-call {
-    padding: 66px;
-
-    p {
-      font-size: 28px;
-      line-height: 33px;
-      margin-bottom: 30px;
     }
   }
 }
