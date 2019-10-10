@@ -3,7 +3,7 @@ import './values.scss'
 
 export const Values: React.FunctionComponent = () => {
   return (
-    <section id="Values" className="our-team">
+    <section id="Values" className="our-team section">
       <div className="container values has-text-centered">
         <h3>Our Values</h3>
         <div className="faces">
