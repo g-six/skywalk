@@ -10,3 +10,15 @@ $link-active-border: $wl-7;
 
 $primary: $wl-5;
 $primary-1: $wl-7;
+
+.has-background-primary {
+  color: #fff;
+}
+
+.has-border-white-ter {
+  border: 1px solid $white-ter;
+}
+
+.is-circle {
+  border-radius: 50% !important;
+}

@@ -53,17 +53,4 @@
       margin-top: 0.8rem;
     }
   }
-
-  > .root-child-itemx {
-    margin-top: $navbar-height;
-    min-height: calc(100% + #{$navbar-height} + #{$footer-height});
-
-    > .is-vcentered {
-      align-self: center;
-    }
-
-    > .section {
-      width: 100%;
-    }
-  }
 }

@@ -1,3 +1,18 @@
+a {
+  > i.icon {
+    display: inline-block;
+    width: 20px;
+    vertical-align: text-bottom;
+
+    + span {
+      display: inline-block;
+      padding-top: 1px;
+      width: calc(100% - 20px);
+      vertical-align: text-top;
+    }
+  }
+}
+
 blockquote {
   color: $grey;
 
@@ -15,6 +30,10 @@ blockquote {
       font-size: 0.8rem;
     }
   }
+}
+
+body {
+  color: $black;
 }
 
 h1 {
@@ -57,4 +76,32 @@ h6 {
   font-weight: normal;
   font-size: 13px;
   line-height: 141.69%;
+}
+
+.has-text-wl-1 {
+  color: $wl-1 !important;
+}
+
+@include from($tablet) {
+  #Banner .hero-body {
+    padding: 85px 0;
+  }
+}
+@include until($tablet - 1) {
+  h3 {
+    font-size: 36px;
+  }
+  #Banner .hero-body {
+    padding: 48px 0;
+  }
+
+  .banner {
+    &.responsive-text {
+      font-size: 28px !important;
+
+      p {
+        padding: 25px;
+      }
+    }
+  }
 }

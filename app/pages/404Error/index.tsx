@@ -8,7 +8,11 @@ interface Props {
 
 export const Page404Error = (props: Props) => {
   return (
-    <section className="hero is-fullheight-with-navbar">
+    <section
+      className={`hero is-fullheight-with-navbar${
+        props.in_progress ? ' is-loading' : ''
+      }`}
+    >
       <div className="hero-body">
         <div className="container">
           <h1 className="title is-1">404 Error</h1>

@@ -1,0 +1,129 @@
+.talent-solutions {
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  h3 + p {
+    margin: 20px auto 40px;
+    max-width: 740px;
+  }
+
+  .level.things {
+    margin: auto;
+    max-width: 1200px;
+    padding: 0 15px;
+
+    @media screen and (min-width: 768px) {
+      .level-item {
+        height: 154px;
+        padding: 20px;
+        position: relative;
+
+        &.is-circle {
+          max-width: 154px;
+          padding: 30px;
+        }
+
+        .thing-checked {
+          display: flex;
+          flex-flow: column;
+          justify-content: space-around;
+          position: absolute;
+          height: 44px;
+          width: 44px;
+          right: -3px;
+          top: -5px;
+        }
+      }
+    }
+
+    .line {
+      display: block;
+      height: 1px;
+      width: 100%;
+
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
+  .tailor-legal {
+    margin: 20px 5px;
+    max-width: 1200px;
+
+    @media screen and (min-width: 768px) {
+      margin: 88px auto;
+    }
+
+    .fig-paragraph {
+      display: flex;
+      margin: 70px auto 30px;
+
+      .idearobin-icon {
+        display: flex;
+        flex-flow: column;
+        height: 84px;
+        justify-content: center;
+        min-width: 84px;
+        text-align: center;
+
+        + div {
+          padding-left: 20px;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+
+        .idearobin-icon {
+          margin: auto auto 20px;
+          width: 84px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .offers {
+      margin-top: 68px;
+    }
+
+    .things {
+      .level-item.is-circle {
+        border: none;
+        max-width: none;
+        text-align: left;
+        width: 100%;
+
+        .thing-checked {
+          position: static;
+          height: 24px;
+          width: 24px;
+          .checkmark {
+            svg {
+              transform: scale(0.78);
+              margin-left: 4px;
+              margin-top: 4px;
+            }
+          }
+        }
+
+        > span {
+          padding-left: 10px;
+          width: calc(100% - 31px);
+        }
+      }
+    }
+
+    .many-things {
+      padding: 36px;
+      .things {
+        padding: 0
+      }
+    }
+
+  }
+}

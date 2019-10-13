@@ -4,7 +4,6 @@ $control-padding-vertical: calc(
   $control-padding-horizontal - #{$control-border-width}
 );
 $control-border-width: 1px;
-$control-radius: 8px;
 $label-color: $grey-light;
 
 .field {

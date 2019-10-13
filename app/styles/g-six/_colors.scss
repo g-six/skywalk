@@ -2,10 +2,11 @@ $black: #0a0a0a;
 $black-bis: #0d131d;
 $black-ter: #121212;
 $grey-darker: #202429;
-$grey-dark: #34383b;
+$grey-dark: #303948;
 $grey: #64696e;
 $grey-light: #989ca4;
 $grey-lighter: #dbdee0;
+$white-ter: #ebecee;
 
 $cool-0: #f2fafb;
 $cool-1: #e0f7fa;
@@ -38,7 +39,7 @@ $pink-7: #e8035f;
 $pink-8: #b30237;
 $pink-9: #9b0031;
 
-$wl-0: #95c9fc;
+$wl-0: #f9fafd;
 $wl-1: #95c9fc;
 $wl-2: #95c9fc;
 $wl-3: #2c91ff;
@@ -50,4 +51,4 @@ $wl-8: #2c91ff;
 $wl-9: #2c91ff;
 
 $wl-inv-3: #989ca4;
-$wl-inv-5: #303948;
+$wl-inv-5: $grey-dark;

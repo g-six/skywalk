@@ -1,0 +1,35 @@
+.our-team #Vision {
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/watermark-our-vision.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+
+  .hero-body {
+    padding: 58px 20px;
+    position: relative;
+
+    @media screen and (min-width: 768px) {
+      padding: 85px;
+    }
+
+    h3:before {
+      content: ' ';
+      background-image: url(//wl-cebu-assets.s3.amazonaws.com/icons/ribbon.svg);
+      background-repeat: no-repeat;
+      background-position: center top;
+      display: block;
+      height: 17px;
+      margin: -17px auto 17px;
+      width: 15px;
+    }
+
+    h3 + h5 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  .banner {
+    font-size: 36px;
+    line-height: 118%;
+  }
+}

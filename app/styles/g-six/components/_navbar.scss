@@ -1,4 +1,4 @@
-$navbar-background-color: transparent;
+$navbar-background-color: white;
 $navbar-dropdown-border-top: none;
 $navbar-dropdown-background-color: $black;
 $navbar-dropdown-item-hover-background-color: #181818;
@@ -15,23 +15,43 @@ nav.navbar {
   background-color: $navbar-background-color;
   font-size: 14px;
   line-height: 16px;
-}
-.navbar {
+  padding-top: 25px;
+  padding-bottom: 25px;
   transition: 300ms ease-out background-color, border-color, box-shadow, color;
+
+  @include until($tablet - 1) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    .navbar-brand .navbar-item {
+      padding: 0;
+    }
+
+    .navbar-burger {
+      padding: 0rem;
+      width: 36px;
+
+      span {
+        height: 3px;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
 
   .navbar-brand {
     .navbar-item,
     .navbar-item:hover {
       background-color: transparent;
       text-indent: -9999px;
-      color: $white;
+      color: $black;
       font-weight: 700;
       font-size: $size-7;
       letter-spacing: 0;
       text-transform: uppercase;
 
       > i {
-        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-black-text.svg);
         background-repeat: no-repeat;
         height: 48.62px;
         width: 180px;
@@ -54,7 +74,7 @@ nav.navbar {
 
       .navbar-item,
       .navbar-link {
-        color: #ffffff;
+        color: $black;
 
         &:hover {
           background: none;
@@ -74,19 +94,26 @@ nav.navbar {
   }
 
   .navbar-item {
-    color: $white;
+    color: $black;
     font-weight: 700;
     text-transform: uppercase;
     transition: background-color 0.3s ease-out;
 
-    &:hover {
+    &:focus,
+    &:hover,
+    &.is-active {
       background: none;
     }
     &:focus {
-      background-color: $white-bis;
       border: none;
       color: $primary-1;
       outline-color: rgba($white, 0.1);
+    }
+    &.call-keith {
+      &.is-active,
+      &:active {
+        font-weight: 300;
+      }
     }
   }
 
@@ -114,6 +141,9 @@ nav.navbar {
     &.news,
     &.start {
       background: rgba(0, 0, 0, 0.7);
+      .navbar-brand .navbar-item i {
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+      }
 
       .navbar-burger,
       .navbar-item,
@@ -137,52 +167,11 @@ nav.navbar {
   }
 
   @media screen and (min-width: 1088px) {
-    background-color: transparent;
-
     &.is-transparent {
       .navbar-dropdown {
         a.navbar-item:hover {
           color: $white;
           text-decoration: underline;
-        }
-      }
-    }
-
-    &.is-scrolledx {
-      background-color: rgba(0, 0, 0, 0.7);
-      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.02);
-      color: #fff;
-
-      a {
-        color: #fff;
-      }
-
-      .is-hoverable:hover {
-        .navbar-link {
-          background: none;
-        }
-      }
-
-      .navbar-link:not(.is-arrowless) {
-        padding-right: 1.7rem;
-
-        &::after {
-          border-top: 0.3rem solid #ffffff;
-        }
-      }
-
-      .navbar-item {
-        background: none;
-        color: #fff;
-
-        .navbar-link:hover {
-          background: none;
-        }
-
-        &.has-dropdown.is-active {
-          .navbar-link {
-            background: none;
-          }
         }
       }
     }

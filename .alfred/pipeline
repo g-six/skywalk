@@ -25,10 +25,6 @@ node {
       script: "git log --pretty=oneline --abbrev-commit --format=%an -n 1 | tr -d '\r\n'",
       returnStdout: true
     ).trim()
-    GIT_MESSAGE = sh (
-      script: "git log --pretty=oneline --abbrev-commit -n 1 | tr -d '\r\n()'",
-      returnStdout: true
-    ).trim()
     GIT_REPO_NAME = sh (
       script: "basename `git config --get remote.origin.url` | sed 's/.git//'",
       returnStdout: true
@@ -42,21 +38,22 @@ node {
       returnStdout: true
     ).trim()
     CONTAINER_NAME = sh (
-      script: "if [ $JOB_BASE_NAME = master ]; then echo 'master'; else echo $GIT_REPO_NAME'-'$GIT_AUTHOR; fi",
+      script: "if [ $JOB_BASE_NAME = master ]; then echo $GIT_REPO_NAME'-master'; else echo $GIT_REPO_NAME'-uat-'$COMMIT_SHORT; fi",
       returnStdout: true
     ).trim()
     
-    SKYWALK_API = sh (
-      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-api' --query Parameter.Value | sed 's/\"//g'",
-      returnStdout: true
-    ).trim()
     S3_BUCKET = sh (
       script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-bucket' --query Parameter.Value | sed 's/\"//g'",
       returnStdout: true
     ).trim()
+    
+    CLOUDFRONT_DIST = sh (
+      script: "aws ssm get-parameter --name $GIT_REPO_NAME'-'$TARGET_BASE'-cdn' --query Parameter.Value --output text",
+      returnStdout: true
+    ).trim()
 
     sh """
-      echo 'SKYWALK_API_HOST='$SKYWALK_API'/'$STAGE > .env
+      echo 'SKYWALK_API_HOST=/'$STAGE > .env
       echo 'S3_BUCKET='$S3_BUCKET >> .env
       echo 'STAGE='$STAGE >> .env
       echo 'GIT_SHA='$COMMIT_SHORT >> .env
@@ -65,14 +62,15 @@ node {
       echo $COMMIT_SHORT > .alfred/git-commit-short.txt
       echo $S3_BUCKET > .alfred/s3-bucket.txt
       echo $GIT_AUTHOR > .alfred/git-author.txt
-      echo $GIT_MESSAGE > .alfred/git-message.txt
       echo $CONTAINER_NAME > .alfred/container-name.txt
+      echo $CLOUDFRONT_DIST > .alfred/cdn.txt
     """
 
     try {
       sh '$(sh .alfred/checkout.sh)'
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Checkout')
+      sh '$(sh .alfred/failed.sh "Checkout") > docker.log'
       throw e
     }
   }
@@ -82,6 +80,7 @@ node {
       sh '$(sh .alfred/testing.sh) &> /dev/null &'
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Running tests')
+      sh '$(sh .alfred/failed.sh "Running tests") > docker.log'
       throw e
     }
   }
@@ -94,6 +93,7 @@ node {
       )
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Deploy to S3')
+      sh '$(sh .alfred/failed.sh "Deploy to S3") > docker.log'
       throw e
     }
   }
@@ -101,11 +101,25 @@ node {
     bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Clean up')
     try {
       sh (
-        script: 'docker system prune -f',
+        script: 'docker system prune -af',
         returnStdout: true
       )
     } catch (e) {
       bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Clean up')
+      sh '$(sh .alfred/failed.sh "Clean yo") > docker.log'
+      throw e
+    }
+  }
+  stage ('Invalidate CDN') {
+    bitbucketStatusNotify(buildState: 'INPROGESS', buildName: 'Invalidate CDN')
+    try {
+      sh (
+        script: 'sh .alfred/cf-invalidate.sh',
+        returnStdout: true
+      )
+    } catch (e) {
+      bitbucketStatusNotify(buildState: 'FAILED', buildName: 'Invalidate CDN')
+      sh '$(sh .alfred/failed.sh "Invalidate CDN") > docker.log'
       throw e
     }
   }

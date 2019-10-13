@@ -1,0 +1,94 @@
+.tech-solutions {
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-position: calc(25% - 50px) bottom;
+  background-repeat: no-repeat;
+  margin: 58px auto;
+
+  .container {
+    > h2 {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .box {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 10px 25px rgba(64, 96, 145, 0.1);
+    padding: 20px 30px;
+    margin: 30px;
+
+    > h4 {
+      margin: 20px auto 40px;
+    }
+
+    > div {
+      width: 100%;
+    }
+
+    p {
+      margin-bottom: 30px;
+      width: 100%;
+    }
+
+    svg {
+      fill: currentColor;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin: 10px;
+      width: 569px;
+    }
+  }
+
+  i.checkmark {
+    color: #fff;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    svg {
+      margin: auto;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      margin-bottom: 20px;
+      padding-right: 25px;
+      padding-left: 35px;
+      text-align: left;
+
+      i.checkmark {
+        float: left;
+        margin-left: -35px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .container {
+      > h2 {
+        margin: auto;
+        max-width: 200px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .container {
+      > h2 {
+        font-size: 28px;
+        line-height: 32px;
+      }
+    }
+    .box {
+      > h4 {
+        margin: 15px auto 30px;
+      }
+    }
+  }
+}

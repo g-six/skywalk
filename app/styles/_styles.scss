@@ -7,23 +7,6 @@
     0 4px 9px 0 rgba(23, 28, 33, $end_opacity);
 }
 
-div.xbox {
-  @include rounded-corners;
-  @include shadow(0.07, 0.05);
-  align-items: stretch;
-  border-color: $white-ter;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-
-  p {
-    background: $white-bis;
-    border-radius: 0 0 5px 5px;
-    height: 100%;
-    padding: 1rem;
-  }
-}
-
 .thin {
   font-weight: 300;
   letter-spacing: 0;

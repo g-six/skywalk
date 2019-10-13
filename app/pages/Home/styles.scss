@@ -1,9 +1,21 @@
 @import '@styles';
 
 .navbar.home {
-  margin-top: 64px;
+  background-color: $black-bis;
   position: absolute;
   width: 100%;
+
+  .navbar-burger span {
+    background-color: #fff;
+  }
+
+  .navbar-brand {
+    .navbar-item {
+      > i {
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+      }
+    }
+  }
 
   .navbar-end > .navbar-item {
     color: $white;
@@ -18,16 +30,16 @@
     padding-top: 100px;
   }
 }
+
 #HomePage {
-  .hero-body {
-    padding-left: 0;
-    padding-right: 0;
+  h2 {
+    margin-bottom: 20px;
   }
+
   .hero-body > .container {
-    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/people.svg);
+    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/people-min.png);
     background-repeat: no-repeat;
     background-position: bottom right;
-    margin-top: 60px;
 
     .columns + .columns {
       margin-top: 3rem;
@@ -36,6 +48,7 @@
     .text-content {
       align-items: flex-end;
       display: flex;
+      margin-bottom: 30px;
       min-height: 577px;
       max-width: 588px;
 
@@ -106,6 +119,318 @@
 
     100% {
       opacity: 1;
+    }
+  }
+}
+
+#GetMatched,
+#TrustUs {
+  .box {
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 10px 25px rgba(64, 96, 145, 0.1);
+    display: flex;
+    height: 192px;
+    justify-content: center;
+    margin: 10px;
+  }
+}
+
+#GetMatched {
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: -145px;
+  padding-top: 130px;
+  padding-bottom: 130px;
+  position: relative;
+
+  &:before {
+    background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 460px;
+    width: 300px;
+  }
+
+  .positions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 45px;
+    margin-top: 45px;
+
+    h4 {
+      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .box {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 260px;
+    width: 280px;
+
+    > div {
+      width: 100%;
+    }
+
+    ul {
+      margin-bottom: 30px;
+      width: 100%;
+
+      li {
+        margin-bottom: 5px;
+        padding-left: 15px;
+      }
+      li:before {
+        content: '•';
+        color: $grey-lighter;
+        float: left;
+        font-size: 24px;
+        margin-left: -16px;
+        margin-top: -6px;
+      }
+    }
+  }
+}
+
+#GlobalFootprint {
+  padding-bottom: 125px;
+
+  figure {
+    > .is-rounded {
+      align-items: center;
+      border-radius: 50%;
+      display: flex;
+      height: 103px;
+      margin: 35px 20px 15px;
+      width: 103px;
+
+      > span {
+        font-size: 30px;
+        font-weight: 700;
+        margin: auto;
+      }
+    }
+
+    > em {
+      color: $primary;
+      font-style: normal;
+    }
+  }
+
+  .image-placeholder {
+    > div {
+      height: 500px;
+      width: 980px;
+    }
+  }
+
+  .level.stats {
+    margin: auto auto 50px;
+    max-width: 980px;
+
+    .level-item {
+      max-width: 110px;
+    }
+
+    .line {
+      width: 150px;
+    }
+  }
+
+  .level-item.nav {
+    justify-content: flex-start;
+
+    &.has-text-right {
+      justify-content: flex-end;
+    }
+  }
+
+  .line {
+    display: block;
+    height: 1px;
+    width: 100%;
+  }
+
+  .meet-our-team {
+    margin-top: 50px;
+  }
+}
+
+#TrustUs {
+  background-color: $wl-0;
+  background-image: url(//wl-cebu-assets.s3.amazonaws.com/images/bg-dots.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: calc(100% + 163px);
+  padding-bottom: 120px;
+  padding-top: 120px;
+
+  .brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 48px;
+
+    .box {
+      text-align: center;
+      width: 218px;
+    }
+  }
+}
+
+#Solutions {
+  > div {
+    display: flex;
+    margin: auto -30px;
+    > div {
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 50%;
+
+      > p {
+        flex: 1;
+      }
+    }
+  }
+}
+
+#TalentSolutions,
+#TechnologySolutions {
+  padding: 100px 50px;
+
+  h5 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 33px;
+
+    + p {
+      margin-bottom: 35px;
+      margin-top: 22px;
+    }
+  }
+}
+
+@include from(tablet) {
+  #HomePage {
+    .hero {
+      height: 100vh;
+    }
+    .hero-body {
+      padding-left: 0;
+      padding-right: 0;
+      min-height: 850px;
+    }
+  }
+}
+
+@include until($tablet - 1) {
+  #HomePage {
+    .hero-body {
+      > .container {
+        background-size: contain;
+        background-position-y: 100px;
+
+        .text-content {
+          min-height: 630px;
+        }
+      }
+    }
+  }
+
+  #GetMatched {
+    padding-left: 30px;
+    padding-right: 30px;
+    .box {
+      width: calc(50% - 20px);
+    }
+  }
+
+  #GlobalFootprint {
+    padding: 40px 0;
+
+    .image-placeholder {
+      > div {
+        background-size: contain;
+        width: 705px;
+        height: 360px;
+      }
+    }
+
+    .level {
+      position: relative;
+    }
+
+    .level.stats {
+      margin: auto auto 50px;
+      max-width: 980px;
+
+      .line {
+        width: 100%;
+      }
+      
+      @include until($tablet - 1) {
+        display: block;
+
+        .level-item {
+          display: block;
+          margin: 40px auto;
+          max-width: 200px;
+          width: 200px;
+        }
+        .line { display: none; }
+
+        figure {
+          width: 200px;
+
+          .is-rounded {
+            margin: auto;
+          }
+        }
+      }
+    }
+
+    .level-item.nav {
+      top: calc(50% - 24px);
+      position: absolute;
+
+      &.prev {
+        left: 40px;
+      }
+      &.next {
+        right: 40px;
+      }
+    }
+  }
+
+  #Solutions {
+    padding: 40px 0;
+    > div {
+      margin: 0;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  #GetMatched,
+  #TrustUs {
+    background-image: none;
+
+    p {
+      padding: 0 15px;
     }
   }
 }

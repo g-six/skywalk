@@ -1,0 +1,35 @@
+.our-team #Mission {
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  .hero-body {
+    padding: 85px 85px 110px;
+
+    blockquote {
+      color: #fff;
+      font-size: 24px;
+      line-height: 28px;
+      position: relative;
+      &:after {
+        bottom: -74px;
+        display: block;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      padding: 85px 20px 110px;
+      h3 {
+        font-size: 30px;
+        line-height: 35px;
+      }
+
+      blockquote {
+        font-size: 20px;
+        line-height: 23px;
+      }
+    }
+  }
+}

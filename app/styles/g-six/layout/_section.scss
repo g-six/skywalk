@@ -5,3 +5,31 @@ $section-padding: 5rem $size-3;
 .hero.is-dark {
   background-color: $black-bis;
 }
+
+.hero-body {
+  blockquote {
+    &:after {
+      content: '”';
+      display: block;
+      color: $primary;
+      font-size: 64px;
+    }
+  }
+}
+
+section.section {
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+section.has-background-primary {
+  margin-bottom: 0;
+}
+
+@include from($tablet) {
+  ul.split-list {
+    li {
+      width: 50%;
+    }
+  }
+}

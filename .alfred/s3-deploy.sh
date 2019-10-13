@@ -1,11 +1,10 @@
 #!/bin/bash
+GIT_AUTHOR=$(cat .alfred/git-author.txt)
 GIT_REPO_NAME=$(cat .alfred/git-repo-name.txt)
 COMMIT_SHA=$(cat .alfred/git-commit-short.txt)
 CONTAINER_NAME=$(cat .alfred/container-name.txt)
 S3_BUCKET=$(cat .alfred/s3-bucket.txt)
 VOLUME=$PWD':/app/'
-
-IMAGE_NAME=$CONTAINER_NAME':'$COMMIT_SHA
 
 curl -X POST -s $SLACK_URL -d '{
   "type": "mrkdwn",
@@ -27,20 +26,29 @@ curl -X POST -s $SLACK_URL -d '{
       ],
       "text": {
         "type": "mrkdwn",
-        "text": "*Synching* `'${IMAGE_NAME}'` build to '$S3_BUCKET'"
+        "text": "*Synching* `'${CONTAINER_NAME}'` build to '$S3_BUCKET'"
       }
-    }
+    },
+    {
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": "*Author:* '$GIT_AUTHOR'"
+				}
+			]
+		}
   ]
 }'
 
-docker build -t $IMAGE_NAME -f Dockerfile.build . >> ./docker.log
+docker build -t $CONTAINER_NAME -f Dockerfile.build . >> ./docker.log
 
 docker run \
   --name $CONTAINER_NAME \
   --rm \
   --env-file .env \
   -v $VOLUME \
-  $IMAGE_NAME cp -r /usr/src/dist/ /app >> ./docker.log
+  $CONTAINER_NAME cp -r /usr/src/dist/ /app >> ./docker.log
 
 docker run \
   --env-file .env \
@@ -48,7 +56,7 @@ docker run \
   garland/aws-cli-docker \
   aws s3 sync --acl public-read --sse --delete /data $S3_BUCKET >> ./aws.log
 
-docker images | grep -E $CONTAINER_NAME | awk -e '{print $3}'| xargs docker rmi -f >> ./docker.log
+docker images | grep -E $CONTAINER_NAME | awk -e '{print $3}'| xargs docker rmi -f
 
 # docker ps -a | grep -E Exited | awk -e '{print $1}' | xargs docker rm $GIT_REPO_NAME'-'$JOB_BASE_NAME
 # docker images | grep -E none | awk -e '{print $3}'| xargs docker rmi $GIT_REPO_NAME'-'$JOB_BASE_NAME
