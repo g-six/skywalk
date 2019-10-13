@@ -1,6 +1,6 @@
 import I18nContextProvider from '@components/I18nContextProvider'
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import { render as ReactDOMRender } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import configureStore, { history } from './store'
@@ -11,7 +11,7 @@ import { CookieStoreProvider } from '@providers/cookie-context'
 
 const store = configureStore()
 const render = () => {
-  ReactDOM.render(
+  ReactDOMRender(
     <AppContainer>
       <Provider store={store}>
         <CookieStoreProvider>

@@ -12,9 +12,10 @@ services:
       - '9001:80'
     volumes:
       - ./app:/usr/src/app
-      - ../sockets/skywalk:/usr/src/sockets
+      - /usr/local/etc/sockets/default:/usr/src/sockets
       - ./webpack.config.js:/usr/src/webpack.config.js:ro
       - ../coverages/skywalk:/usr/src/coverage
+      - /usr/local/etc/nginx/www/g-six/skywalk:/usr/src/dist
 
 networks:
   default:
