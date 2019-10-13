@@ -45,7 +45,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
     .split('/')
     .join('-')
 
-  const nav_class: string[] = ['navbar', 'is-fixed-top', paths]
+  const nav_class: string[] = ['navbar', paths]
 
   /* istanbul ignore next */
   const listener: EventListener = ({ currentTarget }) => {
@@ -72,7 +72,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
   if (is_expanded) {
     nav_class.push('is-expanded')
   }
-  
+
   if (props['location'].pathname === '/') {
     nav_class.push('home')
   }
@@ -86,7 +86,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
-            IdeaRobin
+            <i className="icon_genius" />IdeaRobin
           </Link>
 
           <BurgerComponent is_expanded={is_expanded} toggleMenu={toggleMenu} />
@@ -97,8 +97,8 @@ export const HeaderComponent: React.FunctionComponent = props => {
           className={`navbar-menu${is_expanded ? ' is-active' : ''}`}
         >
           <div className="navbar-end">
-            <Link className="navbar-item" to="/case-studies">
-              {translate('Case studies')}
+            <Link className="navbar-item" to="/login">
+              {translate('Login')}
             </Link>
             {cookie.state['kasl-key'] ? (
               <>
@@ -111,8 +111,8 @@ export const HeaderComponent: React.FunctionComponent = props => {
                 </Link>
               </>
             ) : (
-              ''
-            )}
+                ''
+              )}
           </div>
         </div>
       </div>
