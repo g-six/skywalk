@@ -1,7 +1,4 @@
 #root {
-  height: calc(100vh - #{$navbar-height} - #{$footer-height});
-  padding-bottom: $footer-height;
-
   ::selection {
     background: $royal-3; /* WebKit/Blink Browsers */
     color: $white;
@@ -9,22 +6,6 @@
   ::-moz-selection {
     background: $royal-3; /* Gecko Browsers */
     color: $white;
-  }
-
-  #page {
-    min-height: calc(100% + #{$navbar-height} + #{$footer-height});
-    padding-bottom: $footer-height;
-
-    > .is-fullheight {
-      align-items: center;
-      display: flex;
-      height: 100%;
-
-      > .container {
-        flex-grow: 1;
-        flex-shrink: 1;
-      }
-    }
   }
 
   .contents {
@@ -61,15 +42,19 @@
   }
 
   > .root-child-item {
-    margin-top: $navbar-height;
-    min-height: calc(100% + #{$navbar-height} + #{$footer-height});
+    position: relative;
 
     > .is-vcentered {
       align-self: center;
     }
 
-    > .section {
+    > .section, section {
+      padding: 0;
       width: 100%;
+    }
+
+    .with-header {
+      padding-top: $navbar-height;
     }
   }
 }
