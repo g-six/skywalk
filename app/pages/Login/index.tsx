@@ -158,7 +158,7 @@ export const LoginPage: React.FunctionComponent = () => {
           <div className="is-vcentered columns">
             <div className="column is-half">
               <div className="has-text-centered">
-                <img src="//greative-assets.s3.amazonaws.com/favi-idearobin.png" title="IdeaRobin" alt="IdeaRobin" />
+                <img src="//greative-assets.s3.amazonaws.com/favi-idearobin.png" className="logo" title="IdeaRobin" alt="IdeaRobin" />
                 <br />
                 <h1 className="title is-4">
                   IdeaRobin - a registered AWS Partner
