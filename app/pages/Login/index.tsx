@@ -17,10 +17,9 @@ import { ActionType, FormProps, ErrorType, State } from './types'
 
 export interface InputProps {
   dispatch: (e: React.ChangeEvent<HTMLInputElement>) => void
-  forgot_label?: string
   label: string
   email?: string
-  placeholder: string
+  password?: string
   tabIndex: number
 }
 
@@ -47,85 +46,95 @@ export const errorSnackBar = (
 }
 
 // Email input
-export const EmailField = (props: InputProps) => (
-  <div className="field">
-    <label className="label">{props.label}</label>
+export const EmailField = (props: InputProps) => {
+  const qs = ['field', 'no-space-after']
+  if (!props.email) {
+    qs.push('init')
+  }
+  return (<div className={qs.join(' ')}>
+    <label className="placeholder-label">{props.label}</label>
     <div className="control">
       <input
-        className="input is-rounded"
+        className="input"
         tabIndex={props.tabIndex}
         type="text"
-        placeholder={props.placeholder}
         onChange={props.dispatch}
       />
     </div>
-  </div>
-)
+  </div>)
+}
 
 // Email input
-export const PasswordField = (props: InputProps) => (
-  <div className="field">
-    <label className="label">
-      <span className="level">
-        <span className="level-left">{props.label}</span>
-        <Link
-          className="level-right has-text-link"
-          to={`/reset-password?email=${props.email}`}
-          tabIndex={3}
-        >
-          {props.forgot_label}
-        </Link>
-      </span>
-    </label>
-    <div className="control">
-      <input
-        className="input is-rounded"
-        tabIndex={props.tabIndex}
-        type="password"
-        placeholder={props.placeholder}
-        onChange={props.dispatch}
-      />
+export const PasswordField = (props: InputProps) => {
+  const qs = ['field', 'no-space-after']
+  if (!props.password) {
+    qs.push('init')
+  }
+  return (
+    <div className={qs.join(' ')}>
+      <label className="placeholder-label">{props.label}</label>
+      <div className="control">
+        <input
+          className="input"
+          tabIndex={props.tabIndex}
+          type="password"
+          onChange={props.dispatch}
+        />
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 const Form = (props: FormProps) =>
   props.cookies.state['kasl-key'] ? (
     <div className="box logged-in">Thanks!</div>
   ) : (
     <form
-      className="box"
       onSubmit={submitForm(
         props.state,
         submitCb(props.cookies.dispatch),
         props.dispatch,
       )}
     >
-      <EmailField
-        dispatch={onChangeEmail(props.dispatch)}
-        label={props.email_label}
-        placeholder={props.email_placeholder}
-        tabIndex={1}
-      />
+      <div className="box">
+        <EmailField
+          dispatch={onChangeEmail(props.dispatch)}
+          label={props.email_label}
+          tabIndex={1}
+          email={props.state.data.email}
+        />
 
-      <PasswordField
-        dispatch={onChangePassword(props.dispatch)}
-        email={props.state.data.email}
-        label={props.password_label}
-        forgot_label={props.forgot_text}
-        placeholder={props.password_placeholder}
-        tabIndex={2}
-      />
+        <PasswordField
+          dispatch={onChangePassword(props.dispatch)}
+          email={props.state.data.email}
+          label={props.password_label}
+          password={props.state.data.password}
+          tabIndex={2}
+        />
+      </div>
 
-      <button
-        className="button is-medium is-black is-rounded is-fullwidth"
-        disabled={props.state.loading}
-        type="submit"
-      >
-        <span className="is-uppercase has-text-weight-semibold is-size-6">
-          {props.submit_label}
-        </span>
-      </button>
+      <div className="has-text-centered is-centered actions">
+        <Link
+          className="has-text-centered"
+          to={`/reset-password?email=${props.state.data.email}`}
+          tabIndex={3}
+        >
+          <span className="is-uppercase has-text-grey-light has-text-weight-bold is-size-7">
+            {props.forgot_text}
+          </span>
+        </Link>
+        <div>
+          <button
+            className="button is-primary is-circle is-large"
+            disabled={props.state.loading}
+            type="submit"
+          >
+            <span className="is-uppercase has-text-weight-bold is-size-7">
+              {props.submit_label}
+            </span>
+          </button>
+        </div>
+      </div>
     </form>
   )
 
@@ -143,32 +152,39 @@ export const LoginPage: React.FunctionComponent = () => {
   }, [])
 
   return (
-    <section className="section is-fullheight" id="LoginPage">
-      <div className="is-vcentered columns">
-        <div className="column is-half">
-          <h1 className="title is-4">IdeaRobin - a registered AWS Partner</h1>
-          <p className="subtitle is-5">
-            Log a scalable cloud solution requires a solid infrastructure and we
-            at IdeaRobin are excited to be part of the AWS Partner Network to
-            provide our customers with scalable and fault tolerant systems.
-          </p>
-          <div className="columns is-centered is-vcentered">G was here</div>
-        </div>
-        <div className="column is-half">
-          <Form
-            cookies={cookies}
-            dispatch={dispatch}
-            email_label={translate('your.email.address')}
-            email_placeholder={translate('email.address')}
-            forgot_text={translate('forgot.password')}
-            password_label={translate('password')}
-            password_placeholder={translate('password')}
-            state={state}
-            submit_label={translate('login')}
-          />
+    <section className="hero is-vcentered is-fullheight" id="LoginPage">
+      <div className="hero-body">
+        <div className="container is-vcentered">
+          <div className="is-vcentered columns">
+            <div className="column is-half">
+              <div className="has-text-centered">
+                <img src="//greative-assets.s3.amazonaws.com/favi-idearobin.png" title="IdeaRobin" alt="IdeaRobin" />
+                <br />
+                <h1 className="title is-4">
+                  IdeaRobin - a registered AWS Partner
+                </h1>
+              </div>
+
+              <p className="subtitle is-5">
+                A scalable cloud solution requires a solid infrastructure and we
+                at IdeaRobin are excited to be part of the AWS Partner Network to
+                provide our customers with scalable and fault tolerant systems.
+              </p>
+            </div>
+            <div className="column is-half">
+              <Form
+                cookies={cookies}
+                dispatch={dispatch}
+                email_label={translate('your.email.address')}
+                forgot_text={translate('forgot.password')}
+                password_label={translate('password')}
+                state={state}
+                submit_label={translate('login')}
+              />
+            </div>
+          </div>
         </div>
       </div>
-
       {errorSnackBar(dispatch, state.error)}
     </section>
   )

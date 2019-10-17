@@ -2,4 +2,7 @@ $body-background-color: $black-ter;
 $text: $white;
 $text-alt: $white-bis;
 
-$control-padding-vertical: 0.25rem;
+@mixin shadow($start_opacity: 0.3, $end_opacity: 0.1) {
+  box-shadow: 0 20px 40px 0 rgba(23, 28, 33, $start_opacity),
+    0 4px 9px 0 rgba(23, 28, 33, $end_opacity);
+}

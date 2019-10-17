@@ -1,11 +1,13 @@
-$input-color: $black;
-$input-background-color: $white-ter;
-$input-border-color: rgba($grey-light, 0.08);
+$input-color: $grey;
+$input-background-color: transparent;
+$input-border-color: $white-bis;
+$input-border-bottom: 1px solid $input-border-color;
+$input-border-width: 0;
 $input-focus-border-color: rgba($grey-light, 0.05);
 $input-focus-box-shadow-color: rgba($grey-light, 0.02);
 $input-hover-color: $input-color;
 $input-hover-border-color: $grey-dark;
-$input-placeholder-color: $grey-darker;
+$input-placeholder-color: $white-bis;
 $input-icon-color: $black-bis;
 $input-icon-active-color: $purple;
 $input-shadow: none;
@@ -15,6 +17,15 @@ $label-color: $grey-light;
 
 .input {
   height: $input-height;
+}
+
+.input[email],
+.input[password],
+.input[text],
+.input[tel] {
+  border-bottom: $input-border-bottom;
+  color: $white;
+  text-align: center;
 }
 
 textarea.input {

@@ -24,11 +24,9 @@ export interface FormProps {
   cookies: CookieInterface
   dispatch: Dispatch<Action>
   email_label: string
-  email_placeholder: string
   forgot_text: string
   password?: string
   password_label: string
-  password_placeholder: string
   state: State
   submit_label: string
 }
