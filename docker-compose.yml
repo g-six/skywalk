@@ -10,6 +10,7 @@ services:
     env_file: .env-dev
     ports:
       - '9001:80'
+    restart: unless-stopped
     volumes:
       - ./app:/usr/src/app
       - /usr/local/etc/sockets/default:/usr/src/sockets
