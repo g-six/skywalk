@@ -4,7 +4,7 @@
   "description": "DX oriented react app",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env webpack-dev-server --mode development --socket ./sockets/webpack.sock --env.SKYWALK_API_HOST=$SKYWALK_API_HOST --env.PORT=$PORT && npm run check-socket",
+    "start": "cross-env webpack-dev-server --mode development --socket /usr/src/sockets/webpack.sock --env.SKYWALK_API_HOST=$SKYWALK_API_HOST --env.PORT=$PORT && npm run check-socket",
     "check-socket": "node check-socket.js",
     "build": "rimraf dist/* && cross-env NODE_ENV=production webpack --mode production --env.SKYWALK_API_HOST=$SKYWALK_API_HOST",
     "commit": "npx git-cz",

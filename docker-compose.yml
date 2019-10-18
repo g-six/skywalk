@@ -7,13 +7,14 @@ services:
       dockerfile: Dockerfile.dev
       target: builder
     command: ['npm', 'start']
+    container_name: skywalk
     env_file: .env-dev
     ports:
-      - '9001:80'
+      - '9002:80'
     restart: unless-stopped
     volumes:
       - ./app:/usr/src/app
-      - /usr/local/etc/sockets/default:/usr/src/sockets
+      - /usr/share/skywalk/sockets/$USER/:/usr/src/sockets/
       - ./webpack.config.js:/usr/src/webpack.config.js:ro
       - ../coverages/skywalk:/usr/src/coverage
       - /usr/local/etc/nginx/www/g-six/skywalk:/usr/src/dist

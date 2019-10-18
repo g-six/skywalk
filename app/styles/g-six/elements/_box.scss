@@ -51,6 +51,23 @@ $box-link-active-shadow: inset 0 1px 2px rgba($white-bis, 0.2), 0 0 0 1px $link 
       min-height: 60px;
       transition: background-color .3s ease-in-out .1s;
 
+      ~ .placeholder-label {
+        color: $white;
+        font-size: 0.8rem;
+        font-weight: 800;
+        left: 0;
+        letter-spacing: .1rem;
+        line-height: 1.2rem;
+        opacity: 0.5;
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        top: calc(50% - .6rem);
+        transition: visibility 1s, opacity .3s ease-in-out .1s;
+        width: 100%;
+        visibility: visible;
+      }
+
       &[type="password"] {
         font-size: 1.2rem;
         font-weight: 800;
@@ -58,6 +75,10 @@ $box-link-active-shadow: inset 0 1px 2px rgba($white-bis, 0.2), 0 0 0 1px $link 
 
       &:focus {
         background-color: rgba($grey-dark, 0.2);
+        ~ .placeholder-label {
+          opacity: 0;
+          visibility: hidden;
+        }
       }
     }
 
@@ -65,26 +86,12 @@ $box-link-active-shadow: inset 0 1px 2px rgba($white-bis, 0.2), 0 0 0 1px $link 
       color: $white;
     }
 
-    .placeholder-label {
-      color: $white;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: .1rem;
-      line-height: 1.2rem;
-      opacity: 0;
-      position: absolute;
-      text-align: center;
-      text-transform: uppercase;
-      top: calc(50% - .6rem);
-      transition: visibility 1s, opacity .3s ease-in-out .1s;
-      width: 100%;
-      visibility: hidden;
-    }
-
-    &.init {
-      .placeholder-label {
-        opacity: 0.5;
-        visibility: visible;
+    &:not(.init) {
+      .control {
+        .placeholder-label {
+          opacity: 0;
+          visibility: hidden;
+        }
       }
     }
   }

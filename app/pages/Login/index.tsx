@@ -52,7 +52,6 @@ export const EmailField = (props: InputProps) => {
     qs.push('init')
   }
   return (<div className={qs.join(' ')}>
-    <label className="placeholder-label">{props.label}</label>
     <div className="control">
       <input
         className="input"
@@ -60,6 +59,7 @@ export const EmailField = (props: InputProps) => {
         type="text"
         onChange={props.dispatch}
       />
+      <label className="placeholder-label">{props.label}</label>
     </div>
   </div>)
 }
@@ -72,7 +72,6 @@ export const PasswordField = (props: InputProps) => {
   }
   return (
     <div className={qs.join(' ')}>
-      <label className="placeholder-label">{props.label}</label>
       <div className="control">
         <input
           className="input"
@@ -80,6 +79,7 @@ export const PasswordField = (props: InputProps) => {
           type="password"
           onChange={props.dispatch}
         />
+        <label className="placeholder-label">{props.label}</label>
       </div>
     </div>
   )
