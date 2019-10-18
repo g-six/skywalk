@@ -74,10 +74,8 @@ nav.navbar {
       text-decoration: underline;
     }
     &:focus {
-      background-color: $white-bis;
       border: none;
       color: $primary-1;
-      outline-color: rgba($white, 0.1);
       text-decoration: underline;
     }
   }
