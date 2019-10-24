@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
 import Checkmark from './checkmark'
 
 export const Services: React.FunctionComponent = () => (
@@ -16,10 +15,10 @@ export const Services: React.FunctionComponent = () => (
                 contributions
               </p>
 
-              <Link to="/ukraine/1">
+              <a href="https://wonderlabs.activehosted.com/f/1" target="_blank">
                 <i className="icon right-arrow" />{' '}
                 <span>Download our Info &amp; Pricing Sheet</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -34,10 +33,10 @@ export const Services: React.FunctionComponent = () => (
                 and workplace management.
               </p>
 
-              <Link to="/ukraine/1">
+              <a href="https://wonderlabs.activehosted.com/f/3" target="_blank">
                 <i className="icon right-arrow" />{' '}
                 <span>Download our Info &amp; Pricing Sheet</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -78,10 +77,10 @@ export const Services: React.FunctionComponent = () => (
                 </li>
               </ul>
 
-              <Link to="/ukraine/1">
+              <a href="mailto:keith@wonderlabs.io?subject=RE%3A%20Inquiry%20on%20recruitment%20services">
                 <i className="icon right-arrow" />{' '}
-                <span>Download our Info &amp; Pricing Sheet</span>
-              </Link>
+                <span>Contact us for more details</span>
+              </a>
             </div>
           </div>
         </div>
@@ -97,10 +96,10 @@ export const Services: React.FunctionComponent = () => (
                 only.
               </p>
 
-              <Link to="/ukraine/1">
+              <a href="mailto:keith@wonderlabs.io?subject=RE%3A%20Inquiry%20on%20incorporation%20services">
                 <i className="icon right-arrow" />{' '}
                 <span>Contact us for more details</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

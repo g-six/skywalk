@@ -74,7 +74,7 @@ export const ManyThings: React.FunctionComponent = () => {
           <div className="column is-full has-t ext-centered">
             <img
               className="image is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/coders-be-like-min.jpg"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/team-min.jpeg"
               alt="Engineers at IdeaRobin be like"
             />
           </div>

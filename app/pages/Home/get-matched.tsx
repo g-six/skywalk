@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-export const GetMatched: React.FunctionComponent = () => (
-  <section id="GetMatched">
+export const GetMatched: React.FunctionComponent = () => {
+  const [collapse, setCollapse] = React.useState(true)
+  
+  return <section id="GetMatched">
     <div className="container">
       <div className="columns is-multiline">
         <div className="column has-text-centered has-text-grey-dark">
@@ -78,7 +80,7 @@ export const GetMatched: React.FunctionComponent = () => (
         </div>
       </div>
 
-      <div className="box">
+      <div className={`box${collapse ? ' hidden-initially': ''}`}>
         <h4>
           .Net Software <br />
           Developer
@@ -95,7 +97,7 @@ export const GetMatched: React.FunctionComponent = () => (
         </div>
       </div>
 
-      <div className="box">
+      <div className={`box${collapse ? ' hidden-initially': ''}`}>
         <h4>
           .Net Software <br />
           Developer
@@ -112,7 +114,7 @@ export const GetMatched: React.FunctionComponent = () => (
         </div>
       </div>
 
-      <div className="box">
+      <div className={`box${collapse ? ' hidden-initially': ''}`}>
         <h4>
           Business <br />
           Development Head
@@ -129,7 +131,7 @@ export const GetMatched: React.FunctionComponent = () => (
         </div>
       </div>
 
-      <div className="box">
+      <div className={`box${collapse ? ' hidden-initially': ''}`}>
         <h4>
           Cloud <br />
           Architect
@@ -147,15 +149,25 @@ export const GetMatched: React.FunctionComponent = () => (
       </div>
     </div>
 
-    <div className="has-text-centered apply-now">
+    <div className="actions has-text-centered">
+      <button
+        type="button"
+        className="button is-large is-hidden-desktop touch"
+        onClick={() => {
+          setCollapse(!collapse)
+        }}
+      >
+        See all
+      </button>
+      
       <a
         className="button is-large is-primary"
-        href="mailto:keith@wonderlabs.io"
+        href="mailto:keith@wonderlabs.io?subject=RE%3A%20Applying%20for%20a%20job"
       >
         <span>Apply now</span>
       </a>
     </div>
   </section>
-)
+}
 
 export default GetMatched

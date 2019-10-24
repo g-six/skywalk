@@ -10,6 +10,7 @@ services:
     env_file: .env-dev
     ports:
       - '9001:80'
+    restart: unless-stopped
     volumes:
       - ./app:/usr/src/app
       - /usr/share/skywalk/sockets/g-six:/usr/src/sockets

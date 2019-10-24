@@ -9,7 +9,7 @@ export const Board: React.FunctionComponent = () => {
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-1-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/keith.jpeg"
             />
             <dl>
               <dt className="has-text-grey-dark">Keith Tan</dt>
@@ -20,18 +20,18 @@ export const Board: React.FunctionComponent = () => {
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-2-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/christian.jpeg"
             />
             <dl>
               <dt className="has-text-grey-dark">Christian Petroske</dt>
-              <dd className="has-text-grey-light">CEO</dd>
+              <dd className="has-text-grey-light">President</dd>
             </dl>
           </figure>
 
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-3-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/buddhika.jpeg"
             />
             <dl>
               <dt className="has-text-grey-dark">Buddhika Perera</dt>
@@ -42,47 +42,34 @@ export const Board: React.FunctionComponent = () => {
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-4-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/joe.jpg"
             />
             <dl>
               <dt className="has-text-grey-dark">Joe Low</dt>
-              <dd className="has-text-grey-light">CEO</dd>
+              <dd className="has-text-grey-light">Country Director, Vietnam</dd>
             </dl>
           </figure>
 
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-5-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/lucas.jpeg"
             />
             <dl>
               <dt className="has-text-grey-dark">Lucas Lee</dt>
-              <dd className="has-text-grey-light">CEO</dd>
+              <dd className="has-text-grey-light">Country Director, Vietnam</dd>
             </dl>
           </figure>
 
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-6-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/shriwanthi.jpeg"
             />
             <dl>
               <dt className="has-text-grey-dark">Shriwanthi Amarasinghe</dt>
               <dd className="has-text-grey-light">
-                Country Director Sri Lanka
-              </dd>
-            </dl>
-          </figure>
-
-          <figure className="image">
-            <img
-              className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-7-min.png"
-            />
-            <dl>
-              <dt className="has-text-grey-dark">Luke Robert</dt>
-              <dd className="has-text-grey-light">
-                Country Director Philippines
+                Country Director, Sri Lanka
               </dd>
             </dl>
           </figure>
@@ -101,7 +88,7 @@ export const Board: React.FunctionComponent = () => {
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-9-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/janidu.jpeg"
             />
             <dl>
               <dt className="has-text-grey-dark">Janidu Perera</dt>
@@ -112,12 +99,25 @@ export const Board: React.FunctionComponent = () => {
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-10-min.png"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/krystel.jpeg"
             />
             <dl>
               <dt className="has-text-grey-dark">Krystel Caballo</dt>
               <dd className="has-text-grey-light">
                 Marketing &amp; Communications
+              </dd>
+            </dl>
+          </figure>
+
+          <figure className="image">
+            <img
+              className="is-rounded"
+              src="//wl-cebu-assets.s3.amazonaws.com/images/retha.jpg"
+            />
+            <dl>
+              <dt className="has-text-grey-dark">Retha Christiani</dt>
+              <dd className="has-text-grey-light">
+                Global Operations
               </dd>
             </dl>
           </figure>

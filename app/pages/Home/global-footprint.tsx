@@ -24,7 +24,7 @@ const GlobalFootprint: React.FunctionComponent = () => {
               </figure>
             </div>
           </div>
-          <div className="level-item has-text-centered">
+          <div className="level-item line-item has-text-centered">
             <div className="line has-background-grey-lighter" />
           </div>
           <div className="level-item has-text-centered">
@@ -37,7 +37,7 @@ const GlobalFootprint: React.FunctionComponent = () => {
               </figure>
             </div>
           </div>
-          <div className="level-item has-text-centered">
+          <div className="level-item line-item floater has-text-centered">
             <div className="line has-background-grey-lighter" />
           </div>
 
@@ -51,7 +51,7 @@ const GlobalFootprint: React.FunctionComponent = () => {
               </figure>
             </div>
           </div>
-          <div className="level-item has-text-centered">
+          <div className="level-item line-item has-text-centered">
             <div className="line has-background-grey-lighter" />
           </div>
 
@@ -77,7 +77,7 @@ const GlobalFootprint: React.FunctionComponent = () => {
             <div
               className="image"
               style={{
-                backgroundImage: `url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/bearded-guy-min.png)`,
+                backgroundImage: `url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/images/cover-min.jpeg)`,
               }}
             />
           </div>
