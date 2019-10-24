@@ -22,13 +22,14 @@ footer.footer {
   }
 
   .footer-brand {
-    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-dark-bg-min.png);
+    background-size: 75%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     display: block;
     margin: auto;
-    height: 50px;
-    width: 180px;
+    height: 44px;
+    width: 200px;
     text-indent: -99999px;
   }
 }

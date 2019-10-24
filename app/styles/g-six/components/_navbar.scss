@@ -51,9 +51,13 @@ nav.navbar {
       text-transform: uppercase;
 
       > i {
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-min.png);
         background-repeat: no-repeat;
-        height: 48.62px;
-        width: 180px;
+        background-size: 200 44;
+        background-position-x: 0;
+        background-position-y: 0;
+        height: 44px;
+        width: 200px;
       }
     }
   }
@@ -132,13 +136,9 @@ nav.navbar {
     }
   }
 
-  .navbar-brand .navbar-item i {
-    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-black-text.svg);
-  }
-
   &.home {
     .navbar-brand .navbar-item i {
-      background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+      background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-dark-bg-min.png);
     }
   }
 
@@ -151,7 +151,7 @@ nav.navbar {
     &.start {
       background: rgba(0, 0, 0, 0.7);
       .navbar-brand .navbar-item i {
-        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+        background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-dark-bg-min.png);
       }
 
       .navbar-burger,
