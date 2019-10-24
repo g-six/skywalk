@@ -132,6 +132,16 @@ nav.navbar {
     }
   }
 
+  .navbar-brand .navbar-item i {
+    background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo-black-text.svg);
+  }
+
+  &.home {
+    .navbar-brand .navbar-item i {
+      background-image: url(//wl-cebu-assets.s3-ap-southeast-1.amazonaws.com/logo.svg);
+    }
+  }
+
   @include until($tablet - 1) {
     background: none;
 
