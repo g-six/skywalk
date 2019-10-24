@@ -15,7 +15,11 @@ export const Services: React.FunctionComponent = () => (
                 contributions
               </p>
 
-              <a href="https://wonderlabs.activehosted.com/f/1" target="_blank">
+              <a
+                href="https://wonderlabs.activehosted.com/f/1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="icon right-arrow" />{' '}
                 <span>Download our Info &amp; Pricing Sheet</span>
               </a>
@@ -33,7 +37,11 @@ export const Services: React.FunctionComponent = () => (
                 and workplace management.
               </p>
 
-              <a href="https://wonderlabs.activehosted.com/f/3" target="_blank">
+              <a
+                href="https://wonderlabs.activehosted.com/f/3"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="icon right-arrow" />{' '}
                 <span>Download our Info &amp; Pricing Sheet</span>
               </a>

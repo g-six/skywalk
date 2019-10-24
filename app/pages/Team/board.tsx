@@ -13,7 +13,9 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Chua Boon Ping</dt>
-              <dd className="has-text-grey-light">CEO, SPH Ventures (Singapore)</dd>
+              <dd className="has-text-grey-light">
+                CEO, SPH Ventures (Singapore)
+              </dd>
             </dl>
           </figure>
 
@@ -24,7 +26,9 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Dr. Nasser Marafih</dt>
-              <dd className="has-text-grey-light">Board Director, Ooredoo Group</dd>
+              <dd className="has-text-grey-light">
+                Board Director, Ooredoo Group
+              </dd>
             </dl>
           </figure>
 
@@ -35,7 +39,9 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Jupe Tan</dt>
-              <dd className="has-text-grey-light">SVP Global Operations, Plug & Play (Silicon Valley)</dd>
+              <dd className="has-text-grey-light">
+                SVP Global Operations, Plug & Play (Silicon Valley)
+              </dd>
             </dl>
           </figure>
 
@@ -46,7 +52,9 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Carman Chan</dt>
-              <dd className="has-text-grey-light">Managing Director, Click Ventures (Hong Kong)</dd>
+              <dd className="has-text-grey-light">
+                Managing Director, Click Ventures (Hong Kong)
+              </dd>
             </dl>
           </figure>
 
@@ -57,10 +65,13 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Dr. Tan Wee Liang</dt>
-              <dd className="has-text-grey-light">Associate Professor of Strategic Management<br />Management University</dd>
+              <dd className="has-text-grey-light">
+                Associate Professor of Strategic Management
+                <br />
+                Management University
+              </dd>
             </dl>
           </figure>
-
         </div>
       </div>
     </section>

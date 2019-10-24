@@ -57,7 +57,8 @@ img.is-rounded {
   }
 }
 
-
 @media screen and (max-width: 767px) {
-  .line { display: none; }
+  .line {
+    display: none;
+  }
 }
