@@ -1,3 +1,5 @@
+import _find from 'lodash/find'
+import { Helmet } from 'react-helmet'
 import { I18nContext } from '@components/I18nContextProvider'
 import { CookieStore } from '@providers/cookie-context'
 import { retrieveCookie, eraseCookie } from '@providers/cookie-context/actions'
@@ -5,10 +7,17 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { logout } from './actions'
+import Meta from '../Meta'
 
 interface BurgerProps {
   is_expanded?: boolean
   toggleMenu(): void
+}
+
+interface MetaTags {
+  title: string
+  description: string
+  url: string
 }
 
 export const callKeith = () => {
@@ -84,12 +93,35 @@ export const HeaderComponent: React.FunctionComponent = props => {
     nav_class.push('is-fixed-top')
   }
 
+  const content: MetaTags = _find(Meta, {
+    url: props['location'].pathname,
+  }) as MetaTags
+  document.title = 'Wonder Homepage'
+  const doc_desc = document.querySelector('meta[name=description]')
+  const og_desc = document.querySelector('meta[property="og:description"]')
+  const og_title = document.querySelector('meta[property="og:title"]')
+
+  if (doc_desc && doc_desc.remove) {
+    doc_desc.remove()
+  }
+  if (og_title && og_title.remove) {
+    og_title.remove()
+  }
+  if (og_desc && og_desc.remove) {
+    og_desc.remove()
+  }
+
   return (
     <nav
       className={nav_class.join(' ')}
       role="navigation"
       aria-label="main navigation"
     >
+      <Helmet>
+        <title>{content.title}</title>
+        <meta name="description" content={content.description} />
+        <meta property="og:description" content={content.description} />
+      </Helmet>
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
@@ -132,7 +164,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
               {translate('Our Team')}
             </Link>
             <a
-              href="javascript: void(0)"
+              href="#call-keith"
               className="navbar-item call-keith"
               onClick={callKeith}
             >

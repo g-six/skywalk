@@ -53,7 +53,8 @@ const Footer = () => (
         <div className="column is-one-third-widescreen is-half-tablet is-full-mobile">
           <strong>Singapore</strong>
           <p>
-            449 Sin Ming Avenue, Unit 04-515<br />
+            449 Sin Ming Avenue, Unit 04-515
+            <br />
             Singapore 570449
           </p>
         </div>

@@ -77,17 +77,6 @@ export const Board: React.FunctionComponent = () => {
           <figure className="image">
             <img
               className="is-rounded"
-              src="//wl-cebu-assets.s3.amazonaws.com/images/ellipse-person-8-min.png"
-            />
-            <dl>
-              <dt className="has-text-grey-dark">Andrew Chan</dt>
-              <dd className="has-text-grey-light">SVP Solutions, Singapore</dd>
-            </dl>
-          </figure>
-
-          <figure className="image">
-            <img
-              className="is-rounded"
               src="//wl-cebu-assets.s3.amazonaws.com/images/janidu.jpeg"
             />
             <dl>
@@ -116,9 +105,7 @@ export const Board: React.FunctionComponent = () => {
             />
             <dl>
               <dt className="has-text-grey-dark">Retha Christiani</dt>
-              <dd className="has-text-grey-light">
-                Global Operations
-              </dd>
+              <dd className="has-text-grey-light">Global Operations</dd>
             </dl>
           </figure>
         </div>

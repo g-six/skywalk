@@ -405,7 +405,7 @@
       .line {
         width: 100%;
       }
-      
+
       @include until($tablet - 1) {
         .level-item {
           display: inline-block;
@@ -470,7 +470,7 @@
         flex-direction: column;
         width: 100%;
       }
-      
+
       #TalentSolutions,
       #TechnologySolutions {
         padding-bottom: 20px;
