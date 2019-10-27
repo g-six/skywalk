@@ -4,6 +4,7 @@
     ],
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",
-        "babel-plugin-redux-saga"
+        "babel-plugin-redux-saga",
+        "react-hot-loader/babel"
     ]
 }

@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./app:/usr/src/app
-      - /usr/share/skywalk/sockets/$USER/:/usr/src/sockets/
+      - /usr/local/etc/sockets/$USER/:/usr/src/sockets/
       - ./webpack.config.js:/usr/src/webpack.config.js:ro
       - ../coverages/skywalk:/usr/src/coverage
       - /usr/local/etc/nginx/www/g-six/skywalk:/usr/src/dist

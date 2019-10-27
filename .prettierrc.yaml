@@ -7,6 +7,7 @@ trailingComma: 'all'
 tabWidth: 2
 semi: false
 singleQuote: true
+useTabs: false
 overrides:
   - files: '*.yma?l'
     options:

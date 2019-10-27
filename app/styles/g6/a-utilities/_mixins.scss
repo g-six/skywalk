@@ -1,0 +1,8 @@
+@mixin gradient {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#683992+0,9d3589+48,f1356a+100 */
+  background: #683992; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #683992 0%, #9d3589 48%, #f1356a 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg,  #683992 0%,#9d3589 48%,#f1356a 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg,  #683992 0%,#9d3589 48%,#f1356a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#683992', endColorstr='#f1356a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}

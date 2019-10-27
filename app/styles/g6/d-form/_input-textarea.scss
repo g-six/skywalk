@@ -1,0 +1,18 @@
+.input {
+  background-color: $input-background-color;
+  height: $input-height;
+}
+
+.input[email],
+.input[password],
+.input[text],
+.input[tel] {
+  border-bottom: $input-border-bottom;
+  color: $white;
+  text-align: center;
+}
+
+textarea.input {
+  height: auto;
+  resize: vertical;
+}

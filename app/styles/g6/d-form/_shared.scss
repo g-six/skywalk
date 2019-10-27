@@ -1,0 +1,44 @@
+$input-arrow: $link !default;
+$input-color: $grey;
+$input-background-color: transparent;
+$input-border-color: $white-bis;
+$input-border-bottom: 1px solid $input-border-color;
+$input-border-width: 0;
+$input-disabled-color: $text-light !default;
+$input-disabled-background-color: $background !default;
+$input-disabled-border-color: $background !default;
+$input-disabled-placeholder-color: rgba($input-disabled-color, 0.3) !default;
+$input-focus-border-color: rgba($grey-light, 0.05);
+$input-focus-box-shadow-color: rgba($grey-light, 0.02);
+$input-focus-box-shadow-size: 0 0 0 0.125em !default;
+$input-focus-color: $grey-darker !default;
+$input-hover-color: $input-color;
+$input-hover-border-color: $grey-dark;
+$input-placeholder-color: $white-bis;
+$input-icon-color: $black-bis;
+$input-icon-active-color: $purple;
+$input-shadow: none;
+$input-height: 44px;
+$input-radius: $control-radius;
+$label-color: $grey-light;
+
+input.xinput:-webkit-autofill,
+input.xinput:-internal-autofill-selected {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px $pink-5;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border:none !important;
+  -webkit-text-fill-color: inherit !important;
+  -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

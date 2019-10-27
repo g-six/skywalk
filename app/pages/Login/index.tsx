@@ -54,12 +54,13 @@ export const EmailField = (props: InputProps) => {
   return (<div className={qs.join(' ')}>
     <div className="control">
       <input
+        autoComplete="off"
         className="input"
         tabIndex={props.tabIndex}
         type="text"
         onChange={props.dispatch}
       />
-      <label className="placeholder-label">{props.label}</label>
+      <label className="placeholder-label">{props.email || props.label}</label>
     </div>
   </div>)
 }
@@ -74,6 +75,7 @@ export const PasswordField = (props: InputProps) => {
     <div className={qs.join(' ')}>
       <div className="control">
         <input
+          autoComplete="off"
           className="input"
           tabIndex={props.tabIndex}
           type="password"
@@ -96,7 +98,7 @@ const Form = (props: FormProps) =>
         props.dispatch,
       )}
     >
-      <div className="box">
+      <div className="box is-gradient">
         <EmailField
           dispatch={onChangeEmail(props.dispatch)}
           label={props.email_label}
