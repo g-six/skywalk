@@ -5,7 +5,7 @@ import { createMemoryHistory } from 'history'
 import * as React from 'react'
 import { Router } from 'react-router'
 
-import { errorSnackBar, LoginPage as Page } from '../'
+import { ErrorSnackBar, LoginPage as Page } from '../'
 
 describe('Login', () => {
   const history = createMemoryHistory()
@@ -44,7 +44,9 @@ describe('Login', () => {
     it('should display snackbar with message', () => {
       const spyDispatch = jest.fn()
       act(() => {
-        comp = render(<>{errorSnackBar(spyDispatch, 'error')}</>)
+        comp = render(
+          <ErrorSnackBar dispatch={spyDispatch} message={'error'} />,
+        )
       })
       expect(comp.container.querySelector('section')).toBeDefined()
     })

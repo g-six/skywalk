@@ -5,7 +5,7 @@ const mockAxios = require('axios')
 
 describe('putAPI', () => {
   it('should be able to update `data`', async () => {
-    mockAxios.put = jest.fn(file_path =>
+    mockAxios.put = jest.fn((file_path) =>
       Promise.resolve({
         data: file_path,
       }),
@@ -17,7 +17,7 @@ describe('putAPI', () => {
   })
 
   it('should handle errors', async () => {
-    mockAxios.put = jest.fn(file_path =>
+    mockAxios.put = jest.fn(() =>
       Promise.reject({
         response: {
           data: {},

@@ -35,7 +35,11 @@ describe('actions', () => {
           } as unknown) as AxiosResponse
           return Promise.resolve(response)
         }) as any
-        await submitForm({ data: {} }, spyCookieContext, spyDispatch)({
+        await submitForm(
+          { data: {} },
+          spyCookieContext,
+          spyDispatch,
+        )({
           preventDefault: jest.fn(),
         })
         expect(spyDispatch).toHaveBeenCalled()
@@ -61,7 +65,11 @@ describe('actions', () => {
           return Promise.reject(results)
         }) as any
         try {
-          await submitForm({ data: {} }, spyCookieContext, spyDispatch)({
+          await submitForm(
+            { data: {} },
+            spyCookieContext,
+            spyDispatch,
+          )({
             preventDefault: jest.fn(),
           })
         } catch (e) {

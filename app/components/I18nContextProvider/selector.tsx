@@ -2,7 +2,7 @@ import * as React from 'react'
 import Styled from 'styled-components'
 import { I18nContext } from './index'
 
-const Wrapper = lang => Styled.div`
+const Wrapper = (lang) => Styled.div`
     > span {
         display: inline-block;
         width: 3rem;
@@ -53,7 +53,7 @@ const Wrapper = lang => Styled.div`
     }
 `
 
-const LanguageSelector = () => {
+const LanguageSelector: React.FC = () => {
   const { dispatch, lang } = React.useContext(I18nContext)
 
   const changeLanguage = (e: React.MouseEvent<HTMLButtonElement>): void => {

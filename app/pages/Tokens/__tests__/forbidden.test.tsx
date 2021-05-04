@@ -8,12 +8,11 @@ import { TokensPage as Page } from '../'
 jest.useFakeTimers()
 jest.mock('axios')
 const Axios = require('axios')
-Axios.get = jest.fn(
-  (): Promise<{}> =>
-    Promise.resolve({
-      data: { records: [{ id: 1, client_id: 'asdasd' }] },
-      headers: {},
-    }),
+Axios.get = jest.fn(() =>
+  Promise.resolve({
+    data: { records: [{ id: 1, client_id: 'asdasd' }] },
+    headers: {},
+  }),
 )
 
 describe('TokensPage', () => {

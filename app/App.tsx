@@ -7,7 +7,7 @@ export interface AppProps {
   history: History
 }
 
-export const App = ({ history }: AppProps) => {
+export const App: React.FC<AppProps> = ({ history }) => {
   return <ConnectedRouter history={history}>{routes}</ConnectedRouter>
 }
 

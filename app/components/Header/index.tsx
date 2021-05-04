@@ -1,7 +1,6 @@
 import { I18nContext } from '@components/I18nContextProvider'
 import { CookieStore } from '@providers/cookie-context'
 import { retrieveCookie, eraseCookie } from '@providers/cookie-context/actions'
-import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { logout } from './actions'
@@ -11,7 +10,7 @@ interface BurgerProps {
   toggleMenu(): void
 }
 
-export const BurgerComponent = (props: BurgerProps) => (
+export const BurgerComponent: React.FC<BurgerProps> = (props) => (
   <a
     aria-expanded="false"
     aria-label="menu"
@@ -26,10 +25,10 @@ export const BurgerComponent = (props: BurgerProps) => (
   </a>
 )
 
-export const logoutCb = cookieDispatcher => () =>
+export const logoutCb = (cookieDispatcher) => () =>
   cookieDispatcher(eraseCookie('kasl-key'))
 
-export const HeaderComponent: React.FunctionComponent = props => {
+export const HeaderComponent: React.FC = (props) => {
   const { translate } = React.useContext(I18nContext)
   const cookie = React.useContext(CookieStore)
 
@@ -40,10 +39,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
   const [scroll_y, setScrollY] = React.useState(window.scrollY)
   const [is_expanded, setExpanded] = React.useState(false)
 
-  const paths = document.location.pathname
-    .substr(1)
-    .split('/')
-    .join('-')
+  const paths = document.location.pathname.substr(1).split('/').join('-')
 
   const nav_class: string[] = ['navbar', 'is-fixed-top', paths]
 
@@ -72,7 +68,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
   if (is_expanded) {
     nav_class.push('is-expanded')
   }
-  
+
   if (props['location'].pathname === '/') {
     nav_class.push('home')
   }
@@ -97,9 +93,6 @@ export const HeaderComponent: React.FunctionComponent = props => {
           className={`navbar-menu${is_expanded ? ' is-active' : ''}`}
         >
           <div className="navbar-end">
-            <Link className="navbar-item" to="/case-studies">
-              {translate('Case studies')}
-            </Link>
             {cookie.state['kasl-key'] ? (
               <>
                 <Link
@@ -118,10 +111,6 @@ export const HeaderComponent: React.FunctionComponent = props => {
       </div>
     </nav>
   )
-}
-
-HeaderComponent.propTypes = {
-  location: PropTypes.object,
 }
 
 export const ConnectedHeader = withRouter(HeaderComponent)

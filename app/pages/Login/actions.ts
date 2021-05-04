@@ -1,7 +1,7 @@
 import { postApi } from '@api'
 import { ActionTypes } from './types'
 
-export const dismissNotification = dispatch => () => {
+export const dismissNotification = (dispatch) => () => {
   dispatch({ type: ActionTypes.DISMISS_NOTIFICATION })
 }
 
@@ -19,7 +19,7 @@ export const handleApiResponse = (response, callbacks) => {
   })
 }
 
-export const submitForm = (state, setCookieContext, dispatch) => async e => {
+export const submitForm = (state, setCookieContext, dispatch) => async (e) => {
   e.preventDefault()
   dispatch({ type: ActionTypes.SUBMIT_FORM })
 
@@ -28,11 +28,11 @@ export const submitForm = (state, setCookieContext, dispatch) => async e => {
 }
 
 // E-mail input change
-export const onChangeEmail = dispatch => e => {
+export const onChangeEmail = (dispatch) => (e) => {
   dispatch({ type: ActionTypes.SET_EMAIL, value: e.target.value })
 }
 
 // Password input change
-export const onChangePassword = dispatch => e => {
+export const onChangePassword = (dispatch) => (e) => {
   dispatch({ type: ActionTypes.SET_PASSWORD, value: e.target.value })
 }

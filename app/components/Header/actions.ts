@@ -1,4 +1,4 @@
-export const logout = eraser => e => {
+export const logout = (eraser) => (e) => {
   e.preventDefault()
   eraser()
 }

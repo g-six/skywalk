@@ -12,7 +12,7 @@ import {
 } from './actions'
 
 import { initial_state, reducer } from './reducer'
-import './styles'
+import './styles.scss'
 import { ActionType, FormProps, ErrorType, State } from './types'
 
 export interface InputProps {
@@ -24,15 +24,20 @@ export interface InputProps {
   tabIndex: number
 }
 
-const submitCb = cookieContextDispatcher => (key: string, value: string) => {
+export interface SnackBarProps {
+  dispatch: React.Dispatch<ActionType>
+  message?: ErrorType
+}
+
+const submitCb = (cookieContextDispatcher) => (key: string, value: string) => {
   cookieContextDispatcher(saveCookie(key, value))
 }
 
 // Error snack bar
-export const errorSnackBar = (
-  dispatch: React.Dispatch<ActionType>,
-  message?: ErrorType,
-) => {
+export const ErrorSnackBar: React.FC<SnackBarProps> = ({
+  dispatch,
+  message,
+}) => {
   return (
     <div className={`snack-wrap ${!!message ? 'show' : 'hide'}`}>
       <div className="snackbar animated notification is-danger">
@@ -47,7 +52,7 @@ export const errorSnackBar = (
 }
 
 // Email input
-export const EmailField = (props: InputProps) => (
+export const EmailField: React.FC<InputProps> = (props) => (
   <div className="field">
     <label className="label">{props.label}</label>
     <div className="control">
@@ -63,7 +68,7 @@ export const EmailField = (props: InputProps) => (
 )
 
 // Email input
-export const PasswordField = (props: InputProps) => (
+export const PasswordField: React.FC<InputProps> = (props) => (
   <div className="field">
     <label className="label">
       <span className="level">
@@ -89,7 +94,7 @@ export const PasswordField = (props: InputProps) => (
   </div>
 )
 
-const Form = (props: FormProps) =>
+const Form: React.FC<FormProps> = (props) =>
   props.cookies.state['kasl-key'] ? (
     <div className="box logged-in">Thanks!</div>
   ) : (
@@ -129,7 +134,7 @@ const Form = (props: FormProps) =>
     </form>
   )
 
-export const LoginPage: React.FunctionComponent = () => {
+export const LoginPage: React.FC = () => {
   const { translate } = React.useContext(I18nContext)
   const cookies = React.useContext(CookieStore)
 
@@ -169,7 +174,7 @@ export const LoginPage: React.FunctionComponent = () => {
         </div>
       </div>
 
-      {errorSnackBar(dispatch, state.error)}
+      <ErrorSnackBar dispatch={dispatch} message={state.error} />
     </section>
   )
 }

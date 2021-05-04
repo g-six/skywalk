@@ -2,7 +2,7 @@ import AxiosMock from 'axios'
 import { getApi, postApi } from '../'
 
 jest.mock('axios')
-const getMock = jest.fn(async url => {
+const getMock = jest.fn(async (url) => {
   // Simulate error
   return Promise.reject({
     response: {
@@ -17,7 +17,7 @@ const getMock = jest.fn(async url => {
   })
 })
 
-const postMock = jest.fn(async url => {
+const postMock = jest.fn(async (url) => {
   // Simulate error
   return Promise.reject({
     response: {

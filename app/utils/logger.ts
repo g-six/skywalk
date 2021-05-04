@@ -1,5 +1,5 @@
 export default (...args) => {
-  args.forEach(arg => {
+  args.forEach((arg) => {
     if (typeof arg === 'object') {
       try {
         console.log(JSON.stringify(arg, null, 2))

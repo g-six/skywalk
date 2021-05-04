@@ -21,7 +21,7 @@ import {
 } from './types'
 
 // Growl
-export const Growl = (props: GrowlProps) => {
+export const Growl: React.FC<GrowlProps> = (props) => {
   if (props.timeout) {
     setTimeout(props.onClose, props.timeout * 1000)
   }
@@ -35,11 +35,11 @@ export const Growl = (props: GrowlProps) => {
   )
 }
 
-const LevelMobile: React.FunctionComponent = props => (
+const LevelMobile: React.FC = (props) => (
   <nav className="level is-mobile" {...props}></nav>
 )
 
-const Level = (props: LevelProps) => (
+const Level: React.FC<LevelProps> = (props) => (
   <LevelMobile>
     <div className="level-left">
       <div className="level-item">
@@ -69,12 +69,12 @@ interface LevelWithRevealProps {
   onClickCopy: (e) => Promise<void>
   onClickReveal: (e) => Promise<void>
 }
-const LevelWithReveal = ({
+const LevelWithReveal: React.FC<LevelWithRevealProps> = ({
   disabled,
   labels,
   onClickCopy,
   onClickReveal,
-}: LevelWithRevealProps) => (
+}) => (
   <LevelMobile>
     <div className="level-left">
       <div className="level-item" onClick={onClickCopy}>
@@ -105,7 +105,11 @@ const LevelWithReveal = ({
   </LevelMobile>
 )
 
-export const Records = ({ state, dispatch, translate }: RecordsInterface) => {
+export const Records: React.FC<RecordsInterface> = ({
+  state,
+  dispatch,
+  translate,
+}) => {
   return state.data && state.data.records ? (
     <div className="columns records is-multiline">
       {state.data.records.map((rec, idx) => {
@@ -153,7 +157,7 @@ export const Records = ({ state, dispatch, translate }: RecordsInterface) => {
   )
 }
 
-export const TokensPage: React.FunctionComponent = () => {
+export const TokensPage: React.FC = () => {
   const { translate } = React.useContext(I18nContext)
   const [state, dispatch] = React.useReducer<React.Reducer<State, ActionType>>(
     reducer,

@@ -5,7 +5,7 @@ const mockAxios = require('axios')
 
 describe('retrieveMarkdown API', () => {
   it('should be able to retrieve `data`', async () => {
-    mockAxios.get = jest.fn(file_path =>
+    mockAxios.get = jest.fn((file_path) =>
       Promise.resolve({
         data: file_path,
       }),
@@ -15,7 +15,7 @@ describe('retrieveMarkdown API', () => {
     expect(actual).toEqual('/static/file-name-test.md')
   })
   it('should be able to retrieve external `data`', async () => {
-    mockAxios.get = jest.fn(file_path =>
+    mockAxios.get = jest.fn((file_path) =>
       Promise.resolve({
         data: file_path,
       }),

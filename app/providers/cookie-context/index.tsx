@@ -4,7 +4,9 @@ import { ContextProps } from './types'
 
 export const CookieStore = React.createContext({} as ContextProps)
 
-export const CookieStoreProvider = (props: React.PropsWithChildren<{}>) => {
+export const CookieStoreProvider = (
+  props: React.PropsWithChildren<Record<string, unknown>>,
+) => {
   const [state, dispatch] = React.useReducer(reducer, initial_state)
 
   return (
