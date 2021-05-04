@@ -2,11 +2,7 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.scss'
 
-interface Props {
-  in_progress?: boolean
-}
-
-export const Page404Error = (props: Props) => {
+export const Page404Error = () => {
   return (
     <section className="hero is-fullheight-with-navbar">
       <div className="hero-body">

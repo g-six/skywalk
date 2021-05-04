@@ -2,7 +2,7 @@ export interface ComponentError {
   key: string
   error: string
 }
-export const errorReducer = errors => {
+export const errorReducer = (errors) => {
   const component_errors: ComponentError[] = []
   for (const key in errors) {
     /* istanbul ignore else */

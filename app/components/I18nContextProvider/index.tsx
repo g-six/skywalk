@@ -108,12 +108,12 @@ const translations = {
 }
 
 interface LanguageContext {
-  dispatch?: React.Dispatch<{}>
+  dispatch?: React.Dispatch<Record<string, unknown>>
   lang: string
   translate: (key?: string) => string
 }
 
-export const translate = lang => key =>
+export const translate = (lang) => (key) =>
   (translations[lang] && translations[lang][key]) || key
 const initial_state: LanguageContext = {
   lang: 'en',
@@ -134,7 +134,7 @@ export const reducer = (the_state = initial_state, action) => {
   }
 }
 
-const I18nContextProvider = props => {
+const I18nContextProvider = (props) => {
   const [state, dispatch] = React.useReducer(reducer, initial_state)
 
   return (

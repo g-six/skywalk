@@ -2,7 +2,7 @@ import * as React from 'react'
 import Styled from 'styled-components'
 import { I18nContext } from './index'
 
-const Wrapper = lang => Styled.div`
+const Wrapper = (lang) => Styled.div`
     > span {
         display: inline-block;
         width: 3rem;

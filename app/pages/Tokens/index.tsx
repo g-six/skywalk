@@ -35,7 +35,7 @@ export const Growl = (props: GrowlProps) => {
   )
 }
 
-const LevelMobile: React.FunctionComponent = props => (
+const LevelMobile: React.FunctionComponent = (props) => (
   <nav className="level is-mobile" {...props}></nav>
 )
 

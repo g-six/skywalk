@@ -3,7 +3,7 @@ import { getCookie } from '@utils/cookie'
 import Axios from 'axios'
 import { ActionTypes } from './types'
 
-export const dismissNotification = dispatch => () =>
+export const dismissNotification = (dispatch) => () =>
   dispatch({ type: ActionTypes.DISMISS_NOTIFICATION })
 
 export const copyToClipboard = (secret, dispatch) => () => {
@@ -26,7 +26,7 @@ export const copyToClipboard = (secret, dispatch) => () => {
 }
 
 // Create token
-export const createToken = dispatch => async e => {
+export const createToken = (dispatch) => async (e) => {
   e.preventDefault()
 
   dispatch({ type: ActionTypes.SUBMIT_FORM })
@@ -42,20 +42,20 @@ export const createToken = dispatch => async e => {
     undefined,
     options,
   )
-    .then(response => {
+    .then((response) => {
       dispatch({
         type: ActionTypes.RECORD_CREATED,
         record: response.data.record,
       })
     })
-    .catch(api_error => {
+    .catch((api_error) => {
       const { error } = api_error.response.data
       dispatch({ type: ActionTypes.FORM_ERROR, error })
     })
 }
 
 // Form submit
-export const formSubmit = (state, dispatch) => async e => {
+export const formSubmit = (state, dispatch) => async (e) => {
   e.preventDefault()
 
   dispatch({ type: ActionTypes.SUBMIT_FORM })
@@ -73,7 +73,7 @@ export const formSubmit = (state, dispatch) => async e => {
 }
 
 // Retrieve secret
-export const retrieveSecret = (client_id, idx, dispatch) => async e => {
+export const retrieveSecret = (client_id, idx, dispatch) => async (e) => {
   e.preventDefault()
 
   dispatch({ type: ActionTypes.SUBMIT_FORM })
@@ -93,7 +93,9 @@ export const retrieveSecret = (client_id, idx, dispatch) => async e => {
 }
 
 // Retrieve secret
-export const retrieveAndCopySecret = (client_id, idx, dispatch) => async e => {
+export const retrieveAndCopySecret = (client_id, idx, dispatch) => async (
+  e,
+) => {
   e.preventDefault()
 
   dispatch({ type: ActionTypes.SUBMIT_FORM })
@@ -110,7 +112,7 @@ export const retrieveAndCopySecret = (client_id, idx, dispatch) => async e => {
 }
 
 // E-mail input change
-export const onChangeFilter = dispatch => e => {
+export const onChangeFilter = (dispatch) => (e) => {
   dispatch({
     type: ActionTypes.SET_FILTER,
     key: e.target.id,

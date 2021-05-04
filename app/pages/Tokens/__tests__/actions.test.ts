@@ -11,7 +11,7 @@ import {
 import { ActionTypes } from '../types'
 
 interface MockResponse {
-  data: {}
+  data: Record<string, unknown>
 }
 
 document.cookie = 'kasl-key: asdasdasd; '
@@ -156,7 +156,10 @@ describe('actions', () => {
       const preventDefault = jest.fn()
 
       try {
-        await formSubmit(mock_state, spyDispatch)({
+        await formSubmit(
+          mock_state,
+          spyDispatch,
+        )({
           preventDefault,
         })
       } catch (e) {
@@ -180,7 +183,10 @@ describe('actions', () => {
       const preventDefault = jest.fn()
 
       try {
-        await formSubmit(mock_state, spyDispatch)({
+        await formSubmit(
+          mock_state,
+          spyDispatch,
+        )({
           preventDefault,
         })
       } catch (e) {
@@ -203,7 +209,10 @@ describe('actions', () => {
       }
       const preventDefault = jest.fn()
 
-      await formSubmit(mock_state, spyDispatch)({
+      await formSubmit(
+        mock_state,
+        spyDispatch,
+      )({
         preventDefault,
       })
 
@@ -256,7 +265,11 @@ describe('actions', () => {
       )
 
       try {
-        await retrieveSecret('asd', 0, spyDispatch)({
+        await retrieveSecret(
+          'asd',
+          0,
+          spyDispatch,
+        )({
           preventDefault: jest.fn(),
         })
       } catch (e) {
@@ -286,7 +299,11 @@ describe('actions', () => {
         },
       )
 
-      await retrieveAndCopySecret('asd', 0, spyDispatch)({
+      await retrieveAndCopySecret(
+        'asd',
+        0,
+        spyDispatch,
+      )({
         preventDefault: jest.fn(),
       })
 
@@ -310,7 +327,11 @@ describe('actions', () => {
       )
 
       try {
-        await retrieveAndCopySecret('asd', 0, spyDispatch)({
+        await retrieveAndCopySecret(
+          'asd',
+          0,
+          spyDispatch,
+        )({
           preventDefault: jest.fn(),
         })
       } catch (e) {

@@ -12,7 +12,7 @@ import {
 } from './actions'
 
 import { initial_state, reducer } from './reducer'
-import './styles'
+import './styles.scss'
 import { ActionType, FormProps, ErrorType, State } from './types'
 
 export interface InputProps {
@@ -24,7 +24,7 @@ export interface InputProps {
   tabIndex: number
 }
 
-const submitCb = cookieContextDispatcher => (key: string, value: string) => {
+const submitCb = (cookieContextDispatcher) => (key: string, value: string) => {
   cookieContextDispatcher(saveCookie(key, value))
 }
 

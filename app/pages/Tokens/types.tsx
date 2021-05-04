@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 
-export type ErrorType = string | object
+export type ErrorType = string
 
 export enum ActionTypes {
   COPIED = 'TOKENS.COPIED',
@@ -21,7 +21,7 @@ export interface ActionType extends Action {
   value?: string
   record?: AnyObject
   records?: AnyObject[]
-  error?: string | object
+  error?: string
   alert_timeout?: number
 }
 

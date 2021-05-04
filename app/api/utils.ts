@@ -16,7 +16,7 @@ export const prepHeaders = (): PayloadOptions => {
   return { headers }
 }
 
-export const parseResponse = response => {
+export const parseResponse = (response) => {
   const results: ApiResponseBody = {}
   const headers: ApiResponseHeaders = response.headers
 
@@ -38,7 +38,7 @@ export const parseResponse = response => {
   }
 }
 
-export const processErrors = api_error => {
+export const processErrors = (api_error) => {
   const { data, headers: response_headers, status } = api_error.response
   const { error, errors, message } = data
   const headers = {

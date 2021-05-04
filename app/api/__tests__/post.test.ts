@@ -5,7 +5,7 @@ const mockAxios = require('axios')
 
 describe('retrieveMarkdown API', () => {
   it('should be able to retrieve `data`', async () => {
-    mockAxios.post = jest.fn(file_path =>
+    mockAxios.post = jest.fn((file_path) =>
       Promise.resolve({
         data: file_path,
       }),
@@ -17,7 +17,7 @@ describe('retrieveMarkdown API', () => {
   })
 
   it('should handle errors', async () => {
-    mockAxios.post = jest.fn(file_path =>
+    mockAxios.post = jest.fn(() =>
       Promise.reject({
         response: {
           data: {},

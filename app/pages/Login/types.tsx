@@ -2,7 +2,7 @@ import { ContextProps as CookieInterface } from '@providers/cookie-context/types
 import { Action } from 'redux'
 import { Dispatch } from 'react'
 
-export type ErrorType = string | object
+export type ErrorType = string
 
 export enum ActionTypes {
   DISMISS_NOTIFICATION = 'DISMISS_NOTIFICATION',
@@ -17,7 +17,7 @@ export enum ActionTypes {
 export interface ActionType extends Action {
   type: ActionTypes
   value?: string
-  error?: string | object
+  error?: string
 }
 
 export interface FormProps {

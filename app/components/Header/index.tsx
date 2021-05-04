@@ -26,10 +26,10 @@ export const BurgerComponent = (props: BurgerProps) => (
   </a>
 )
 
-export const logoutCb = cookieDispatcher => () =>
+export const logoutCb = (cookieDispatcher) => () =>
   cookieDispatcher(eraseCookie('kasl-key'))
 
-export const HeaderComponent: React.FunctionComponent = props => {
+export const HeaderComponent: React.FunctionComponent = (props) => {
   const { translate } = React.useContext(I18nContext)
   const cookie = React.useContext(CookieStore)
 
@@ -40,10 +40,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
   const [scroll_y, setScrollY] = React.useState(window.scrollY)
   const [is_expanded, setExpanded] = React.useState(false)
 
-  const paths = document.location.pathname
-    .substr(1)
-    .split('/')
-    .join('-')
+  const paths = document.location.pathname.substr(1).split('/').join('-')
 
   const nav_class: string[] = ['navbar', 'is-fixed-top', paths]
 
@@ -72,7 +69,7 @@ export const HeaderComponent: React.FunctionComponent = props => {
   if (is_expanded) {
     nav_class.push('is-expanded')
   }
-  
+
   if (props['location'].pathname === '/') {
     nav_class.push('home')
   }

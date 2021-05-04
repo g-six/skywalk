@@ -13,12 +13,11 @@ import { Growl, Records, TokensPage as Page } from '../'
 jest.useFakeTimers()
 jest.mock('axios')
 const Axios = require('axios')
-Axios.get = jest.fn(
-  (): Promise<{}> =>
-    Promise.resolve({
-      data: { records: [{ id: 1, client_id: 'asdasd' }] },
-      headers: {},
-    }),
+Axios.get = jest.fn(() =>
+  Promise.resolve({
+    data: { records: [{ id: 1, client_id: 'asdasd' }] },
+    headers: {},
+  }),
 )
 
 document.cookie = 'kasl-key=asdfasdf ;'
@@ -54,7 +53,7 @@ describe('TokensPage', () => {
     it('should show client secret if provided', async () => {
       const records = [{ id: 1, client_id: 'asdasd', client_secret: 'zzzzz' }]
       const spyDispatch = jest.fn()
-      const spyTranslate = jest.fn(text => text)
+      const spyTranslate = jest.fn((text) => text)
       const spyExecCommand = jest.fn()
       document.execCommand = spyExecCommand
 
