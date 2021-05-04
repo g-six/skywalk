@@ -36,11 +36,11 @@ describe('TokensPage', () => {
       const spyDispatch = jest.fn()
       const spyTranslate = jest.fn()
       const { container } = render(
-        Records({
-          state: { data: { records }, loading: false },
-          dispatch: spyDispatch,
-          translate: spyTranslate,
-        }),
+        <Records
+          state={{ data: { records }, loading: false }}
+          dispatch={spyDispatch}
+          translate={spyTranslate}
+        />,
       )
       const rendered_records = await waitForElement(
         () => queryAllByText(container, 'asdasd'),
@@ -58,11 +58,11 @@ describe('TokensPage', () => {
       document.execCommand = spyExecCommand
 
       const rendered_records: RenderResult = render(
-        Records({
-          state: { data: { records }, loading: false },
-          dispatch: spyDispatch,
-          translate: spyTranslate,
-        }),
+        <Records
+          state={{ data: { records }, loading: false }}
+          dispatch={spyDispatch}
+          translate={spyTranslate}
+        />,
       )
 
       act(() => {
@@ -80,11 +80,11 @@ describe('TokensPage', () => {
       const spyTranslate = jest.fn()
 
       const { container } = render(
-        Records({
-          state: { data: {}, loading: false },
-          dispatch: spyDispatch,
-          translate: spyTranslate,
-        }),
+        <Records
+          state={{ data: {}, loading: false }}
+          dispatch={spyDispatch}
+          translate={spyTranslate}
+        />,
       )
       const rendered_records = await waitForElement(
         () => container.querySelectorAll('.box'),
@@ -102,7 +102,7 @@ describe('TokensPage', () => {
 
       act(() => {
         growl_el = render(
-          Growl({ message: 'a test', onClose: spyDispatch, timeout: 7 }),
+          <Growl message="a test" onClose={spyDispatch} timeout={7} />,
         ).container
       })
 

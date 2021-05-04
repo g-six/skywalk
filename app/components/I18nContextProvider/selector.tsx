@@ -53,7 +53,7 @@ const Wrapper = (lang) => Styled.div`
     }
 `
 
-const LanguageSelector = () => {
+const LanguageSelector: React.FC = () => {
   const { dispatch, lang } = React.useContext(I18nContext)
 
   const changeLanguage = (e: React.MouseEvent<HTMLButtonElement>): void => {

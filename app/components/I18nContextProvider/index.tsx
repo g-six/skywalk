@@ -134,7 +134,7 @@ export const reducer = (the_state = initial_state, action) => {
   }
 }
 
-const I18nContextProvider = (props) => {
+const I18nContextProvider: React.FC = (props) => {
   const [state, dispatch] = React.useReducer(reducer, initial_state)
 
   return (

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.scss'
 
-export const Page404Error = () => {
+export const Page404Error: React.FC = () => {
   return (
     <section className="hero is-fullheight-with-navbar">
       <div className="hero-body">

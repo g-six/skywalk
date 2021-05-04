@@ -2,7 +2,7 @@ import * as React from 'react'
 import { formSubmit, onChangeFilter } from './actions'
 import { FormInterface } from './types'
 
-export const Form = (props: FormInterface) => (
+export const Form: React.FC<FormInterface> = (props) => (
   <form
     className="form columns"
     onSubmit={formSubmit(props.state, props.dispatch)}
